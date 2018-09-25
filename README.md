@@ -22,6 +22,16 @@ Below is a list of Angular interview questions and answers.
 |14| [What is angular CLI?](#what-is-angular-cli)|
 |15| [What is the difference between constructor and ngOnInit?](#what-is-the-difference-between-constructor-and-ngoninit?)|
 |16| [What is a service](#what-is-a-service)|
+|17| [What is dependency injection in Angular?](#what-is-dependency-injection-in-angular)|
+|18| [How is Dependency Hierarchy formed?](#how-is-dependency-hierarchy-formed)|
+|19| [What is the purpose of async pipe?](#what-is-the-purpose-of-async-pipe)|
+|20| [What is the option to choose between inline and external template file?](#what-is-the-option-to-choose-between-inline-and-external-template-file)|
+|21| [What is the purpose of *ngFor directive?](#what-is-the-purpose-of-ngfor-directive)|
+|22| [What is the purpose of ngIf directive?](#what-is-the-purpose-of-ngif-directive)|
+|23| [What happens if you use script tag inside template?](#what-happens-if-you-use-script-tag-inside-template)|
+|24| [What is interpolation?](#what-is-interpolation)|
+|25| [What are template expressions?](#what-are-template-expressions)|
+
 
 1. ### What is Angular Framework?
 
@@ -341,4 +351,72 @@ The above service uses Http service as a dependency.
 Dependency injection (DI), is an important application design pattern in which a class asks for dependencies from external sources rather than creating them itself. Angular comes with its own dependency injection framework for resolving dependencies( services or objects that a class needs to perform its function).So you can have your services depend on other services throughout your application.
 
 18. ### How is Dependency Hierarchy formed?
+
+19. ### What is the purpose of async pipe?
+The AsyncPipe subscribes to an observable or promise and returns the latest value it has emitted. When a new value is emitted, the pipe marks the component to be checked for changes.
+Let's take a time observable which continuously updates the view for every 2 seconds with the current time.
+```
+@Component({
+  selector: 'async-observable-pipe',
+  template: `<div><code>observable|async</code>:
+       Time: {{ time | async }}</div>`
+})
+export class AsyncObservablePipeComponent {
+  time = new Observable(observer =>
+    setInterval(() => observer.next(new Date().toString()), 2000)
+  );
+}
+```
+20. ### What is the option to choose between inline and external template file?
+You can store your component's template in one of two places. You can define it inline using the **template** property, or you can define the template in a separate HTML file and link to it in the component metadata using the **@Component** decorator's **templateUrl** property.
+The choice between inline and separate HTML is a matter of taste, circumstances, and organization policy. But normally we use inline template for small portion of code and external template file for bigger views. By default, the Angular CLI generates components with a template file. But you can override that with the below command,
+```
+ng generate component hero -it
+```
+21. ### What is the purpose of ngFor directive?
+We use Angular ngFor directive in the template to display each item in the list. For example, here we iterate over list of users,
+```
+<li *ngFor="let user of users">
+  {{ user }}
+</li>
+```
+The user variable in the ngFor double-quoted instruction is a **template input variable**
+22. ### What is the purpose of ngIf directive?
+Sometimes an app needs to display a view or a portion of a view only under specific circumstances. The Angular ngIf directive inserts or removes an element based on a truthy/falsy condition. Let's take an example to display a message if the user age is more than 18,
+```
+<p *ngIf="user.age > 18">You are not eligible for student pass!</p>
+```
+**Note:** Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in the larger projects with many data bindings.
+23. ### What happens if you use script tag inside template?
+Angular recognizes the value as unsafe and automatically sanitizes it, which removes the **<script>** tag but keeps safe content such as the text content of the <script> tag. This way it eliminates the risk of script injection attacks. If you still use it then it will be ignored and a warning appears in the browser console.
+Let's take an example of innerHtml property binding which causes XSS vulnerability,
+```
+export class InnerHtmlBindingComponent {
+  // For example, a user/attacker-controlled value from a URL.
+  htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>';
+}
+```
+24. ### What is interpolation?
+Interpolation is a special syntax that Angular converts into property binding. It’s a convenient alternative to property binding. It is represented by double curly braces({{}}). The text between the braces is often the name of a component property. Angular replaces that name with the string value of the corresponding component property.
+Let's take an example,
+```
+<h3>
+  {{title}}
+  <img src="{{url}}" style="height:30px">
+</h3>
+```
+In the example above, Angular evaluates the title and url properties and "fills in the blanks", first displaying a bold application title and then a URL.
+25. ### What are template expressions?
+A template expression produces a value similar to any Javascript expression. Angular executes the expression and assigns it to a property of a binding target; the target might be an HTML element, a component, or a directive. In the property binding, a template expression appears in quotes to the right of the = symbol as in [property]="expression".
+In interpolation syntax, the template expression is surrounded by double curly braces. For example, in the below interpolation, the template expression is {{username}},
+```
+<h3>{{username}}, welcome to Angular</h3>
+```
+The below javascript expressions are prohibited in template expression
+. assignments (=, +=, -=, ...)
+. new
+. chaining expressions with ; or ,
+. increment and decrement operators (++ and --)
+
+
 
