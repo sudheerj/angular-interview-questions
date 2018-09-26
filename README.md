@@ -387,6 +387,7 @@ Sometimes an app needs to display a view or a portion of a view only under speci
 <p *ngIf="user.age > 18">You are not eligible for student pass!</p>
 ```
 **Note:** Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in the larger projects with many data bindings.
+------------------------------
 23. ### What happens if you use script tag inside template?
 Angular recognizes the value as unsafe and automatically sanitizes it, which removes the **<script>** tag but keeps safe content such as the text content of the <script> tag. This way it eliminates the risk of script injection attacks. If you still use it then it will be ignored and a warning appears in the browser console.
 Let's take an example of innerHtml property binding which causes XSS vulnerability,
@@ -396,6 +397,7 @@ export class InnerHtmlBindingComponent {
   htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>';
 }
 ```
+------------------------
 24. ### What is interpolation?
 Interpolation is a special syntax that Angular converts into property binding. It’s a convenient alternative to property binding. It is represented by double curly braces({{}}). The text between the braces is often the name of a component property. Angular replaces that name with the string value of the corresponding component property.
 Let's take an example,
@@ -405,7 +407,8 @@ Let's take an example,
   <img src="{{url}}" style="height:30px">
 </h3>
 ```
-In the example above, Angular evaluates the title and url properties and "fills in the blanks", first displaying a bold application title and then a URL.
+In the example above, Angular evaluates the title and url properties and fills in the blanks, first displaying a bold application title and then a URL.
+-----------------------------
 25. ### What are template expressions?
 A template expression produces a value similar to any Javascript expression. Angular executes the expression and assigns it to a property of a binding target; the target might be an HTML element, a component, or a directive. In the property binding, a template expression appears in quotes to the right of the = symbol as in [property]="expression".
 In interpolation syntax, the template expression is surrounded by double curly braces. For example, in the below interpolation, the template expression is {{username}},
@@ -413,10 +416,27 @@ In interpolation syntax, the template expression is surrounded by double curly b
 <h3>{{username}}, welcome to Angular</h3>
 ```
 The below javascript expressions are prohibited in template expression
-. assignments (=, +=, -=, ...)
-. new
-. chaining expressions with ; or ,
-. increment and decrement operators (++ and --)
+1. assignments (=, +=, -=, ...)
+2. new
+3. chaining expressions with ; or ,
+4. increment and decrement operators (++ and --)
+----------------------------------
+26. ### What are template statements?
+A template statement responds to an event raised by a binding target such as an element, component, or directive. The template statements appear in quotes to the right of the = symbol like **(event)="statement"**. Let's take an example of button click event's statement
+```
+<button (click)="editProfile()">Edit Profile</button>
+```
+In the above expression, editProfile is a template statement. The below JavaScript syntax expressions are not allowed.
+1. new
+2. increment and decrement operators, ++ and --
+3. operator assignment, such as += and -=
+4. the bitwise operators | and &
+5. the template expression operators
+--------------------------------------
+
+
+
+
 
 
 

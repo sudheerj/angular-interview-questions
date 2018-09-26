@@ -21,8 +21,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="404" column="0" lean-forward="true" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="409" column="92" lean-forward="true" selection-start-line="409" selection-start-column="92" selection-end-line="409" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -44,6 +44,12 @@
     <findStrings>
       <find>Screen</find>
       <find>interpo</find>
+      <find>20</find>
+      <find>21</find>
+      <find>22</find>
+      <find>23</find>
+      <find>24</find>
+      <find>25</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -64,8 +70,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="231" />
-    <option name="y" value="23" />
+    <option name="x" value="140" />
+    <option name="y" value="240" />
     <option name="width" value="1260" />
     <option name="height" value="721" />
   </component>
@@ -84,7 +90,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -99,7 +105,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,7 +226,8 @@
       <workItem from="1536767656293" duration="1451000" />
       <workItem from="1536924811446" duration="430000" />
       <workItem from="1537683344986" duration="3365000" />
-      <workItem from="1537795546368" duration="2270000" />
+      <workItem from="1537795546368" duration="2822000" />
+      <workItem from="1537980618979" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="1-25 Angular questions and answers">
       <created>1533752795347</created>
@@ -233,10 +240,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32712000" />
+    <option name="totallyTimeSpent" value="34741000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="231" y="23" width="1260" height="721" extended-state="0" />
+    <frame x="140" y="240" width="1260" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24939467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -386,8 +393,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="404" column="0" lean-forward="true" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="409" column="92" lean-forward="true" selection-start-line="409" selection-start-column="92" selection-end-line="409" selection-end-column="92" />
           <folding />
         </state>
       </provider>
