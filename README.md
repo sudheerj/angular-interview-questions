@@ -32,6 +32,7 @@
 |24| [What is interpolation?](#what-is-interpolation)|
 |25| [What are template expressions?](#what-are-template-expressions)|
 |26| [What are template statements?](#what-are-template-statements)|
+|27| [How do you categorize data binding types?](#how-do-you-categorize-data-binding-types)|
 
 
 1. ### What is Angular Framework?
@@ -436,6 +437,20 @@
     4. the bitwise operators | and &
     5. the template expression operators
     --------------------------------------
+27. ### How do you categorize data binding types?
+
+     Binding types can be grouped into three categories distinguished by the direction of data flow. They are listed as below,
+     1. From the source-to-view
+     2. From view-to-source
+     3. View-to-source-to-view
+
+     The possible binding syntax can be tabularized as below,
+
+     | Data direction | Syntax | Type |
+     |---- | ---------
+     | From the source-to-view(One-way)  | 1. {{expression}} 2. [target]="expression" 3. bind-target="expression" | Interpolation, Property, Attribute, Class, Style|
+     | From view-to-source(One-way) | 1. (target)="statement" 2. on-target="statement" | Event |
+     | View-to-source-to-view(Two-way)| 1. [(target)]="expression" 2. bindon-target="expression"| Two-way |
 
 
 
