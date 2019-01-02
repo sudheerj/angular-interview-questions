@@ -8,7 +8,7 @@
 |---- | ---------
 |1 | [What is Angular?](#what-is-angular) |
 |2 | [What is the difference between AngularJS and Angular?](#what-is-the-difference-between-angularjs-and-angular?)|
-|3 | [What is typescript?](#what-is-typescript)|
+|3 | [What is TypeScript?](#what-is-typescript)|
 |4 | [Write a pictorial diagram of Angular architecture?](#write-a-pictorial-diagram-of-angular-architecture)|
 |5 | [What are the key components of Angular?](#what-are-the-key-components-of-angular?)|
 |6 | [What are directives?](#what-are-directives)|
@@ -19,7 +19,7 @@
 |11| [What are lifecycle hooks available?](#what-are-lifecycle-hooks-available)|
 |12| [What is a data binding?](#what-is-a-data-binding)|
 |13| [What is metadata?](#what-is-metadata)|
-|14| [What is angular CLI?](#what-is-angular-cli)|
+|14| [What is Angular CLI?](#what-is-angular-cli)|
 |15| [What is the difference between constructor and ngOnInit?](#what-is-the-difference-between-constructor-and-ngoninit?)|
 |16| [What is a service](#what-is-a-service)|
 |17| [What is dependency injection in Angular?](#what-is-dependency-injection-in-angular)|
@@ -37,7 +37,7 @@
 
 1. ### What is Angular Framework?
 
-    Angular is a **typeScript-based open-source** front-end platform that makes it easy to build applications with in web/mobile/desktop. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
+    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build applications with in web/mobile/desktop. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
 
 2. ### What is the difference between AngularJS and Angular?
     Angular is a completely revived component-based framework in which an application is a tree of individual components.
@@ -52,13 +52,13 @@
     | Not a mobile friendly framework| Developed considering mobile platform|
     | Difficulty in SEO friendly application development| Ease to create SEO friendly applications|
 
-3. ### What is typescript?
+3. ### What is TypeScript?
     TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await, and many other features, and compiles to plain JavaScript. Angular built entirely in TypeScript and used as a primary language.
     You can install it globally as
     ```
     npm install -g typescript
     ```
-    Let's see a simple example of typescript usage,
+    Let's see a simple example of TypeScript usage,
     ```typescript
     function greeter(person: string) {
         return "Hello, " + person;
