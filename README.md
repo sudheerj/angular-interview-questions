@@ -33,7 +33,7 @@
 |25| [What are template expressions?](#what-are-template-expressions)|
 |26| [What are template statements?](#what-are-template-statements)|
 |27| [How do you categorize data binding types?](#how-do-you-categorize-data-binding-types)|
-
+|28| [What are pipes?](#what-are-pipes)|
 
 1. ### What is Angular Framework?
 
@@ -451,6 +451,20 @@
       | From the source-to-view(One-way)  | 1. {{expression}} 2. [target]="expression" 3. bind-target="expression" | Interpolation, Property, Attribute, Class, Style|
       | From view-to-source(One-way) | 1. (target)="statement" 2. on-target="statement" | Event |
       | View-to-source-to-view(Two-way)| 1. [(target)]="expression" 2. bindon-target="expression"| Two-way |
+
+28. ### What are pipes?
+    A pipe takes in data as input and transforms it to a desired output. For example, let us take a pipe to transform a component's birthday property into a human-friendly date using **date** pipe.
+    ```javascript
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-birthday',
+      template: `<p>Birthday is {{ birthday | date }}</p>`
+    })
+    export class BirthdayComponent {
+      birthday = new Date(1987, 6, 18); // June 18, 1987
+    }
+    ```
 
 
 
