@@ -40,6 +40,7 @@
 |32| [Give an example of custom pipe?](#give-an-example-of-custom-pipe)|
 |33| [What is the difference between pure and impure pipe?](#what-is-the-difference-between-pure-and-impure-pipe)|
 |34| [What is a bootstrapping module?](#what-is-a-bootstrapping-module)|
+|35| [What are observables?](#what-are-observables)|
 
 1. ### What is Angular Framework?
 
@@ -564,7 +565,8 @@
     })
     export class AppModule { }
     ```
-
+35. ### What are observables?
+    Observables are declarative which provide support for passing messages between publishers and subscribers in your application. They are mainly used for event handling, asynchronous programming, and handling multiple values. In this case, you define a function for publishing values, but it is not executed until a consumer subscribes to it. The subscribed consumer then receives notifications until the function completes, or until they unsubscribe.
 
 
 
