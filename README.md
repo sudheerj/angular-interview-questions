@@ -56,6 +56,14 @@
 |48| [What are the utility functions provided by RxJS?](#what-are-the-utility-functions-provided-by-rxjs)|
 |49| [What are observable creation functions?](#what-are-observable-creation-functions)|
 |50| [What will happen if you do not supply handler for observer?](#what-will-happen-if-you-do-not-supply-handler-for-observer)|
+|51| [What are angular elements?](#what-are-angular-elements)|
+|52| [What is the browser support of Angular Elements?](#what-is-the-browser-support-of-angular-elements)|
+|53| [What are custom elements?](#what-are-custom-elements)|
+|54| [Do I need to bootstrap custom elements?](#do-i-need-to-bootstrap-custom-elements)|
+|55| [Explain how custom elements works internally?](#explain-how-custom-elements-works-internally)|
+|56| [How to transfer components to custom elements?](#how-to-transfer-components-to-custom-elements)|
+|57| [What are the mapping rules between Angular component and custom element?](#what-are-the-mapping-rules-between-angular-component-and-custom-element)|
+|58| [How do you define typings for custom elements?](#how-do-you-define-typings-for-custom-elements)|
 
 1. ### What is Angular Framework?
 
@@ -809,3 +817,53 @@
     ```
 50. ### What will happen if you do not supply handler for observer?
     Normally an observer object can define any combination of next, error and complete notification type handlers. If you don't supply a handler for a notification type, the observer just ignores notifications of that type.
+51. ### What are angular elements?
+    Angular elements are Angular components packaged as **custom elements**(a web standard for defining new HTML elements in a framework-agnostic way). Angular Elements hosts an Angular component, providing a bridge between the data and logic defined in the component and standard DOM APIs, thus, providing a way to use Angular components in `non-Angular environments`.
+52. ### What is the browser support of Angular Elements?
+    Since Angular elements are packaged as custom elements the browser support of angular elements is same as custom elements support. This feature is is currently supported natively in a number of browsers and pending for other browsers.
+
+    | Browser | Angular Element Support |
+    |---- | --------- |
+    | Chrome | Natively supported|
+    | Opera | Natively supported |
+    | Safari| Natively supported |
+    | Firefox | Natively supported from 63 version onwards. You need to enable dom.webcomponents.enabled and dom.webcomponents.customelements.enabled in older browsers |
+    | Edge| Currently it is in progress|
+53. ### What are custom elements?
+    Custom elements (or Web Components) are a Web Platform feature which extends HTML by allowing you to define a tag whose content is created and controlled by JavaScript code. The browser maintains a `CustomElementRegistry` of defined custom elements, which maps an instantiable JavaScript class to an HTML tag. Currently this feature is supported by Chrome, Firefox, Opera, and Safari, and available in other browsers through polyfills.
+54. ### Do I need to bootstrap custom elements?
+    No, custom elements bootstrap (or start) automatically when they are added to the DOM, and are automatically destroyed when removed from the DOM. Once a custom element is added to the DOM for any page, it looks and behaves like any other HTML element, and does not require any special knowledge of Angular.
+55. ### Explain how custom elements works internally?
+    Below are the steps in an order about custom elements functionality,
+    1. **App registers custom element with browser:** Use the createCustomElement() function to convert a component into a class that can be registered with the browser as a custom element.
+    2. **App adds custom element to DOM:**  Add custom element just like a built-in HTML element directly into the DOM.
+    3. **Browser instantiate component based class:** Browser creates an instance of the registered class and adds it to the DOM.
+    4. **Instance provides content with data binding and change detection:** The content with in template is rendered using the component and DOM data.
+    The flow chart of the custom elements functionality would be as follows,
+    ![CustomElement](images/customElement.png)
+56. ### How to transfer components to custom elements?
+    Transforming components to custom elements involves **two** major steps,
+    1. **Build custom element class:** Angular provides the `createCustomElement()` function for converting an Angular component (along with its dependencies) to a custom element. The conversion process implements `NgElementConstructor` interface, and creates a constructor class which is used to produce a self-bootstrapping instance of Angular component.
+    2. **Register element class with browser:** It uses `customElements.define()` JS function, to register the configured constructor and its associated custom-element tag with the browser's `CustomElementRegistry`. When the browser encounters the tag for the registered element, it uses the constructor to create a custom-element instance.
+    The detailed structure would be as follows,
+    ![CreateElement](images/createElement.png)
+57. ### What are the mapping rules between Angular component and custom element?
+    The Component properties and logic maps directly into HTML attributes and the browser's event system. Let us describe them in two steps,
+    1. The createCustomElement() API parses the component input properties with corresponding attributes for the custom element. For example, component @Input('myInputProp') converted as custom element attribute `my-input-prop`.
+    2. The Component outputs are dispatched as HTML Custom Events, with the name of the custom event matching the output name. For example, component @Output() valueChanged = new EventEmitter() converted as custom element with dispatch event as "valueChanged".
+58. ### How do you define typings for custom elements?
+    You can use the `NgElement` and `WithProperties` types exported from @angular/elements. Let's see how it can be applied by comparing with Angular component,
+    The simple container with input property would be as below,
+    ```javascript
+    @Component(...)
+    class MyContainer {
+      @Input() message: string;
+    }
+    ```
+    After applying types typescript validates input value and their types,
+    ```javascirpt
+    const container = document.createElement('my-container') as NgElement & WithProperties<{message: string}>;
+    container.message = 'Welcome to Angular elements!';
+    container.message = true;  // <-- ERROR: TypeScript knows this should be a string.
+    container.greet = 'News';  // <-- ERROR: TypeScript knows there is no `greet` property on `container`.
+    ```
