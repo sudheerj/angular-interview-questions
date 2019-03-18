@@ -64,6 +64,7 @@
 |56| [How to transfer components to custom elements?](#how-to-transfer-components-to-custom-elements)|
 |57| [What are the mapping rules between Angular component and custom element?](#what-are-the-mapping-rules-between-angular-component-and-custom-element)|
 |58| [How do you define typings for custom elements?](#how-do-you-define-typings-for-custom-elements)|
+|59| [What are dynamic components?](#what-are-dynamic-components)|
 
 1. ### What is Angular Framework?
 
@@ -867,3 +868,5 @@
     container.message = true;  // <-- ERROR: TypeScript knows this should be a string.
     container.greet = 'News';  // <-- ERROR: TypeScript knows there is no `greet` property on `container`.
     ```
+59. ### What are dynamic components?
+    Dynamic components are the components in which components location in the application is not defined at build time.i.e, They are not used in any angular template. But the component is instantiated and placed in the application at runtime.
