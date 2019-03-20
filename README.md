@@ -65,6 +65,9 @@
 |57| [What are the mapping rules between Angular component and custom element?](#what-are-the-mapping-rules-between-angular-component-and-custom-element)|
 |58| [How do you define typings for custom elements?](#how-do-you-define-typings-for-custom-elements)|
 |59| [What are dynamic components?](#what-are-dynamic-components)|
+|60| [What are the various kinds of directives?](#what-are-the-various-kinds-of-directives)|
+|61| [How do you create directives using CLI?](#how-do-you-create-directives-using-cli)|
+|62| [Give an example for attribute directives?](#give-an-example-for-attribute-directives)|
 
 1. ### What is Angular Framework?
 
@@ -870,3 +873,33 @@
     ```
 59. ### What are dynamic components?
     Dynamic components are the components in which components location in the application is not defined at build time.i.e, They are not used in any angular template. But the component is instantiated and placed in the application at runtime.
+60. ### What are the various kinds of directives?
+    There are mainly three kinds of directives.
+    1. **Components** — These are directives with a template.
+    2. **Structural directives** — These directives change the DOM layout by adding and removing DOM elements.
+    3. **Attribute directives** — These directives change the appearance or behavior of an element, component, or another directive.
+61. ### How do you create directives using CLI?
+    You can use CLI command `ng generate directive` to create the directive class file. It creates the source file(src/app/components/directivename.directive.ts), the respective test file(.spec.ts) and declare the directive class file in root module.
+62. ### Give an example for attribute directives?
+    Let's take simple highlighter behavior as a example directive for DOM element. You can create and apply the attribute directive using below steps,
+    1. Create HighlightDirective class with the file name `src/app/highlight.directive.ts`. In this file, we need to import **Directive** from core library to apply the metadata and **ElementRef** in the directive's constructor to inject a reference to the host DOM element ,
+    ```javascript
+    import { Directive, ElementRef } from '@angular/core';
+
+    @Directive({
+      selector: '[appHighlight]'
+    })
+    export class HighlightDirective {
+        constructor(el: ElementRef) {
+           el.nativeElement.style.backgroundColor = 'red';
+        }
+    }
+    ```
+    2. Apply the attribute directive as an attribute to the host element(for example, <p>)
+    ```javascript
+    <p appHighlight>Highlight me!</p>
+    ```
+    3. Run the application to see the highlight behavior on paragraph element
+    ```javascript
+    ng serve
+    ```
