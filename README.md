@@ -80,6 +80,7 @@
 |72| [How do you define routes?](#how-do-you-define-routes)|
 |73| [What is the purpose of Wildcard route?](#what-is-the-purpose-of-wildcard-route)|
 |74| [Do I need a Routing Module always?](#do-i-need-a-routing-module-always)|
+|75| [What is Angular Universal?](#what-is-angular-universal)|
 
 1. ### What is Angular Framework?
 
@@ -1035,4 +1036,5 @@
     ```
 74. ### Do I need a Routing Module always?
     No, the Routing Module is a design choice. You can skip routing Module (for example, AppRoutingModule) when the configuration is simple and merge the routing configuration directly into the companion module (for example, AppModule). But it is recommended when the configuration is complex and includes specialized guard and resolver services.
-75. ### ?
+75. ### What is Angular Universal?
+    Angular Universal is a server-side rendering module for Angular applications in various scenarios. This is a community driven project and available under @angular/platform-server package. Recently Angular Universal is integrated with Angular CLI.
