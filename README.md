@@ -84,6 +84,8 @@
 |76| [What are different types of compilation in Angular?](#what-are-different-types-of-compilation-in-angular)|
 |77| [What is JIT?](#what-is-jit)|
 |78| [What is AOT?](#what-is-aot)|
+|79| [Why do we need compilation process?](#why-do-we-need-compilation-process)|
+|80| [What are the advantages with AOT?](#what-are-the-advantages-with-aot)|
 
 1. ### What is Angular Framework?
 
@@ -1058,5 +1060,16 @@
     ng serve --aot
     ```
     **Note:** The ng build command with the --prod meta-flag (`ng build --prod`) compiles with AOT by default.
-79. ### ?
-80. ### ?
+79. ### Why do we need compilation process?
+    The Angular components and templates cannot be understood by the browser directly. Due to that Angular applications require a compilation process before they can run in a browser. For example, In AOT compilation, both Angular HTML and TypeScript code converted into efficient JavaScript code during the build phase before browser runs it.
+80. ### What are the advantages with AOT?
+    Below are the list of AOT benefits,
+    1. Faster rendering
+    2. Fewer asynchronous requests
+    3. Smaller Angular framework download size
+    4. Detect template errors earlier
+    5. Better security
+
+
+
+
