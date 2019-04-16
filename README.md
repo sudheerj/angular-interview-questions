@@ -81,6 +81,9 @@
 |73| [What is the purpose of Wildcard route?](#what-is-the-purpose-of-wildcard-route)|
 |74| [Do I need a Routing Module always?](#do-i-need-a-routing-module-always)|
 |75| [What is Angular Universal?](#what-is-angular-universal)|
+|76| [What are different types of compilation in Angular?](#what-are-different-types-of-compilation-in-angular)|
+|77| [What is JIT?](#what-is-jit)|
+|78| [What is AOT?](#what-is-aot)|
 
 1. ### What is Angular Framework?
 
@@ -1038,3 +1041,22 @@
     No, the Routing Module is a design choice. You can skip routing Module (for example, AppRoutingModule) when the configuration is simple and merge the routing configuration directly into the companion module (for example, AppModule). But it is recommended when the configuration is complex and includes specialized guard and resolver services.
 75. ### What is Angular Universal?
     Angular Universal is a server-side rendering module for Angular applications in various scenarios. This is a community driven project and available under @angular/platform-server package. Recently Angular Universal is integrated with Angular CLI.
+76. ### What are different types of compilation in Angular?
+    Angular offers two ways to compile your application,
+    1. Just-in-Time (JIT)
+    2. Ahead-of-Time (AOT)
+77. ### What is JIT?
+    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. i.e, the below commands used for JIT compilation,
+    ```javascript
+    ng build
+    ng serve
+    ```
+78. ### What is AOT?
+    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. For AOT compilation, include the `--aot` option with the ng build or ng serve command as below,
+    ```javascript
+    ng build --aot
+    ng serve --aot
+    ```
+    **Note:** The ng build command with the --prod meta-flag (`ng build --prod`) compiles with AOT by default.
+79. ### ?
+80. ### ?
