@@ -86,6 +86,22 @@
 |78| [What is AOT?](#what-is-aot)|
 |79| [Why do we need compilation process?](#why-do-we-need-compilation-process)|
 |80| [What are the advantages with AOT?](#what-are-the-advantages-with-aot)|
+|81| [What are the ways to control AOT compilation?](#what-are-the-ways-to-control-aot-compilation)|
+|82| [What are the restrictions of metadata?](#what-are-the-restrictions-of-metadata)|
+|83| [What are the two phases of AOT?](#what-are-the-two-phases-of-aot)|
+|84| [Can I use arrow functions in AOT?](#can-i-use-arrow-functions-in-aot)|
+|85| [What is the purpose of metadata json files?](#what-is-the-purpose-of-metadata-json-files)|
+|86| [Can I use any javascript feature for expression syntax in AOT?](#can-i-use-any-javascript-feature-for-expression-syntax-in-aot)|
+|87| [What is folding?](#what-is-folding)|
+|88| [What are macros?](#what-are-macros)|
+|89| [Give an example of few metadata errors?](#give-an-example-of-few-metadata-errors)|
+|90| [What is metadata rewriting?](#what-is-metadata-rewriting)|
+|91| [How do you provide configuration inheritance?](#how-do-you-provide-configuration-inheritance)|
+|92| [How do you specify angular template compiler options?](#how-do-you-specify-angular-template-compiler-options)|
+|93| [How do you enable binding expression validation?](#how-do-you-enable-binding-expression-validation)|
+|94| [What is the purpose of any type cast function?](#what-is-the-purpose-of-any-type-cast-function)|
+|95| [What is Non null type assertion operator?](#what-is-non-null-type-assertion-operator)|
+|96| [What is type narrowing?](#what-is-type-narrowing)|
 
 1. ### What is Angular Framework?
 
@@ -1064,12 +1080,254 @@
     The Angular components and templates cannot be understood by the browser directly. Due to that Angular applications require a compilation process before they can run in a browser. For example, In AOT compilation, both Angular HTML and TypeScript code converted into efficient JavaScript code during the build phase before browser runs it.
 80. ### What are the advantages with AOT?
     Below are the list of AOT benefits,
-    1. Faster rendering
-    2. Fewer asynchronous requests
-    3. Smaller Angular framework download size
-    4. Detect template errors earlier
-    5. Better security
+    1. **Faster rendering:** The browser downloads a pre-compiled version of the application. So it can render the application immediately without compiling the app.
+    2. **Fewer asynchronous requests:** It inlines external HTML templates and CSS style sheets within the application javascript which eliminates separate ajax requests.
+    3. **Smaller Angular framework download size:** Doesn't require downloading the Angular compiler. Hence it dramatically reduces the application payload.
+    4. **Detect template errors earlier:** Detects and reports template binding errors during the build step itself
+    5. **Better security:** It compiles HTML templates and components into JavaScript.  So there won't be any injection attacks.
 
+81. ### What are the ways to control AOT compilation?
+    You can control your app compilation in two ways
+    1. By providing template compiler options in the `tsconfig.json` file
+    2. By configuring Angular metadata with decorators
+
+82. ### What are the restrictions of metadata?
+    In Angular, You must write metadata with the following general constraints,
+    1. Write expression syntax with in the supported range of javascript features
+    2. The compiler can only reference symbols which are exported
+    3. Only call the functions supported by the compiler
+    4. Decorated and data-bound class members must be public.
+
+83. ### What are the two phases of AOT?
+    The AOT compiler works in three phases,
+    1. **Code Analysis:** The compiler records a representation of the source
+    2. **Code generation:** It handles the interpretation as well as places restrictions on what it interprets.
+    3. **Validation:** In this phase, the Angular template compiler uses the TypeScript compiler to validate the binding expressions in templates.
+
+84. ### Can I use arrow functions in AOT?
+    No, Arrow functions or lambda functions can’t be used to assign values to the decorator properties. For example, the following snippet is invalid:
+    ```javascript
+    @Component({
+      providers: [{
+        provide: MyService, useFactory: () => getService()
+      }]
+    })
+    ```
+    To fix this, it has to be changed as following exported function:
+    ```javascript
+    function getService(){
+      return new MyService();
+    }
+
+    @Component({
+      providers: [{
+        provide: MyService, useFactory: getService
+      }]
+    })
+    ```
+    If you still use arrow function, it generates an error node in place of the function. When the compiler later interprets this node, it reports an error to turn the arrow function into an exported function.
+    **Note:** From Angular5 onwards, the compiler automatically performs this rewriting while emitting the .js file.
+
+85. ### What is the purpose of metadata json files?
+    The metadata.json file can be treated as a diagram of the overall structure of a decorator's metadata, represented as an abstract syntax tree(AST). During the analysis phase, the AOT collector scan the metadata recorded in the Angular decorators and outputs metadata information in .metadata.json files, one per .d.ts file.
+86. ### Can I use any javascript feature for expression syntax in AOT?
+    No, the AOT collector understands a subset  of (or limited) JavaScript features. If an expression uses unsupported syntax, the collector writes an error node to the .metadata.json file. Later point of time, the compiler reports an error if it needs that piece of metadata to generate the application code.
+87. ### What is folding?
+    The compiler can only resolve references to exported symbols in the metadata. Where as some of the non-exported members are folded while generating the code. i.e Folding is a process in which the collector evaluate an expression during collection and record the result in the .metadata.json instead of the original expression.
+    For example, the compiler couldn't refer selector reference because it is not exported
+    ```javascript
+    let selector = 'app-root';
+    @Component({
+      selector: selector
+    })
+    ```
+    Will be folded into inline selector
+    ```javascript
+    @Component({
+          selector: 'app-root'
+        })
+    ```
+    Remember that the compiler can’t fold everything. For example, spread operator on arrays, objects created using new keywords and function calls.
+88. ### What are macros?
+    The AOT compiler supports macros in the form of functions or static methods that return an expression in a `single return expression`.
+    For example, let us take a below macro function,
+    ```javascript
+    export function wrapInArray<T>(value: T): T[] {
+      return [value];
+    }
+    ```
+    You can use it inside metadata as an expression,
+    ```javascript
+    @NgModule({
+      declarations: wrapInArray(TypicalComponent)
+    })
+    export class TypicalModule {}
+    ```
+    The compiler treats the macro expression as it written directly
+    ```javascript
+    @NgModule({
+      declarations: [TypicalComponent]
+    })
+    export class TypicalModule {}
+    ```
+89. ### Give an example of few metadata errors?
+    Below are some of the errors encountered in metadata,
+    1. **Expression form not supported:** Some of the language features outside of the compiler's restricted expression syntax used in angular metadata can produce this error.
+        Let's see some of these examples,
+        ```javascript
+        1. export class User { ... }
+           const prop = typeof User; // typeof is not valid in metadata
+        2. { provide: 'token', useValue: { [prop]: 'value' } }; // bracket notation is not valid in metadata
+        ```
+    2. ** Reference to a local (non-exported) symbol:** The compiler encountered a referenced to a locally defined symbol that either wasn't exported or wasn't initialized.
+        Let's take example of this error,
+        ```javascript
+        // ERROR
+        let username: string; // neither exported nor initialized
+
+        @Component({
+          selector: 'my-component',
+          template: ... ,
+          providers: [
+            { provide: User, useValue: username }
+          ]
+        })
+        export class MyComponent {}
+        ```
+        You can fix this by either exporting or initializing the value,
+        ```javascript
+        export let username: string; // exported
+        (or)
+        let username = 'John'; // initialized
+        ```
+     3. **Function calls are not supported:** The compiler does not currently support function expressions or lambda functions. For example, you cannot set a provider's useFactory to an anonymous function or arrow function as below.
+        ```javascript
+         providers: [
+            { provide: MyStrategy, useFactory: function() { ... } },
+            { provide: OtherStrategy, useFactory: () => { ... } }
+          ]
+        ```
+        You can fix this with exported function
+        ```javascript
+        export function myStrategy() { ... }
+        export function otherStrategy() { ... }
+        ... // metadata
+        providers: [
+            { provide: MyStrategy, useFactory: myStrategy },
+            { provide: OtherStrategy, useFactory: otherStrategy },
+        ```
+     4. **Destructured variable or constant not supported:** The compiler does not support references to variables assigned by destructuring.
+        For example, you cannot write something like this:
+        ```javascript
+        import { user } from './user';
+
+        // destructured assignment to name and age
+        const {name, age} = user;
+        ... //metadata
+        providers: [
+            {provide: Name, useValue: name},
+            {provide: Age, useValue: age},
+          ]
+        ```
+        You can fix this by non-destructured values
+        ```javscript
+        import { user } from './user';
+        ... //metadata
+        providers: [
+            {provide: Name, useValue: user.name},
+            {provide: Age, useValue: user.age},
+          ]
+        ```
+90. ### What is metadata rewriting?
+    Metadata rewriting is the process in which the compiler converts the expression initializing the fields such as useClass, useValue, useFactory, and data into an exported variable, which replaces the expression. Remember that the compiler does this rewriting during the emit of the .js file but not in definition files( .d.ts file).
+91. ### How do you provide configuration inheritance?
+    Angular Compiler supports configuration inheritance through extends in the tsconfig.json on angularCompilerOptions. i.e, The configuration from the base file(for example, tsconfig.base.json) are loaded first, then overridden by those in the inheriting config file.
+    ```javascript
+    {
+      "extends": "../tsconfig.base.json",
+      "compilerOptions": {
+        "experimentalDecorators": true,
+        ...
+      },
+      "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "preserveWhitespaces": true,
+        ...
+      }
+    }
+    ```
+92. ### How do you specify angular template compiler options?
+    The angular template compiler options are specified as members of the **angularCompilerOptions** object in the tsconfig.json file. These options will be specified adjecent to typescript compiler options.
+    ```javascript
+    {
+      "compilerOptions": {
+        "experimentalDecorators": true,
+                  ...
+      },
+      "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "preserveWhitespaces": true,
+                  ...
+      }
+    }
+    ```
+93. ### How do you enable binding expression validation?
+    You can enable binding expression validation explicitly by adding the compiler option **fullTemplateTypeCheck** in the "angularCompilerOptions" of the project's tsconfig.json. It produces error messages when a type error is detected in a template binding expression.
+    For example, consider the following component:
+    ```javascript
+    @Component({
+      selector: 'my-component',
+      template: '{{user.contacts.email}}'
+    })
+    class MyComponent {
+      user?: User;
+    }
+    ```
+    This will produce the following error:
+    ```javascript
+    my.component.ts.MyComponent.html(1,1): : Property 'contacts' does not exist on type 'User'. Did you mean 'contact'?
+    ```
+94. ### What is the purpose of any type cast function?
+    You can disable binding expression type checking using $any() type cast function(by surrounding the expression). In the following example, the error Property contacts does not exist is suppressed by casting user to the any type.
+    ```javascript
+      template: '{{$any(user).contacts.email}}'
+    ```
+    The $any() cast function also works with this to allow access to undeclared members of the component.
+    ```javascript
+       template: '{{$any(this).contacts.email}}'
+    ```
+95. ### What is Non null type assertion operator?
+    You can use the non-null type assertion operator to suppress the Object is possibly 'undefined' error. In the following example, the user and contact properties are always set together, implying that contact is always non-null if user is non-null. The error is suppressed in the example by using contact!.email.
+    ```javascript
+    @Component({
+      selector: 'my-component',
+      template: '<span *ngIf="user"> {{user.name}} contacted through {{contact!.email}} </span>'
+    })
+    class MyComponent {
+      user?: User;
+      contact?: Contact;
+
+      setData(user: User, contact: Contact) {
+        this.user = user;
+        this.contact = contact;
+      }
+    }
+    ```
+96. ### What is type narrowing?
+    The expression used in an ngIf directive is used to narrow type unions in the Angular template compiler similar to if expression in typescript. So *ngIf allows the typeScript compiler to infer that the data used in the binding expression will never be undefined.
+    ```javascript
+    @Component({
+      selector: 'my-component',
+      template: '<span *ngIf="user"> {{user.contact.email}} </span>'
+    })
+    class MyComponent {
+      user?: User;
+    }
+    ```
+97. ### ?
+98. ### ?
+99. ### ?
+100. ### ?
 
 
 
