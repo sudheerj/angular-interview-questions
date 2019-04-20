@@ -102,6 +102,10 @@
 |94| [What is the purpose of any type cast function?](#what-is-the-purpose-of-any-type-cast-function)|
 |95| [What is Non null type assertion operator?](#what-is-non-null-type-assertion-operator)|
 |96| [What is type narrowing?](#what-is-type-narrowing)|
+|97| [How do you describe various dependencies in angular application?](#how-do-you-describe-various-dependencies-in-angular-application)|
+|98| [What is zone?](#what-is-zone)|
+|99| [What is the purpose of common module?](#what-is-the-purpose-of-common-module)|
+|100| [What is codelyzer?](#what-is-codelyzer)|
 
 1. ### What is Angular Framework?
 
@@ -1324,10 +1328,21 @@
       user?: User;
     }
     ```
-97. ### ?
-98. ### ?
-99. ### ?
-100. ### ?
+97. ### How do you describe various dependencies in angular application?
+    The dependencies section of package.json with in an angular application can be divided as follow,
+    1. **Angular packages:** Angular core and optional modules; their package names begin @angular/.
+    2. **Support packages:** Third-party libraries that must be present for Angular apps to run.
+    3. **Polyfill packages:** Polyfills plug gaps in a browser's JavaScript implementation.
+98. ### What is zone?
+    A Zone is an execution context that persists across async tasks. Angular relies on zone.js to run Angular's change detection processes when native JavaScript operations raise events
+99. ### What is the purpose of common module?
+    The commonly-needed services, pipes, and directives provided by @angular/common module. Apart from these HttpClientModule is available under @angular/common/http.
+100. ### What is codelyzer?
+    Codelyzer provides set of tslint rules for static code analysis of Angular TypeScript projects. ou can run the static code analyzer over web apps, NativeScript, Ionic etc. Angular CLI has support for this and it can be use as below,
+    ```javascript
+    ng new codelyzer
+    ng lint
+    ```
 
 
 
