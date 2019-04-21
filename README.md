@@ -106,6 +106,12 @@
 |98| [What is zone?](#what-is-zone)|
 |99| [What is the purpose of common module?](#what-is-the-purpose-of-common-module)|
 |100| [What is codelyzer?](#what-is-codelyzer)|
+|101| [What is angular animation?](#what-is-angular-animation)|
+|102| [What are the steps to use animation module?](#what-are-the-steps-to-use-animation-module)|
+|103| [What is State function?](#what-is-state-function)|
+|104| [What is Style function?](#what-is-style-function)|
+|105| [What is the purpose of animate function?](#what-is-the-purpose-of-animate-function)|
+|106| [What is transition function?](#what-is-transition-function)|
 
 1. ### What is Angular Framework?
 
@@ -1343,6 +1349,75 @@
     ng new codelyzer
     ng lint
     ```
+101. ### What is angular animation?
+     Angular's animation system is built on CSS functionality in order to animate any property that the browser considers animatable. These properties includes positions, sizes, transforms, colors, borders etc. The Angular modules for animations are **@angular/animations** and **@angular/platform-browser** and these dependencies are automatically added to your project when you create a project using Angular CLI.
+102. ### What are the steps to use animation module?
+     You need to follow below steps to implement animation in your angular project,
 
+     1. **Enabling the animations module:** Import BrowserAnimationsModule to add animation capabilities into your Angular root application module(for example, src/app/app.module.ts).
+     ```javascript
+     import { NgModule } from '@angular/core';
+     import { BrowserModule } from '@angular/platform-browser';
+     import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+     @NgModule({
+       imports: [
+         BrowserModule,
+         BrowserAnimationsModule
+       ],
+       declarations: [ ],
+       bootstrap: [ ]
+     })
+     export class AppModule { }
+     ```
+     2. **Importing animation functions into component files:** Import required animation functions from @angular/animations in component files(for example, src/app/app.component.ts).
+     ```javascript
+     import {
+       trigger,
+       state,
+       style,
+       animate,
+       transition,
+       // ...
+     } from '@angular/animations';
+     ```
+     3. **Adding the animation metadata property:** add a metadata property called animations: within the @Component() decorator in component files(for example, src/app/app.component.ts)
+     ```javascript
+     @Component({
+       selector: 'app-root',
+       templateUrl: 'app.component.html',
+       styleUrls: ['app.component.css'],
+       animations: [
+         // animation triggers go here
+       ]
+     })
+     ```
+103. ### What is State function?
+     Angular's state() function is used to define different states to call at the end of each transition. This function takes two arguments: a unique name like open or closed and a style() function.
+     For example, you can write a open state function
+     ```javascript
+     state('open', style({
+       height: '300px',
+       opacity: 0.5,
+       backgroundColor: 'blue'
+     })),
+     ```
+104. ### What is Style function?
+     The style function is used to define a set of styles to associate with a given state name. You need to use it along with state() function to set CSS style attributes. For example, in the close state, the button has a height of 100 pixels, an opacity of 0.8, and a background color of green.
+     ```javascript
+     state('close', style({
+       height: '100px',
+       opacity: 0.8,
+       backgroundColor: 'green'
+     })),
+     ```
+     **Note:** The style attributes must be in camelCase
+105. ### What is the purpose of animate function?
+106. ### What is transition function?
+     The animation transition function is used to specify the changes that occur between one state and another over a period of time. It accepts two arguments: the first argument accepts an expression that defines the direction between two transition states, and the second argument accepts an animate() function.
+     Let's take an example state transition from open to closed with an half second transition between states.
+     ```javascript
+     transition('open => closed', [
+       animate('500ms')
+     ]),
+     ```
