@@ -112,6 +112,7 @@
 |104| [What is Style function?](#what-is-style-function)|
 |105| [What is the purpose of animate function?](#what-is-the-purpose-of-animate-function)|
 |106| [What is transition function?](#what-is-transition-function)|
+|107| [How to inject the dynamic script in angular?](#how-to-inject-the-dynamic-script-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1413,11 +1414,73 @@
      ```
      **Note:** The style attributes must be in camelCase
 105. ### What is the purpose of animate function?
+     Angular Animations are a powerful way to implement sophisticated and compelling animations for your Angular single page web application.
+
+        ```
+        import { Component, OnInit, Input } from '@angular/core';
+        import { trigger, state, style, animate, transition } from '@angular/animations';
+    
+        @Component({
+        selector: 'app-animate',
+        templateUrl: `<div [@changeState]="currentState" class="myblock mx-auto"></div>`,
+        styleUrls: `.myblock {
+            background-color: green;
+            width: 300px;
+            height: 250px;
+            border-radius: 5px;
+            margin: 5rem;
+            }`,
+        animations: [
+            trigger('changeState', [
+            state('state1', style({
+                backgroundColor: 'green',
+                transform: 'scale(1)'
+            })),
+            state('state2', style({
+                backgroundColor: 'red',
+                transform: 'scale(1.5)'
+            })),
+            transition('*=>state1', animate('300ms')),
+            transition('*=>state2', animate('2000ms'))
+            ])
+        ]
+        })
+        export class AnimateComponent implements OnInit {
+    
+            @Input() currentState;
+    
+            constructor() { }
+    
+            ngOnInit() {
+            }
+        }
+        ```
 106. ### What is transition function?
      The animation transition function is used to specify the changes that occur between one state and another over a period of time. It accepts two arguments: the first argument accepts an expression that defines the direction between two transition states, and the second argument accepts an animate() function.
      Let's take an example state transition from open to closed with an half second transition between states.
+
      ```javascript
      transition('open => closed', [
        animate('500ms')
      ]),
      ```
+107. ### How to inject the dynamic script in angular?
+
+     Using DomSanitizer we can inject the dynamic Html,Style,Script,Url.
+
+     ```
+     import { Component, OnInit } from '@angular/core';
+     import { DomSanitizer } from '@angular/platform-browser';
+     @Component({
+        selector: 'my-app',
+        template: `
+            <div [innerHtml]="htmlSnippet"></div>
+        `,
+     })
+     export class App {
+            constructor(protected sanitizer: DomSanitizer) {}
+            htmlSnippet: string = this.sanitizer.bypassSecurityTrustScript("<script>safeCode()</script>");
+        }
+     ```
+    
+
