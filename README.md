@@ -551,7 +551,7 @@
 
         @Component({
           selector: 'app-birthday',
-          template: `<p>Birthday is {{ birthday | date | 'dd/mm/yyyy'}}</p>` // 18/06/1987
+          template: `<p>Birthday is {{ birthday | date:'dd/mm/yyyy'}}</p>` // 18/06/1987
         })
         export class BirthdayComponent {
           birthday = new Date(1987, 6, 18);
