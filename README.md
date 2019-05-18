@@ -113,6 +113,8 @@
 |105| [What is the purpose of animate function?](#what-is-the-purpose-of-animate-function)|
 |106| [What is transition function?](#what-is-transition-function)|
 |107| [How to inject the dynamic script in angular?](#how-to-inject-the-dynamic-script-in-angular)|
+|108| [What is a service worker and its role in Angular?](#what-is-a-service-worker-and-its-role-in-angular)|
+|109| [What are the design goals of service workers?](#what-are-the-design-goals-of-service-workers)|
 
 1. ### What is Angular Framework?
 
@@ -1482,5 +1484,12 @@
             htmlSnippet: string = this.sanitizer.bypassSecurityTrustScript("<script>safeCode()</script>");
         }
      ```
-    
-
+ 108. ### What is a service worker and its role in Angular?
+      A service worker is a script that runs in the web browser and manages caching for an application. Starting from 5.0.0 version, Angular ships with a service worker implementation. Angular service worker is designed to optimize the end user experience of using an application over a slow or unreliable network connection, while also minimizing the risks of serving outdated content.
+ 109. ### What are the design goals of service workers?
+      Below are the list of design goals of Angular's service workers,
+      1. It caches an application just like installing a native application
+      2. A running application continues to run with the same version of all files without any incompatible files
+      3. When you refresh the application, it loads the latest fully cached version
+      4. When changes are published then it immediately updates in the background
+      5. Service workers saves the bandwidth by downloading the resources only when they changed.
