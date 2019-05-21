@@ -418,13 +418,16 @@
     import { Injectable } from '@angular/core';
     import { Http } from '@angular/http';
 
-    @Injectable() // The Injectable decorator is required for dependency injection to work
+    @Injectable({ // The Injectable decorator is required for dependency injection to work
+      // providedIn option registers the service with a specific NgModule
+      providedIn: 'root',  // This declares the service with the root app (AppModule)
+    })
     export class RepoService{
       constructor(private http: Http){
       }
 
       fetchAll(){
-        return this.http.get('https://api.github.com/repositories').map(res => res.json());
+        return this.http.get('https://api.github.com/repositories');
       }
     }
     ```
