@@ -115,6 +115,7 @@
 |107| [How to inject the dynamic script in angular?](#how-to-inject-the-dynamic-script-in-angular)|
 |108| [What is a service worker and its role in Angular?](#what-is-a-service-worker-and-its-role-in-angular)|
 |109| [What are the design goals of service workers?](#what-are-the-design-goals-of-service-workers)|
+|110| [What are the differences between AngularJS and Angular with respect to dependency injection?](#what-are-the-differences-between-angularjs-and-angular-with-respect-to-dependency-injection)|
 
 1. ### What is Angular Framework?
 
@@ -1496,3 +1497,9 @@
       3. When you refresh the application, it loads the latest fully cached version
       4. When changes are published then it immediately updates in the background
       5. Service workers saves the bandwidth by downloading the resources only when they changed.
+ 110. ### What are the differences between AngularJS and Angular with respect to dependency injection?
+      Dependency injection is a common component in both AngularJS and Angular, but there are some key differences between the two frameworks in how it actually works.
+    | AngularJS | Angular |
+    |---- | ---------
+    | Dependency injection tokens are always strings  | Tokens can have different types. They are often classes and sometimes can be strings. |
+    | There is exactly one injector even though it is a multi-module applications | There is a tree hierarchy of injectors, with a root injector and an additional injector for each component. |
