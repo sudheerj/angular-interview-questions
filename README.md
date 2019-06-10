@@ -685,10 +685,10 @@
     @Injectable()
     export class UserProfileService {
       constructor(private http: HttpClient) { }
-    }
 
-    getUserProfile() {
-      return this.http.get(this.userProfileUrl);
+      getUserProfile() {
+        return this.http.get(this.userProfileUrl);
+      }
     }
     ```
     3. Create a component for subscribing service:
