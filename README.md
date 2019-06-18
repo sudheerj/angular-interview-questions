@@ -117,6 +117,12 @@
 |109| [What are the design goals of service workers?](#what-are-the-design-goals-of-service-workers)|
 |110| [What are the differences between AngularJS and Angular with respect to dependency injection?](#what-are-the-differences-between-angularjs-and-angular-with-respect-to-dependency-injection)|
 |111| [What is Angular Ivy?](#what-is-angular-ivy)|
+|112| [What are the features included in ivy preview?](#what-are-the-features-included-in-ivy-preview)|
+|113| [Can I use AOT compilation with Ivy?](#can-i-use-aot-compilation-with-ivy)|
+|114| [What is Angular Language Service?](#what-is-angular-language-service)|
+|115| [How do you install angular language service in the project?](#how-do-you-install-angular-language-service-in-the-project)|
+|116| [Is there any editor support for Angular Language Service?](#is-there-any-editor-support-for-angular-language-service)|
+|117| [Explain the features provided by Angular Language Service?](#explain-the-features-provided-by-angular-language-service)|
 
 1. ### What is Angular Framework?
 
@@ -1519,3 +1525,53 @@
        }
      }
      ```
+ 112. ### What are the features included in ivy preview?
+      You can expect below features with Ivy preview,
+      1. Generated code that is easier to read and debug at runtime
+      2. Faster re-build time
+      3. Improved payload size
+      4. Improved template type checking
+ 113. ### Can I use AOT compilation with Ivy?
+      Yes, it is a recommended configuration. Also, AOT compilation with Ivy is faster. So you need set the default build options(with in angular.json) for your project to always use AOT compilation.
+      ```javascript
+      {
+        "projects": {
+          "my-project": {
+            "architect": {
+              "build": {
+                "options": {
+                  ...
+                  "aot": true,
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+ 114. ### What is Angular Language Service?
+      The Angular Language Service is a way to get completions, errors, hints, and navigation inside your Angular templates whether they are external in an HTML file or embedded in annotations/decorators in a string. It has the ability to autodetect that you are opening an Angular file, reads your `tsconfig.json` file, finds all the templates you have in your application, and then provides all the language services.
+ 115. ### How do you install angular language service in the project?
+      You can install Angular Language Service in your project with the following npm command
+      ```javascript
+      npm install --save-dev @angular/language-service
+      ```
+      After that add the following to the "compilerOptions" section of your project's tsconfig.json
+      ```javascript
+      "plugins": [
+          {"name": "@angular/language-service"}
+      ]
+      ```
+      **Note:** The completion and diagnostic services works for .ts files only. You need to use custom plugins for supporting HTML files.
+ 116. ### Is there any editor support for Angular Language Service?
+      Yes, Angular Language Service is currently available for Visual Studio Code and WebStorm IDEs. You need to install angular language service using an extension and devDependency respectively. In sublime editor, you need to install typescript which has has a language service plugin model.
+ 117. ### Explain the features provided by Angular Language Service?
+      Basically there are 3 main features provided by Angular Language Service.
+      1. **Autocompletion:** Autocompletion can speed up your development time by providing you with contextual possibilities and hints as you type with in an interpolation and elements.
+      ![ScreenShot](images/language-completion.gif)
+      2. **Error checking:** It can also warn you of mistakes in your code
+      ![ScreenShot](images/language-error.gif)
+      3. **Navigation:** Navigation allows you to hover a component, directive, module and then click and press F12 to go directly to its definition.
+      ![ScreenShot](images/language-navigation.gif)
+
+
