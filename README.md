@@ -116,6 +116,7 @@
 |108| [What is a service worker and its role in Angular?](#what-is-a-service-worker-and-its-role-in-angular)|
 |109| [What are the design goals of service workers?](#what-are-the-design-goals-of-service-workers)|
 |110| [What are the differences between AngularJS and Angular with respect to dependency injection?](#what-are-the-differences-between-angularjs-and-angular-with-respect-to-dependency-injection)|
+|111| [What is Angular Ivy?](#what-is-angular-ivy)|
 
 1. ### What is Angular Framework?
 
@@ -1503,3 +1504,18 @@
     |---- | ---------
     | Dependency injection tokens are always strings  | Tokens can have different types. They are often classes and sometimes can be strings. |
     | There is exactly one injector even though it is a multi-module applications | There is a tree hierarchy of injectors, with a root injector and an additional injector for each component. |
+ 111. ### What is Angular Ivy?
+     Angular Ivy is a new rendering engine for Angular. You can choose to opt in a preview version of Ivy from Angular version 8.
+     1. You can enable ivy in a new project by using the --enable-ivy flag with the ng new command
+     ```javascript
+     ng new ivy-demo-app --enable-ivy
+     ```
+     2. You can add it to an existing project by adding `enableIvy` option in the `angularCompilerOptions` in your project's `tsconfig.app.json`.
+     ```javascript
+     {
+       "compilerOptions": { ... },
+       "angularCompilerOptions": {
+         "enableIvy": true
+       }
+     }
+     ```
