@@ -123,6 +123,8 @@
 |115| [How do you install angular language service in the project?](#how-do-you-install-angular-language-service-in-the-project)|
 |116| [Is there any editor support for Angular Language Service?](#is-there-any-editor-support-for-angular-language-service)|
 |117| [Explain the features provided by Angular Language Service?](#explain-the-features-provided-by-angular-language-service)|
+|118| [How do you add web workers in your application?](#how-do-you-add-web-workers-in-your-application)|
+|119| [What are the limitations with web workers?](#what-are-the-limitations-with-web-workers)|
 
 1. ### What is Angular Framework?
 
@@ -1566,12 +1568,47 @@
  116. ### Is there any editor support for Angular Language Service?
       Yes, Angular Language Service is currently available for Visual Studio Code and WebStorm IDEs. You need to install angular language service using an extension and devDependency respectively. In sublime editor, you need to install typescript which has has a language service plugin model.
  117. ### Explain the features provided by Angular Language Service?
-      Basically there are 3 main features provided by Angular Language Service.
+      Basically there are 3 main features provided by Angular Language Service,
+
       1. **Autocompletion:** Autocompletion can speed up your development time by providing you with contextual possibilities and hints as you type with in an interpolation and elements.
+
       ![ScreenShot](images/language-completion.gif)
-      2. **Error checking:** It can also warn you of mistakes in your code
+
+      2. **Error checking:** It can also warn you of mistakes in your code.
+
       ![ScreenShot](images/language-error.gif)
+
       3. **Navigation:** Navigation allows you to hover a component, directive, module and then click and press F12 to go directly to its definition.
+
       ![ScreenShot](images/language-navigation.gif)
+ 118. ### How do you add web workers in your application?
+      You can add web worker anywhere in your application. For example, If the file that contains your expensive computation is `src/app/app.component.ts`, you can add a Web Worker using `ng generate web-worker app` command which will create `src/app/app.worker.ts` web worker file. This command will perform below actions,
+      1. Configure your project to use Web Workers
+      2. Adds app.worker.ts to receive messages
+      ```javascript
+      addEventListener('message', ({ data }) => {
+        const response = `worker response to ${data}`;
+        postMessage(response);
+      });
+      ```
+      3. The component `app.component.ts` file updated with web worker file
+      ```javascript
+      if (typeof Worker !== 'undefined') {
+        // Create a new
+        const worker = new Worker('./app.worker', { type: 'module' });
+        worker.onmessage = ({ data }) => {
+          console.log('page got message: $\{data\}');
+        };
+        worker.postMessage('hello');
+      } else {
+        // Web Workers are not supported in this environment.
+      }
+      ```
+      **Note:** You may need to refactor your initial scaffolding web worker code for sending messages to and from.
+ 119. ### What are the limitations with web workers?
+      You need to remember two important things when using Web Workers in Angular projects,
+      1. Some environments or platforms(like @angular/platform-server) used in Server-side Rendering, don't support Web Workers. In this case you need to provide a fallback mechanism to perform the computations to work in this environments.
+      2. Running Angular in web worker using `@angular/platform-webworker` is not yet supported in Angular CLI.
+
 
 
