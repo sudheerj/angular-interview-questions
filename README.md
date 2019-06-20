@@ -125,6 +125,9 @@
 |117| [Explain the features provided by Angular Language Service?](#explain-the-features-provided-by-angular-language-service)|
 |118| [How do you add web workers in your application?](#how-do-you-add-web-workers-in-your-application)|
 |119| [What are the limitations with web workers?](#what-are-the-limitations-with-web-workers)|
+|120| [What is Angular CLI Builder?](#what-is-angular-cli-builder)|
+|121| [What is a builder?](#what-is-a-builder)|
+|122| [How do you invoke a builder?](#how-do-you-invoke-a-builder)|
 
 1. ### What is Angular Framework?
 
@@ -1609,6 +1612,11 @@
       You need to remember two important things when using Web Workers in Angular projects,
       1. Some environments or platforms(like @angular/platform-server) used in Server-side Rendering, don't support Web Workers. In this case you need to provide a fallback mechanism to perform the computations to work in this environments.
       2. Running Angular in web worker using `@angular/platform-webworker` is not yet supported in Angular CLI.
-
+ 120. ### What is Angular CLI Builder?
+      In Angular8, the CLI Builder API is stable and available to developers who want to customize the `Angular CLI` by adding or modifying commands. For example, you could supply a builder to perform an entirely new task, or to change which third-party tool is used by an existing command.
+ 121. ### What is a builder?
+      A builder function ia a function that uses the `Architect API` to perform a complex process such as "build" or "test". The builder code is defined in an npm package. For example, BrowserBuilder runs a webpack build for a browser target and KarmaBuilder starts the Karma server and runs a webpack build for unit tests.
+ 122. ### How do you invoke a builder?
+      The Angular CLI command `ng run` is used to invoke a builder with a specific target configuration. The workspace configuration file, `angular.json`, contains default configurations for built-in builders.
 
 
