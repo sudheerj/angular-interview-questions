@@ -128,6 +128,7 @@
 |120| [What is Angular CLI Builder?](#what-is-angular-cli-builder)|
 |121| [What is a builder?](#what-is-a-builder)|
 |122| [How do you invoke a builder?](#how-do-you-invoke-a-builder)|
+|123| [How do you create app shell in Angular?](#how-do-you-create-app-shell-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1618,5 +1619,11 @@
       A builder function ia a function that uses the `Architect API` to perform a complex process such as "build" or "test". The builder code is defined in an npm package. For example, BrowserBuilder runs a webpack build for a browser target and KarmaBuilder starts the Karma server and runs a webpack build for unit tests.
  122. ### How do you invoke a builder?
       The Angular CLI command `ng run` is used to invoke a builder with a specific target configuration. The workspace configuration file, `angular.json`, contains default configurations for built-in builders.
+ 123. ### How do you create app shell in Angular?
+      An App shell is a way to render a portion of your application via a route at build time. This is useful to first paint of your application that appears quickly because the browser can render static HTML and CSS without the need to initialize JavaScript. You can achieve this using Angular CLI which generates an app shell for running server-side of your app.
+      ```javascript
+      ng generate appShell [options] (or)
+      ng g appShell [options]
+      ```
 
 
