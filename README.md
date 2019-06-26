@@ -129,6 +129,7 @@
 |121| [What is a builder?](#what-is-a-builder)|
 |122| [How do you invoke a builder?](#how-do-you-invoke-a-builder)|
 |123| [How do you create app shell in Angular?](#how-do-you-create-app-shell-in-angular)|
+|124| [What are the case types in Angular?](#what-are-the-case-types-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1625,5 +1626,11 @@
       ng generate appShell [options] (or)
       ng g appShell [options]
       ```
+ 124. ### What are the case types in Angular?
+      Angular uses capitalization conventions to distinguish the names of various types. Angular follows the list of the below case types.
+      1. **camelCase :** Symbols, properties, methods, pipe names, non-component directive selectors, constants uses lowercase on the first letter of the item. For example, "selectedUser"
+      2. **UpperCamelCase (or PascalCase):** Class names, including classes that define components, interfaces, NgModules, directives, and pipes uses uppercase on the first letter of the item.
+      3. **dash-case (or "kebab-case"):** The descriptive part of file names, component selectors uses dashes between the words. For example, "app-user-list".
+      4. **UPPER_UNDERSCORE_CASE:** All constants uses capital letters connected with underscores. For example, "NUMBER_OF_USERS".
 
 
