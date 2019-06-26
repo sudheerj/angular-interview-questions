@@ -130,6 +130,7 @@
 |122| [How do you invoke a builder?](#how-do-you-invoke-a-builder)|
 |123| [How do you create app shell in Angular?](#how-do-you-create-app-shell-in-angular)|
 |124| [What are the case types in Angular?](#what-are-the-case-types-in-angular)|
+|125| [What are the class decorators in Angular?](#what-are-the-class-decorators-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1633,4 +1634,11 @@
       3. **dash-case (or "kebab-case"):** The descriptive part of file names, component selectors uses dashes between the words. For example, "app-user-list".
       4. **UPPER_UNDERSCORE_CASE:** All constants uses capital letters connected with underscores. For example, "NUMBER_OF_USERS".
 
-
+ 125. ### What are the class decorators in Angular?
+      A class decorator is a decorator that appears immediately before a class definition, which declares the class to be of the given type, and provides metadata suitable to the type
+      The following list of decorators comes under class decorators,
+      1. @Component()
+      2. @Directive()
+      3. @Pipe()
+      4. @Injectable()
+      5. @NgModule()
