@@ -131,6 +131,7 @@
 |123| [How do you create app shell in Angular?](#how-do-you-create-app-shell-in-angular)|
 |124| [What are the case types in Angular?](#what-are-the-case-types-in-angular)|
 |125| [What are the class decorators in Angular?](#what-are-the-class-decorators-in-angular)|
+|126| [What are class field decorators?](#what-are-class-field-decorators)|
 
 1. ### What is Angular Framework?
 
@@ -1642,3 +1643,10 @@
       3. @Pipe()
       4. @Injectable()
       5. @NgModule()
+
+ 126. ### What are class field decorators?
+      The class field decorators are the statements declared immediately before a field in a class definition that defines the type of that field. Some of the examples are: @input and @output,
+      ```javascript
+      @Input() myProperty;
+      @Output() myEvent = new EventEmitter();
+      ```
