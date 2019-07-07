@@ -136,7 +136,7 @@
 |128| [What are the restrictions on declarable classes?](#what-are-the-restrictions-on-declarable-classes)|
 |129| [What is a DI token?](#what-is-a-di-token)|
 |130| [What is Angular DSL?](#what-is-angular-dsl)|
-|131| [What is an rxjs Subject?](#what-is-an-rxjs-subject)|
+|131| [What is an rxjs Subject?](#what-is-an-rxjs-Subject)|
 
 
 
@@ -1699,6 +1699,3 @@
         subject.next(1);
         subject.next(2);
 ```
-
-
-
