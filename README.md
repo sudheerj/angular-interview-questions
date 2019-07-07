@@ -132,6 +132,13 @@
 |124| [What are the case types in Angular?](#what-are-the-case-types-in-angular)|
 |125| [What are the class decorators in Angular?](#what-are-the-class-decorators-in-angular)|
 |126| [What are class field decorators?](#what-are-class-field-decorators)|
+|127| [What is declarable in Angular?](#what-is-declarable-in-angular)|
+|128| [What are the restrictions on declarable classes?](#what-are-the-restrictions-on-declarable-classes)|
+|129| [What is a DI token?](#what-is-a-di-token)|
+|130| [What is Angular DSL?](#what-is-angular-dsl)|
+
+
+
 
 1. ### What is Angular Framework?
 
@@ -1650,3 +1657,29 @@
       @Input() myProperty;
       @Output() myEvent = new EventEmitter();
       ```
+ 127. ### What is declarable in Angular?
+      Declarable is a class type that you can add to the declarations list of an NgModule. The class types such as components, directives, and pipes comes can be declared in the module.
+ 128. ### What are the restrictions on declarable classes?
+      Below classes shouldn't be declared,
+      1. A class that's already declared in another NgModule
+      2. Ngmodule classes
+      3. Service classes
+      4. Helper classes
+
+ 129. ### What is a DI token?
+      A DI token is a lookup token associated with a dependency provider in dependency injection system. The injector maintains an internal token-provider map that it references when asked for a dependency and the DI token is the key to the map. Let's take example of DI Token usage,
+      ```javascript
+      const BASE_URL = new InjectionToken<string>('BaseUrl');
+      const injector =
+         Injector.create({providers: [{provide: BASE_URL, useValue: 'http://some-domain.com'}]});
+      const url = injector.get(BASE_URL);
+      ```
+ 130. ### What is Angular DSL?
+      A domain-specific language (DSL) is a computer language specialized to a particular application domain. Angular has its own Domain Specific Language (DSL) which allows us to write Angular specific html-like syntax on top of normal html. It has its own compiler that compiles this syntax to html that the browser can understand. This DSL is defined in NgModules such as animations, forms, and routing and navigation.
+      Basically you will see 3 main syntax in Angular DSL.
+      1. (): Used for Output and DOM events.
+      2. []: Used for Input and specific DOM element attributes.
+      3. * : Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
+
+
+
