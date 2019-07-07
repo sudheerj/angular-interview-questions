@@ -137,8 +137,10 @@
 |129| [What is a DI token?](#what-is-a-di-token)|
 |130| [What is Angular DSL?](#what-is-angular-dsl)|
 |131| [What is an rxjs Subject?](#what-is-an-rxjs-Subject)|
-
-
+|132| [What is Bazel tool?](#what-is-bazel-tool)|
+|133| [What are the advantages of Bazel tool?](#what-are-the-advantages-of-bazel-tool)|
+|134| [How do you use Bazel with Angular CLI?](#how-do-you-use-bazel-with-angular-cli)|
+|135| [How do you run Bazel directly?](#how-do-you-run-bazel-directly)|
 
 1. ### What is Angular Framework?
 
@@ -1681,10 +1683,10 @@
       2. []: Used for Input and specific DOM element attributes.
       3. * : Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
 131. ### what is an rxjs subject in Angular
-      An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
+     An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
       
-      A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
-       ``` typescript
+     A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
+     ``` typescript
       import { Subject } from 'rxjs';
  
         const subject = new Subject<number>();
@@ -1698,4 +1700,33 @@
 
         subject.next(1);
         subject.next(2);
-      ```
+     ```
+132.  ### What is Bazel tool?
+      Bazel is a powerful build tool developed and massively used by Google and it can keep track of the dependencies between different packages and build targets. In Angular8, you can build your CLI application with Bazel.
+      **Note:** The Angular framework itself is built with Bazel.
+133.  ### What are the advantages of Bazel tool?
+      Below are the list of key advantages of Bazel tool,
+      1. It creates the possibility of building your back-ends and front-ends with the same tool
+      2. The incremental build and tests
+      3. It creates the possibility to have remote builds and cache on a build farm.
+
+134. ### How do you use Bazel with Angular CLI?
+     The @angular/bazel package provides a builder that allows Angular CLI to use Bazel as the build tool.
+     1. **Use in an existing applciation:** Add @angular/bazel using CLI
+     ```javascript
+     ng add @angular/bazel
+     ```
+     2. **Use in a new application:** Install the package and create the application with collection option
+     ```javascript
+     npm install -g @angular/bazel
+     ng new --collection=@angular/bazel
+     ```
+     When you use ng build and ng serve commands, Bazel is used behind the scenes and outputs the results in dist/bin folder.
+
+135. ### How do you run Bazel directly?
+     Sometimes you may want to bypass the Angular CLI builder and run Bazel directly using Bazel CLI. You can install it globally using @bazel/bazel npm package. i.e, Bazel CLI is available under @bazel/bazel package. After you can apply the below common commands,
+     ```javascrippt
+     bazel build [targets] // Compile the default output artifacts of the given targets.
+     bazel test [targets] // Run the tests with *_test targets found in the pattern.
+     bazel run [target]: Compile the program represented by target and then run it.
+     ```
