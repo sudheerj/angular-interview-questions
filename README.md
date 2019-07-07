@@ -136,7 +136,7 @@
 |128| [What are the restrictions on declarable classes?](#what-are-the-restrictions-on-declarable-classes)|
 |129| [What is a DI token?](#what-is-a-di-token)|
 |130| [What is Angular DSL?](#what-is-angular-dsl)|
-
+|131| [What is an rxjs Subject?](#what-is-an-rxjs-subject)|
 
 
 
@@ -1680,6 +1680,25 @@
       1. (): Used for Output and DOM events.
       2. []: Used for Input and specific DOM element attributes.
       3. * : Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
+131. ### what is an rxjs subject in Angular
+      An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
+      
+      A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
+      ``` typescript
+      import { Subject } from 'rxjs';
+ 
+        const subject = new Subject<number>();
+
+        subject.subscribe({
+          next: (v) => console.log(`observerA: ${v}`)
+        });
+        subject.subscribe({
+          next: (v) => console.log(`observerB: ${v}`)
+        });
+
+        subject.next(1);
+        subject.next(2);
+```
 
 
 
