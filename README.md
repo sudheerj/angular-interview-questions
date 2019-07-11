@@ -141,6 +141,7 @@
 |133| [What are the advantages of Bazel tool?](#what-are-the-advantages-of-bazel-tool)|
 |134| [How do you use Bazel with Angular CLI?](#how-do-you-use-bazel-with-angular-cli)|
 |135| [How do you run Bazel directly?](#how-do-you-run-bazel-directly)|
+|136| [What is platform in Angular?](#what-is-platform-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1730,3 +1731,8 @@
      bazel test [targets] // Run the tests with *_test targets found in the pattern.
      bazel run [target]: Compile the program represented by target and then run it.
      ```
+136. ### What is platform in Angular?
+     A platform is the context in which an Angular application runs. The most common platform for Angular applications is a web browser, but it can also be an operating system for a mobile device, or a web server. The runtime-platform is provided by the @angular/platform-* packages and these packages allow applications that make use of `@angular/core` and `@angular/common` to execute in different environments.
+     i.e, Angular can be used as platform-independent framework in different environments, For example,
+     1. While running in the browser, it uses `platform-browser` package.
+     2. When SSR(server-side rendering ) is used, it uses `platform-server` package for providing web server implementation.
