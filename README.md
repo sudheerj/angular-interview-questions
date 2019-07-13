@@ -142,6 +142,7 @@
 |134| [How do you use Bazel with Angular CLI?](#how-do-you-use-bazel-with-angular-cli)|
 |135| [How do you run Bazel directly?](#how-do-you-run-bazel-directly)|
 |136| [What is platform in Angular?](#what-is-platform-in-angular)|
+|137| [What happens if I import the same module twice?](#what-happens-if-i-import-the-same-module-twice)|
 
 1. ### What is Angular Framework?
 
@@ -1738,3 +1739,6 @@
      i.e, Angular can be used as platform-independent framework in different environments, For example,
      1. While running in the browser, it uses `platform-browser` package.
      2. When SSR(server-side rendering ) is used, it uses `platform-server` package for providing web server implementation.
+
+137. ### What happens if I import the same module twice?
+     If multiple modules imports the same module then angular evaluates it only once (When it encounters the module first time). It follows this condition even the module appears at any level in a hierarchy of imported NgModules.
