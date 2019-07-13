@@ -1377,11 +1377,11 @@
 99. ### What is the purpose of common module?
     The commonly-needed services, pipes, and directives provided by @angular/common module. Apart from these HttpClientModule is available under @angular/common/http.
 100. ### What is codelyzer?
-    Codelyzer provides set of tslint rules for static code analysis of Angular TypeScript projects. ou can run the static code analyzer over web apps, NativeScript, Ionic etc. Angular CLI has support for this and it can be use as below,
-    ```javascript
-    ng new codelyzer
-    ng lint
-    ```
+     Codelyzer provides set of tslint rules for static code analysis of Angular TypeScript projects. ou can run the static code analyzer over web apps, NativeScript, Ionic etc. Angular CLI has support for this and it can be use as below,
+     ```bash
+     ng new codelyzer
+     ng lint
+     ```
 101. ### What is angular animation?
      Angular's animation system is built on CSS functionality in order to animate any property that the browser considers animatable. These properties includes positions, sizes, transforms, colors, borders etc. The Angular modules for animations are **@angular/animations** and **@angular/platform-browser** and these dependencies are automatically added to your project when you create a project using Angular CLI.
 102. ### What are the steps to use animation module?
@@ -1448,7 +1448,7 @@
 105. ### What is the purpose of animate function?
      Angular Animations are a powerful way to implement sophisticated and compelling animations for your Angular single page web application.
 
-        ```
+        ```javascript
         import { Component, OnInit, Input } from '@angular/core';
         import { trigger, state, style, animate, transition } from '@angular/animations';
     
@@ -1530,20 +1530,22 @@
     | Dependency injection tokens are always strings  | Tokens can have different types. They are often classes and sometimes can be strings. |
     | There is exactly one injector even though it is a multi-module applications | There is a tree hierarchy of injectors, with a root injector and an additional injector for each component. |
  111. ### What is Angular Ivy?
-     Angular Ivy is a new rendering engine for Angular. You can choose to opt in a preview version of Ivy from Angular version 8.
-     1. You can enable ivy in a new project by using the --enable-ivy flag with the ng new command
-     ```javascript
-     ng new ivy-demo-app --enable-ivy
-     ```
-     2. You can add it to an existing project by adding `enableIvy` option in the `angularCompilerOptions` in your project's `tsconfig.app.json`.
-     ```javascript
-     {
-       "compilerOptions": { ... },
-       "angularCompilerOptions": {
-         "enableIvy": true
-       }
-     }
-     ```
+      Angular Ivy is a new rendering engine for Angular. You can choose to opt in a preview version of Ivy from Angular version 8.
+      1. You can enable ivy in a new project by using the --enable-ivy flag with the ng new command
+
+      ```bash
+      ng new ivy-demo-app --enable-ivy
+      ```
+      2. You can add it to an existing project by adding `enableIvy` option in the `angularCompilerOptions` in your project's `tsconfig.app.json`.
+
+      ```javascript
+      {
+        "compilerOptions": { ... },
+        "angularCompilerOptions": {
+          "enableIvy": true
+        }
+      }
+      ```
  112. ### What are the features included in ivy preview?
       You can expect below features with Ivy preview,
       1. Generated code that is easier to read and debug at runtime
@@ -1680,9 +1682,9 @@
  130. ### What is Angular DSL?
       A domain-specific language (DSL) is a computer language specialized to a particular application domain. Angular has its own Domain Specific Language (DSL) which allows us to write Angular specific html-like syntax on top of normal html. It has its own compiler that compiles this syntax to html that the browser can understand. This DSL is defined in NgModules such as animations, forms, and routing and navigation.
       Basically you will see 3 main syntax in Angular DSL.
-      1. (): Used for Output and DOM events.
-      2. []: Used for Input and specific DOM element attributes.
-      3. * : Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
+      1. `()`: Used for Output and DOM events.
+      2. `[]`: Used for Input and specific DOM element attributes.
+      3. `*`: Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
 131. ### what is an rxjs subject in Angular
      An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
       
