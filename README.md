@@ -143,6 +143,7 @@
 |135| [How do you run Bazel directly?](#how-do-you-run-bazel-directly)|
 |136| [What is platform in Angular?](#what-is-platform-in-angular)|
 |137| [What happens if I import the same module twice?](#what-happens-if-i-import-the-same-module-twice)|
+|138| [How do you select an element with in a component template?](#how-do-you-select-an-element-with-in-a-component-template)|
 
 1. ### What is Angular Framework?
 
@@ -1742,3 +1743,16 @@
 
 137. ### What happens if I import the same module twice?
      If multiple modules imports the same module then angular evaluates it only once (When it encounters the module first time). It follows this condition even the module appears at any level in a hierarchy of imported NgModules.
+138. ### How do you select an element with in a component template?
+     You can use `@ViewChild` directive to access elements in the view directly. Let's take input element with a reference,
+     ```html
+     <input #uname>
+     ```
+     and define view child directive and access it in ngAfterViewInit lifecycle hook
+     ```javascript
+     @ViewChild('uname') input;
+
+     ngAfterViewInit() {
+       console.log(this.input.nativeElement.value);
+     }
+     ```
