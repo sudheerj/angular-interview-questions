@@ -144,6 +144,7 @@
 |136| [What is platform in Angular?](#what-is-platform-in-angular)|
 |137| [What happens if I import the same module twice?](#what-happens-if-i-import-the-same-module-twice)|
 |138| [How do you select an element with in a component template?](#how-do-you-select-an-element-with-in-a-component-template)|
+|139| [How do you detect route change in Angular?](#how-do-you-detect-route-change-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -1754,5 +1755,40 @@
 
      ngAfterViewInit() {
        console.log(this.input.nativeElement.value);
+     }
+     ```
+139. ### How do you detect route change in Angular?
+     In Angular7, you can subscribe to router to detect the changes. The subscription for router events would be as below,
+     ```javascript
+     this.router.events.subscribe((event: Event) => {})
+     ```
+     Let's take a simple component to detect router changes
+     ```javascript
+     import { Component } from '@angular/core';
+     import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+
+     @Component({
+         selector: 'app-root',
+         template: `<router-outlet></router-outlet>`
+     })
+     export class AppComponent {
+
+         constructor(private router: Router) {
+
+             this.router.events.subscribe((event: Event) => {
+                 if (event instanceof NavigationStart) {
+                     // Show loading indicator and perform an action
+                 }
+
+                 if (event instanceof NavigationEnd) {
+                     // Hide loading indicator and perform an action
+                 }
+
+                 if (event instanceof NavigationError) {
+                     // Hide loading indicator and perform an action
+                     console.log(event.error); // It logs an error for debugging
+                 }
+             });
+        }
      }
      ```
