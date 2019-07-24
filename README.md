@@ -146,6 +146,7 @@
 |138| [How do you select an element with in a component template?](#how-do-you-select-an-element-with-in-a-component-template)|
 |139| [How do you detect route change in Angular?](#how-do-you-detect-route-change-in-angular)|
 |140| [How do you pass headers for HTTP client?](#how-do-you-pass-headers-for-http-client)|
+|141| [What is the purpose of differential loading in CLI?](#what-is-the-purpose-of-differential-loading-in-cli)|
 
 1. ### What is Angular Framework?
 
@@ -1812,4 +1813,10 @@
 
      return this._http.get<any[]>('someUrl', { headers: headers, params: params })
      ```
+141. ### What is the purpose of differential loading in CLI?
+     From Angular8 release onwards, the applications are built using differential loading strategy from CLI to build two separate bundles as part of your deployed application.
+     1. The first build contains ES2015 syntax which takes the advantage of built-in support in modern browsers, ships less polyfills, and results in a smaller bundle size.
+     2. The second build contains old ES5 syntax to support older browsers with all necessary polyfills. But this results in a larger bundle size.
+
+     **Note:** This strategy is used to support multiple browsers but it only load the code that the browser needs.
 
