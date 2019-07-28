@@ -148,6 +148,14 @@
 |140| [How do you pass headers for HTTP client?](#how-do-you-pass-headers-for-http-client)|
 |141| [What is the purpose of differential loading in CLI?](#what-is-the-purpose-of-differential-loading-in-cli)|
 |142| [Is Angular supports dynamic imports?](#is-angular-supports-dynamic-imports)|
+|143| [What is lazy loading?](#what-is-lazy-loading)|
+|144| [](#)|
+|145| [](#)|
+|146| [](#)|
+|147| [](#)|
+|148| [](#)|
+|149| [](#)|
+|150| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -1830,3 +1838,29 @@
      ```javascript
      {path: ‘user’, loadChildren: () => import(‘./users/user.module’).then(m => m.UserModule)};
      ```
+143. ### What is lazy loading?
+     Lazy loading is one of the most useful concepts of Angular Routing. It helps us to download the web pages in chunks instead of downloading everything in a big bundle. It is used for lazy loading by asynchronously loading the feature module for routing whenever required using the property `loadChildren`. Let's load both `Customer` and `Order` feature modules lazily as below,
+     ```javascript
+     const routes: Routes = [
+       {
+         path: 'customers',
+         loadChildren: () => import('./customers/customers.module').then(module => module.CustomersModule)
+       },
+       {
+         path: 'orders',
+         loadChildren: () => import('./orders/orders.module').then(module => module.OrdersModule)
+       },
+       {
+         path: '',
+         redirectTo: '',
+         pathMatch: 'full'
+       }
+     ];
+     ```
+144. ### ?
+145. ### ?
+146. ### ?
+147. ### ?
+148. ### ?
+149. ### ?
+150. ### ?
