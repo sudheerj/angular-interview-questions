@@ -150,7 +150,7 @@
 |142| [Is Angular supports dynamic imports?](#is-angular-supports-dynamic-imports)|
 |143| [What is lazy loading?](#what-is-lazy-loading)|
 |144| [What are workspace APIs?](#what-are-workspace-apis)|
-|145| [](#)|
+|145| [How do you upgrade angular version?](#how-do-you-upgrade-angular-version)|
 |146| [](#)|
 |147| [](#)|
 |148| [](#)|
@@ -1884,7 +1884,11 @@
 
      addBuildTargetOption();
      ```
-145. ### ?
+145. ### How do you upgrade angular version?
+     The Angular upgrade is quite easier using Angular CLI `ng update` command as mentioned below. For example, if you upgrade from Angular 7 to 8 then your lazy loaded route imports will be migrated to the new import syntax automatically.
+     ```bash
+     $ ng update @angular/cli @angular/core
+     ```
 146. ### ?
 147. ### ?
 148. ### ?
