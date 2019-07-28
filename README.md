@@ -147,6 +147,7 @@
 |139| [How do you detect route change in Angular?](#how-do-you-detect-route-change-in-angular)|
 |140| [How do you pass headers for HTTP client?](#how-do-you-pass-headers-for-http-client)|
 |141| [What is the purpose of differential loading in CLI?](#what-is-the-purpose-of-differential-loading-in-cli)|
+|142| [Is Angular supports dynamic imports?](#is-angular-supports-dynamic-imports)|
 
 1. ### What is Angular Framework?
 
@@ -1819,4 +1820,13 @@
      2. The second build contains old ES5 syntax to support older browsers with all necessary polyfills. But this results in a larger bundle size.
 
      **Note:** This strategy is used to support multiple browsers but it only load the code that the browser needs.
-
+142. ### Is Angular supports dynamic imports?
+     Yes, Angular 8 supports dynamic imports in router configuration. i.e, You can use the import statement for lazy loading the module using `loadChildren` method and it will be understood by the IDEs(VSCode and WebStorm), webpack, etc.
+     Previously, you have been written as below to lazily load the feature module. By mistake, if you have typo in the module name it still accepts the string and throws an error during build time.
+     ```javascript
+     {path: ‘user’, loadChildren: ‘./users/user.module#UserModulee’},
+     ```
+     This problem is resolved by using dynamic imports and IDEs are able to find it during compile time itself.
+     ```javascript
+     {path: ‘user’, loadChildren: () => import(‘./users/user.module’).then(m => m.UserModule)};
+     ```
