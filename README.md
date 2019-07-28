@@ -149,7 +149,7 @@
 |141| [What is the purpose of differential loading in CLI?](#what-is-the-purpose-of-differential-loading-in-cli)|
 |142| [Is Angular supports dynamic imports?](#is-angular-supports-dynamic-imports)|
 |143| [What is lazy loading?](#what-is-lazy-loading)|
-|144| [](#)|
+|144| [What are workspace APIs?](#what-are-workspace-apis)|
 |145| [](#)|
 |146| [](#)|
 |147| [](#)|
@@ -1857,7 +1857,33 @@
        }
      ];
      ```
-144. ### ?
+144. ### What are workspace APIs?
+     Angular 8.0 release introduces Workspace APIs to make it easier for developers to read and modify the angular.json file instead of manually modifying it. Currently, the only supported storage3 format is the JSON-based format used by the Angular CLI. You can enable or add optimization option for build target as below,
+     ```javascript
+     import { NodeJsSyncHost } from '@angular-devkit/core/node';
+     import { workspaces } from '@angular-devkit/core';
+
+     async function addBuildTargetOption() {
+         const host = workspaces.createWorkspaceHost(new NodeJsSyncHost());
+         const workspace = await workspaces.readWorkspace('path/to/workspace/directory/', host);
+
+         const project = workspace.projects.get('my-app');
+         if (!project) {
+           throw new Error('my-app does not exist');
+         }
+
+         const buildTarget = project.targets.get('build');
+         if (!buildTarget) {
+           throw new Error('build target does not exist');
+         }
+
+         buildTarget.options.optimization = true;
+
+         await workspaces.writeWorkspace(workspace, host);
+     }
+
+     addBuildTargetOption();
+     ```
 145. ### ?
 146. ### ?
 147. ### ?
