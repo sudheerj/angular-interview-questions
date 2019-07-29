@@ -1889,7 +1889,14 @@
      ```bash
      $ ng update @angular/cli @angular/core
      ```
-146. ### ?
+146. ### What is Angular Material?
+     Angular Material is a collection of Material Design components for Angular framework following the Material Design spec. You can apply Material Design very easily using Angular Material. The installation can be done through npm or yarn,
+     ```bash
+     npm install --save @angular/material @angular/cdk @angular/animations
+     (OR)
+     yarn add @angular/material @angular/cdk @angular/animations
+     ```
+     It supports the most recent two versions of all major browsers. The latest version of Angular material is 8.1.1
 147. ### ?
 148. ### ?
 149. ### ?
