@@ -151,8 +151,8 @@
 |143| [What is lazy loading?](#what-is-lazy-loading)|
 |144| [What are workspace APIs?](#what-are-workspace-apis)|
 |145| [How do you upgrade angular version?](#how-do-you-upgrade-angular-version)|
-|146| [](#)|
-|147| [](#)|
+|146| [What is Angular Material?](#what-is-angular-material)|
+|147| [How do you upgrade location service of angularjs?](#how-do-you-upgrade-location-service-of-angularjs)|
 |148| [](#)|
 |149| [](#)|
 |150| [](#)|
@@ -1897,7 +1897,20 @@
      yarn add @angular/material @angular/cdk @angular/animations
      ```
      It supports the most recent two versions of all major browsers. The latest version of Angular material is 8.1.1
-147. ### ?
+147. ### How do you upgrade location service of angularjs?
+     If you are using `$location` service in your old AngularJS application, now you can use `LocationUpgradeModule`(unified location service) which puts the responsibilities of `$location` service to `Location` service in Angular. Let's add this module to `AppModule` as below,
+     ```javascript
+     // Other imports ...
+     import { LocationUpgradeModule } from '@angular/common/upgrade';
+
+     @NgModule({
+       imports: [
+         // Other NgModule imports...
+         LocationUpgradeModule.config()
+       ]
+     })
+     export class AppModule {}
+     ```
 148. ### ?
 149. ### ?
 150. ### ?
