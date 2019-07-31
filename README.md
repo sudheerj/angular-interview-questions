@@ -153,9 +153,9 @@
 |145| [How do you upgrade angular version?](#how-do-you-upgrade-angular-version)|
 |146| [What is Angular Material?](#what-is-angular-material)|
 |147| [How do you upgrade location service of angularjs?](#how-do-you-upgrade-location-service-of-angularjs)|
-|148| [](#)|
-|149| [](#)|
-|150| [](#)|
+|148| [What is NgUpgrade?](#what-is-ngupgrade)|
+|149| [How do you test Angular application using CLI?](#how-do-you-test-angular-application-using-cli)|
+|150| [How to use polyfills in Angular application?](#how-to-use-polyfills-in-angular-application)|
 
 1. ### What is Angular Framework?
 
@@ -1911,6 +1911,28 @@
      })
      export class AppModule {}
      ```
-148. ### ?
-149. ### ?
-150. ### ?
+148. ### What is NgUpgrade?
+     NgUpgrade is a library put together by the Angular team, which you can use in your applications to mix and match AngularJS and Angular components and bridge the AngularJS and Angular dependency injection systems.
+149. ### How do you test Angular application using CLI?
+     Angular CLI downloads and install everything needed with the Jasmine Test framework. You just need to run `ng test` to see the test results. By default this command builds the app in watch mode, and launches the `Karma test runner`. The output of test results would be as below,
+     ```bash
+     10% building modules 1/1 modules 0 active
+     ...INFO [karma]: Karma v1.7.1 server started at http://0.0.0.0:9876/
+     ...INFO [launcher]: Launching browser Chrome ...
+     ...INFO [launcher]: Starting browser Chrome
+     ...INFO [Chrome ...]: Connected on socket ...
+     Chrome ...: Executed 3 of 3 SUCCESS (0.135 secs / 0.205 secs)
+     ```
+     **Note:** A chrome browser also opens and displays the test output in the "Jasmine HTML Reporter".
+150. ### How to use polyfills in Angular application?
+     The Angular CLI provides support for polyfills officially. When you create a new project with the ng new command, a `src/polyfills.ts` configuration file is created as part of your project folder. This file includes the mandatory and many of the optional polyfills as JavaScript import statements. Let's categorize the polyfills,
+     1. **Mandatory polyfills:** These are installed automatically when you create your project with ng new command and the respective import statements enabled in 'src/polyfills.ts' file.
+     2. **Optional polyfills:** You need to install its npm package and then create import statement in 'src/polyfills.ts' file.
+        For example, first you need to install below npm package for adding web animations (optional) polyfill.
+        ```bash
+         npm install --save web-animations-js
+        ```
+        and create import statement in polyfill file.
+        ```javascript
+        import 'web-animations-js';
+        ```
