@@ -156,6 +156,16 @@
 |148| [What is NgUpgrade?](#what-is-ngupgrade)|
 |149| [How do you test Angular application using CLI?](#how-do-you-test-angular-application-using-cli)|
 |150| [How to use polyfills in Angular application?](#how-to-use-polyfills-in-angular-application)|
+|151| [What are the ways to trigger change detection in Angular?](#what-are-the-ways-to-trigger-change-detection-in-angular)|
+|152| [](#)|
+|153| [](#)|
+|154| [](#)|
+|155| [](#)|
+|156| [](#)|
+|157| [](#)|
+|158| [](#)|
+|159| [](#)|
+|160| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -1936,3 +1946,20 @@
         ```javascript
         import 'web-animations-js';
         ```
+151. ### What are the ways to trigger change detection in Angular?
+     You can inject either ApplicationRef or NgZone, or ChangeDetectorRef into your component and apply below specific methods to trigger change detection in Angular. i.e, There are 3 possible ways,
+     1. ApplicationRef.tick(): Invoke this method to explicitly process change detection and its side-effects. It check the full component tree.
+     2. NgZone.run(callback): It evaluate the callback function inside the Angular zone.
+     3. ChangeDetectorRef.detectChanges(): It detects only the components and it's children.
+
+152. ### ?
+153. ### ?
+154. ### ?
+155. ### ?
+156. ### ?
+157. ### ?
+158. ### ?
+159. ### ?
+160. ### ?
+
+
