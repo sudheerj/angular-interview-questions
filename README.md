@@ -159,7 +159,7 @@
 |151| [What are the ways to trigger change detection in Angular?](#what-are-the-ways-to-trigger-change-detection-in-angular)|
 |152| [What are the differences of various versions of Angular?](#what-are-the-differences-of-various-versions-of-angular)|
 |153| [What are the security principles in angular?](#what-are-the-security-principles-in-angular)|
-|154| [](#)|
+|154| [What is the reason to deprecate Web Tracing Framework?](#what-is-the-reason-to-deprecate-web-tracing-framework)|
 |155| [](#)|
 |156| [](#)|
 |157| [](#)|
@@ -1899,8 +1899,14 @@
         }
       }
       ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  114. ### What is Angular Language Service?
       The Angular Language Service is a way to get completions, errors, hints, and navigation inside your Angular templates whether they are external in an HTML file or embedded in annotations/decorators in a string. It has the ability to autodetect that you are opening an Angular file, reads your `tsconfig.json` file, finds all the templates you have in your application, and then provides all the language services.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  115. ### How do you install angular language service in the project?
       You can install Angular Language Service in your project with the following npm command
       ```javascript
@@ -1913,8 +1919,14 @@
       ]
       ```
       **Note:** The completion and diagnostic services works for .ts files only. You need to use custom plugins for supporting HTML files.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  116. ### Is there any editor support for Angular Language Service?
       Yes, Angular Language Service is currently available for Visual Studio Code and WebStorm IDEs. You need to install angular language service using an extension and devDependency respectively. In sublime editor, you need to install typescript which has has a language service plugin model.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  117. ### Explain the features provided by Angular Language Service?
       Basically there are 3 main features provided by Angular Language Service,
 
@@ -1929,6 +1941,9 @@
       3. **Navigation:** Navigation allows you to hover a component, directive, module and then click and press F12 to go directly to its definition.
 
       ![ScreenShot](images/language-navigation.gif)
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  118. ### How do you add web workers in your application?
       You can add web worker anywhere in your application. For example, If the file that contains your expensive computation is `src/app/app.component.ts`, you can add a Web Worker using `ng generate web-worker app` command which will create `src/app/app.worker.ts` web worker file. This command will perform below actions,
       1. Configure your project to use Web Workers
@@ -1953,28 +1968,48 @@
       }
       ```
       **Note:** You may need to refactor your initial scaffolding web worker code for sending messages to and from.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  119. ### What are the limitations with web workers?
       You need to remember two important things when using Web Workers in Angular projects,
       1. Some environments or platforms(like @angular/platform-server) used in Server-side Rendering, don't support Web Workers. In this case you need to provide a fallback mechanism to perform the computations to work in this environments.
       2. Running Angular in web worker using `@angular/platform-webworker` is not yet supported in Angular CLI.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  120. ### What is Angular CLI Builder?
       In Angular8, the CLI Builder API is stable and available to developers who want to customize the `Angular CLI` by adding or modifying commands. For example, you could supply a builder to perform an entirely new task, or to change which third-party tool is used by an existing command.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  121. ### What is a builder?
       A builder function ia a function that uses the `Architect API` to perform a complex process such as "build" or "test". The builder code is defined in an npm package. For example, BrowserBuilder runs a webpack build for a browser target and KarmaBuilder starts the Karma server and runs a webpack build for unit tests.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  122. ### How do you invoke a builder?
       The Angular CLI command `ng run` is used to invoke a builder with a specific target configuration. The workspace configuration file, `angular.json`, contains default configurations for built-in builders.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  123. ### How do you create app shell in Angular?
       An App shell is a way to render a portion of your application via a route at build time. This is useful to first paint of your application that appears quickly because the browser can render static HTML and CSS without the need to initialize JavaScript. You can achieve this using Angular CLI which generates an app shell for running server-side of your app.
       ```javascript
       ng generate appShell [options] (or)
       ng g appShell [options]
       ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  124. ### What are the case types in Angular?
       Angular uses capitalization conventions to distinguish the names of various types. Angular follows the list of the below case types.
       1. **camelCase :** Symbols, properties, methods, pipe names, non-component directive selectors, constants uses lowercase on the first letter of the item. For example, "selectedUser"
       2. **UpperCamelCase (or PascalCase):** Class names, including classes that define components, interfaces, NgModules, directives, and pipes uses uppercase on the first letter of the item.
       3. **dash-case (or "kebab-case"):** The descriptive part of file names, component selectors uses dashes between the words. For example, "app-user-list".
       4. **UPPER_UNDERSCORE_CASE:** All constants uses capital letters connected with underscores. For example, "NUMBER_OF_USERS".
+
+   **[⬆ Back to Top](#table-of-contents)**
 
  125. ### What are the class decorators in Angular?
       A class decorator is a decorator that appears immediately before a class definition, which declares the class to be of the given type, and provides metadata suitable to the type
@@ -1985,20 +2020,30 @@
       4. @Injectable()
       5. @NgModule()
 
+   **[⬆ Back to Top](#table-of-contents)**
+
  126. ### What are class field decorators?
       The class field decorators are the statements declared immediately before a field in a class definition that defines the type of that field. Some of the examples are: @input and @output,
       ```javascript
       @Input() myProperty;
       @Output() myEvent = new EventEmitter();
       ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  127. ### What is declarable in Angular?
       Declarable is a class type that you can add to the declarations list of an NgModule. The class types such as components, directives, and pipes comes can be declared in the module.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  128. ### What are the restrictions on declarable classes?
       Below classes shouldn't be declared,
       1. A class that's already declared in another NgModule
       2. Ngmodule classes
       3. Service classes
       4. Helper classes
+
+   **[⬆ Back to Top](#table-of-contents)**
 
  129. ### What is a DI token?
       A DI token is a lookup token associated with a dependency provider in dependency injection system. The injector maintains an internal token-provider map that it references when asked for a dependency and the DI token is the key to the map. Let's take example of DI Token usage,
@@ -2008,12 +2053,18 @@
          Injector.create({providers: [{provide: BASE_URL, useValue: 'http://some-domain.com'}]});
       const url = injector.get(BASE_URL);
       ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
  130. ### What is Angular DSL?
       A domain-specific language (DSL) is a computer language specialized to a particular application domain. Angular has its own Domain Specific Language (DSL) which allows us to write Angular specific html-like syntax on top of normal html. It has its own compiler that compiles this syntax to html that the browser can understand. This DSL is defined in NgModules such as animations, forms, and routing and navigation.
       Basically you will see 3 main syntax in Angular DSL.
       1. `()`: Used for Output and DOM events.
       2. `[]`: Used for Input and specific DOM element attributes.
       3. `*`: Structural directives(*ngFor or *ngIf) will affect/change the DOM structure.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 131. ### what is an rxjs subject in Angular
      An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
       
@@ -2033,14 +2084,22 @@
         subject.next(1);
         subject.next(2);
      ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 132.  ### What is Bazel tool?
       Bazel is a powerful build tool developed and massively used by Google and it can keep track of the dependencies between different packages and build targets. In Angular8, you can build your CLI application with Bazel.
       **Note:** The Angular framework itself is built with Bazel.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 133.  ### What are the advantages of Bazel tool?
       Below are the list of key advantages of Bazel tool,
       1. It creates the possibility of building your back-ends and front-ends with the same tool
       2. The incremental build and tests
       3. It creates the possibility to have remote builds and cache on a build farm.
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 134. ### How do you use Bazel with Angular CLI?
      The @angular/bazel package provides a builder that allows Angular CLI to use Bazel as the build tool.
@@ -2055,6 +2114,8 @@
      ```
      When you use ng build and ng serve commands, Bazel is used behind the scenes and outputs the results in dist/bin folder.
 
+   **[⬆ Back to Top](#table-of-contents)**
+
 135. ### How do you run Bazel directly?
      Sometimes you may want to bypass the Angular CLI builder and run Bazel directly using Bazel CLI. You can install it globally using @bazel/bazel npm package. i.e, Bazel CLI is available under @bazel/bazel package. After you can apply the below common commands,
      ```javascrippt
@@ -2062,14 +2123,22 @@
      bazel test [targets] // Run the tests with *_test targets found in the pattern.
      bazel run [target]: Compile the program represented by target and then run it.
      ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 136. ### What is platform in Angular?
      A platform is the context in which an Angular application runs. The most common platform for Angular applications is a web browser, but it can also be an operating system for a mobile device, or a web server. The runtime-platform is provided by the @angular/platform-* packages and these packages allow applications that make use of `@angular/core` and `@angular/common` to execute in different environments.
      i.e, Angular can be used as platform-independent framework in different environments, For example,
      1. While running in the browser, it uses `platform-browser` package.
      2. When SSR(server-side rendering ) is used, it uses `platform-server` package for providing web server implementation.
 
+   **[⬆ Back to Top](#table-of-contents)**
+
 137. ### What happens if I import the same module twice?
      If multiple modules imports the same module then angular evaluates it only once (When it encounters the module first time). It follows this condition even the module appears at any level in a hierarchy of imported NgModules.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 138. ### How do you select an element with in a component template?
      You can use `@ViewChild` directive to access elements in the view directly. Let's take input element with a reference,
      ```html
@@ -2083,6 +2152,9 @@
        console.log(this.input.nativeElement.value);
      }
      ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 139. ### How do you detect route change in Angular?
      In Angular7, you can subscribe to router to detect the changes. The subscription for router events would be as below,
      ```javascript
@@ -2118,6 +2190,9 @@
         }
      }
      ```
+
+   **[⬆ Back to Top](#table-of-contents)**
+
 140. ### How do you pass headers for HTTP client?
      You can directly pass object map for http client or create HttpHeaders class to supply the headers.
      ```javascript
@@ -2137,12 +2212,18 @@
 
      return this._http.get<any[]>('someUrl', { headers: headers, params: params })
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 141. ### What is the purpose of differential loading in CLI?
      From Angular8 release onwards, the applications are built using differential loading strategy from CLI to build two separate bundles as part of your deployed application.
      1. The first build contains ES2015 syntax which takes the advantage of built-in support in modern browsers, ships less polyfills, and results in a smaller bundle size.
      2. The second build contains old ES5 syntax to support older browsers with all necessary polyfills. But this results in a larger bundle size.
 
      **Note:** This strategy is used to support multiple browsers but it only load the code that the browser needs.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 142. ### Is Angular supports dynamic imports?
      Yes, Angular 8 supports dynamic imports in router configuration. i.e, You can use the import statement for lazy loading the module using `loadChildren` method and it will be understood by the IDEs(VSCode and WebStorm), webpack, etc.
      Previously, you have been written as below to lazily load the feature module. By mistake, if you have typo in the module name it still accepts the string and throws an error during build time.
@@ -2153,6 +2234,9 @@
      ```javascript
      {path: ‘user’, loadChildren: () => import(‘./users/user.module’).then(m => m.UserModule)};
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 143. ### What is lazy loading?
      Lazy loading is one of the most useful concepts of Angular Routing. It helps us to download the web pages in chunks instead of downloading everything in a big bundle. It is used for lazy loading by asynchronously loading the feature module for routing whenever required using the property `loadChildren`. Let's load both `Customer` and `Order` feature modules lazily as below,
      ```javascript
@@ -2172,6 +2256,9 @@
        }
      ];
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 144. ### What are workspace APIs?
      Angular 8.0 release introduces Workspace APIs to make it easier for developers to read and modify the angular.json file instead of manually modifying it. Currently, the only supported storage3 format is the JSON-based format used by the Angular CLI. You can enable or add optimization option for build target as below,
      ```javascript
@@ -2199,11 +2286,17 @@
 
      addBuildTargetOption();
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 145. ### How do you upgrade angular version?
      The Angular upgrade is quite easier using Angular CLI `ng update` command as mentioned below. For example, if you upgrade from Angular 7 to 8 then your lazy loaded route imports will be migrated to the new import syntax automatically.
      ```bash
      $ ng update @angular/cli @angular/core
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 146. ### What is Angular Material?
      Angular Material is a collection of Material Design components for Angular framework following the Material Design spec. You can apply Material Design very easily using Angular Material. The installation can be done through npm or yarn,
      ```bash
@@ -2212,6 +2305,9 @@
      yarn add @angular/material @angular/cdk @angular/animations
      ```
      It supports the most recent two versions of all major browsers. The latest version of Angular material is 8.1.1
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 147. ### How do you upgrade location service of angularjs?
      If you are using `$location` service in your old AngularJS application, now you can use `LocationUpgradeModule`(unified location service) which puts the responsibilities of `$location` service to `Location` service in Angular. Let's add this module to `AppModule` as below,
      ```javascript
@@ -2226,8 +2322,14 @@
      })
      export class AppModule {}
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 148. ### What is NgUpgrade?
      NgUpgrade is a library put together by the Angular team, which you can use in your applications to mix and match AngularJS and Angular components and bridge the AngularJS and Angular dependency injection systems.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 149. ### How do you test Angular application using CLI?
      Angular CLI downloads and install everything needed with the Jasmine Test framework. You just need to run `ng test` to see the test results. By default this command builds the app in watch mode, and launches the `Karma test runner`. The output of test results would be as below,
      ```bash
@@ -2239,6 +2341,9 @@
      Chrome ...: Executed 3 of 3 SUCCESS (0.135 secs / 0.205 secs)
      ```
      **Note:** A chrome browser also opens and displays the test output in the "Jasmine HTML Reporter".
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 150. ### How to use polyfills in Angular application?
      The Angular CLI provides support for polyfills officially. When you create a new project with the ng new command, a `src/polyfills.ts` configuration file is created as part of your project folder. This file includes the mandatory and many of the optional polyfills as JavaScript import statements. Let's categorize the polyfills,
      1. **Mandatory polyfills:** These are installed automatically when you create your project with ng new command and the respective import statements enabled in 'src/polyfills.ts' file.
@@ -2251,13 +2356,20 @@
         ```javascript
         import 'web-animations-js';
         ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 151. ### What are the ways to trigger change detection in Angular?
      You can inject either ApplicationRef or NgZone, or ChangeDetectorRef into your component and apply below specific methods to trigger change detection in Angular. i.e, There are 3 possible ways,
      1. ApplicationRef.tick(): Invoke this method to explicitly process change detection and its side-effects. It check the full component tree.
      2. NgZone.run(callback): It evaluate the callback function inside the Angular zone.
      3. ChangeDetectorRef.detectChanges(): It detects only the components and it's children.
 
+    **[⬆ Back to Top](#table-of-contents)**
+
 152. ### What are the differences of various versions of Angular?
+    There are different versions of Angular framework. Let's see the features of all the various versions,
+
      1. Angular 1
         • Angular 1 (AngularJS) is the first angular framework released in the year 2010.
         • AngularJS is not built for mobile devices.
@@ -2293,7 +2405,9 @@
         • New Angular CLI
         • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the           user and the CLI
         • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS           styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
-        
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 153. ### What are the security principles in angular?
 		1.	You should avoid direct use of the DOM APIs.
 		2.  You should enable Content Security Policy (CSP) and configure your web server to return appropriate CSP HTTP headers.
@@ -2301,8 +2415,14 @@
 		4.  You should Use Server Side XSS protection.
 		5.  You should Use DOM Sanitizer.
 		6.  You should Preventing CSRF or XSRF attacks. 
-		
-154. ### ?
+
+	 **[⬆ Back to Top](#table-of-contents)**
+
+154. ### What is the reason to deprecate Web Tracing Framework?
+     Angular has supported the integration with the Web Tracing Framework (WTF) for the purpose of performance testing. Since it is not well maintained and failed in majority of the applications, the support is deprecated in latest releases.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 155. ### ?
 156. ### ?
 157. ### ?
