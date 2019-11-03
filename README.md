@@ -160,8 +160,8 @@
 |152| [What are the differences of various versions of Angular?](#what-are-the-differences-of-various-versions-of-angular)|
 |153| [What are the security principles in angular?](#what-are-the-security-principles-in-angular)|
 |154| [What is the reason to deprecate Web Tracing Framework?](#what-is-the-reason-to-deprecate-web-tracing-framework)|
-|155| [](#)|
-|156| [](#)|
+|155| [What is the reason to deprecate web worker packages?](#what-is-the-reason-to-deprecate-web-worker-packages)|
+|156| [How do you find angular CLI version?](#how-do-you-find-angular-cli-version)|
 |157| [](#)|
 |158| [](#)|
 |159| [](#)|
@@ -2423,8 +2423,26 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-155. ### ?
-156. ### ?
+155. ### What is the reason to deprecate web worker packages?
+     Both @angular/platform-webworker and @angular/platform-webworker-dynamic are officially deprecated, the Angular team realized it's not good practice to run the Angular application on Web worker
+     **[⬆ Back to Top](#table-of-contents)**
+
+156. ### How do you find angular CLI version?
+     Angular CLI provides it's installed version using below different ways using ng command
+     ```bash
+     ng v
+     ng version
+     ng -v
+     ng --version
+     ```
+     and the output would be as below,
+     ```bash
+     Angular CLI: 1.6.3
+     Node: 8.11.3
+     OS: darwin x64
+     Angular:
+     ...
+     ```
 157. ### ?
 158. ### ?
 159. ### ?
