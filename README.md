@@ -160,9 +160,9 @@
 |152| [What are the differences of various versions of Angular?](#what-are-the-differences-of-various-versions-of-angular)|
 |153| [What are the security principles in angular?](#what-are-the-security-principles-in-angular)|
 |154| [What is the reason to deprecate Web Tracing Framework?](#what-is-the-reason-to-deprecate-web-tracing-framework)|
-|155| [](#)|
-|156| [](#)|
-|157| [](#)|
+|155| [What is the reason to deprecate web worker packages?](#what-is-the-reason-to-deprecate-web-worker-packages)|
+|156| [How do you find angular CLI version?](#how-do-you-find-angular-cli-version)|
+|157| [What is the browser support for Angular?](#what-is-the-browser-support-for-angular)|
 |158| [](#)|
 |159| [](#)|
 |160| [](#)|
@@ -2423,9 +2423,45 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-155. ### ?
-156. ### ?
-157. ### ?
+155. ### What is the reason to deprecate web worker packages?
+     Both @angular/platform-webworker and @angular/platform-webworker-dynamic are officially deprecated, the Angular team realized it's not good practice to run the Angular application on Web worker
+     **[⬆ Back to Top](#table-of-contents)**
+
+156. ### How do you find angular CLI version?
+     Angular CLI provides it's installed version using below different ways using ng command
+     ```bash
+     ng v
+     ng version
+     ng -v
+     ng --version
+     ```
+     and the output would be as below,
+     ```bash
+     Angular CLI: 1.6.3
+     Node: 8.11.3
+     OS: darwin x64
+     Angular:
+     ...
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+157. ### What is the browser support for Angular?
+     Angular supports most recent browsers which includes both desktop and mobile browsers.
+
+     | Browser | Version |
+     |---- | --------- |
+     | Chrome | latest |
+     | Firefox | latest |
+     | Edge | 2 most recent major versions |
+     | IE | 11, 10, 9 (Compatibility mode is not supported) |
+     | Safari | 2 most recent major versions |
+     | IE Mobile | 11 |
+     | iOS | 2 most recent major versions |
+     | Android | 7.0, 6.0, 5.0, 5.1, 4.4 |
+
+     **[⬆ Back to Top](#table-of-contents)**
+
 158. ### ?
 159. ### ?
 160. ### ?
