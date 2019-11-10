@@ -163,9 +163,9 @@
 |155| [What is the reason to deprecate web worker packages?](#what-is-the-reason-to-deprecate-web-worker-packages)|
 |156| [How do you find angular CLI version?](#how-do-you-find-angular-cli-version)|
 |157| [What is the browser support for Angular?](#what-is-the-browser-support-for-angular)|
-|158| [](#)|
-|159| [](#)|
-|160| [](#)|
+|158| [What is schematic](#what-is-schematic)|
+|159| [What is rule in Schematics?](#what-is-rule-in-schematics)|
+|160| [What is Schematics CLI?](#what-is-schematics-cli)|
 
 1. ### What is Angular Framework?
 
@@ -2462,8 +2462,23 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-158. ### ?
-159. ### ?
-160. ### ?
+158. ### What is schematic?
+     It's a scaffolding library that defines how to generate or transform a programming project by creating, modifying, refactoring, or moving files and code. It defines rules that operate on a virtual file system called a tree.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+159. ### What is rule in Schematics?
+
+     In schematics world, it's a function that operates on a file tree to create, delete, or modify files in a specific manner.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+160. ### What is Schematics CLI?
+     Schematics come with their own command-line tool known as Schematics CLI. It is used to install the schematics executable, which you can use to create a new schematics collection with an initial named schematic. The collection folder is a workspace for schematics. You can also use the schematics command to add a new schematic to an existing collection, or extend an existing schematic. You can install Schematic CLI globally as below,
+     ```bash
+     npm install -g @angular-devkit/schematics-cli
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
 
 
