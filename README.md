@@ -166,6 +166,16 @@
 |158| [What is schematic](#what-is-schematic)|
 |159| [What is rule in Schematics?](#what-is-rule-in-schematics)|
 |160| [What is Schematics CLI?](#what-is-schematics-cli)|
+|161| [What are the best practices for security in angular?](#what-are-the-best-practices-for-security-in-angular)|
+|162| [What is Angular security model for preventing XSS attacks?](#what-is-angular-security-model-for-preventing-xss-attacks)|
+|163| [What is the role of template compiler for prevention of XSS attacks?](#what-is-the-role-of-template-compiler-for-prevention-of-xss-attacks)|
+|164| [](#)|
+|165| [](#)|
+|166| [](#)|
+|167| [](#)|
+|168| [](#)|
+|169| [](#)|
+|170| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -2480,5 +2490,48 @@
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
+
+161. ### What are the best practices for security in angular?
+     Below are the best practices of security in angular,
+
+     1. Use the latest Angular library releases
+     2. Don't modify your copy of Angular
+     3. Avoid Angular APIs marked in the documentation as “Security Risk.”
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+162. ### What is Angular security model for preventing XSS attacks?
+    Angular treats all values as untrusted by default. i.e, Angular sanitizes and escapes untrusted values When a value is inserted into the DOM from a template, via property, attribute, style, class binding, or interpolation.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+163. ### What is the role of template compiler for prevention of XSS attacks?
+     The offline template compiler prevents vulnerabilities caused by template injection, and greatly improves application performance. So it is recommended to use offline template compiler in production deployments without dynamically generating any template.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+164. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+165. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+166. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+167. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+168. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+169. ### ?
+
+    **[⬆ Back to Top](#table-of-contents)**
 
 
