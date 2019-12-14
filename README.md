@@ -172,8 +172,8 @@
 |164| [What are the various security contexts in Angular?](#what-are-the-various-security-contexts-in-Angular)|
 |165| [What is Sanitization? Is angular supports it?](#what-is-sanitization?Is-angular-supports-it)|
 |166| [What is the purpose of innerHTML?](#what-is-the-purpose-of-innerhtml)|
-|167| [](#)|
-|168| [](#)|
+|167| [What is the difference between interpolated content and innerHTML?](#what-is-the-difference-between-interpolated-content-and-innerhtml)|
+|168| [How do you prevent automatic sanitization?](#how-do-you-prevent-automatic-sanitization)|
 |169| [](#)|
 |170| [](#)|
 
@@ -2539,11 +2539,40 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-167. ### ?
-
+167. ### What is the difference between interpolated content and innerHTML?
+     The main difference between interpolated and innerHTML code is the behavior of code interpreted. Interpolated content is always escaped i.e,  HTML isn't interpreted and the browser displays angle brackets in the element's text content. Where as in innerHTML binding, the content is interpreted i.e, the browser will convert < and > characters as HTMLEntities. For example, the usage in template would be as below,
+     ```html
+     <p>Interpolated value:</p>
+     <div >{{htmlSnippet}}</div>
+     <p>Binding of innerHTML:</p>
+     <div [innerHTML]="htmlSnippet"></div>
+     ```
+     and the property defined in a component.
+     ```javascript
+     export class InnerHtmlBindingComponent {
+       htmlSnippet = 'Template <script>alert("XSS Attack")</script> <b>Code attached</b>';
+     }
+     ```
+     Even though innerHTML binding create a chance of XSS attack, Angular recognizes the value as unsafe and automatically sanitizes it.
      **[⬆ Back to Top](#table-of-contents)**
 
-168. ### ?
+168. ### How do you prevent automatic sanitization?
+     Sometimes the applications genuinely need to include executable code such as displaying <iframe> from an URL. In this case, you need to prevent automatic sanitization in Angular by saying that you inspected a value, checked how it was generated, and made sure it will always be secure. Basically it involves 2 steps,
+     i. Inject DomSanitizer: You can inject DomSanitizer in component as parameter in constructor
+     ii. Mark the trusted value by calling some of the below methods
+
+     1. bypassSecurityTrustHtml
+     2. bypassSecurityTrustScript
+     3. bypassSecurityTrustStyle
+     4. bypassSecurityTrustUrl
+     5. bypassSecurityTrustResourceUrl
+
+     For example,The  usage of dagerous url to trusted url would be as below,
+     ```javascript
+     constructor(private sanitizer: DomSanitizer) {
+       this.dangerousUrl = 'javascript:alert("XSS attack")';
+       this.trustedUrl = sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
