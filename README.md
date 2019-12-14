@@ -2375,10 +2375,10 @@
      2. NgZone.run(callback): It evaluate the callback function inside the Angular zone.
      3. ChangeDetectorRef.detectChanges(): It detects only the components and it's children.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 152. ### What are the differences of various versions of Angular?
-    There are different versions of Angular framework. Let's see the features of all the various versions,
+     There are different versions of Angular framework. Let's see the features of all the various versions,
 
      1. Angular 1
         • Angular 1 (AngularJS) is the first angular framework released in the year 2010.
@@ -2416,7 +2416,7 @@
         • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the           user and the CLI
         • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS           styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
 
-     **[⬆ Back to Top](#table-of-contents)**
+      **[⬆ Back to Top](#table-of-contents)**
 
 153. ### What are the security principles in angular?
 		1.	You should avoid direct use of the DOM APIs.
@@ -2498,17 +2498,17 @@
      2. Don't modify your copy of Angular
      3. Avoid Angular APIs marked in the documentation as “Security Risk.”
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 162. ### What is Angular security model for preventing XSS attacks?
-    Angular treats all values as untrusted by default. i.e, Angular sanitizes and escapes untrusted values When a value is inserted into the DOM from a template, via property, attribute, style, class binding, or interpolation.
+     Angular treats all values as untrusted by default. i.e, Angular sanitizes and escapes untrusted values When a value is inserted into the DOM from a template, via property, attribute, style, class binding, or interpolation.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 163. ### What is the role of template compiler for prevention of XSS attacks?
      The offline template compiler prevents vulnerabilities caused by template injection, and greatly improves application performance. So it is recommended to use offline template compiler in production deployments without dynamically generating any template.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 164. ### What are the various security contexts in Angular?
      Angular defines the following security contexts for sanitization,
@@ -2517,12 +2517,12 @@
      3. **URL:** It is used for URL properties such as <a href>.
      4. **Resource URL:** It is a URL that will be loaded and executed as code such as <script src>.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 165. ### What is Sanitization? Is angular supports it?
      **Sanitization** is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM. Yes, Angular suppports sanitization. It sanitizes untrusted values for HTML, styles, and URLs but sanitizing resource URLs isn't possible because they contain arbitrary code.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 166. ### What is the purpose of innerHTML?
      The innerHtml is a property of HTML-Elements, which allows you to set it's html-content programatically. Let's display the below html code snippet in a <div> tag as below using innerHTML binding,
@@ -2537,18 +2537,18 @@
      ```
      Unfortunately this property could cause Cross Site Scripting (XSS) security bugs when improperly handled.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 167. ### ?
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 168. ### ?
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 169. ### ?
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 
