@@ -174,8 +174,8 @@
 |166| [What is the purpose of innerHTML?](#what-is-the-purpose-of-innerhtml)|
 |167| [What is the difference between interpolated content and innerHTML?](#what-is-the-difference-between-interpolated-content-and-innerhtml)|
 |168| [How do you prevent automatic sanitization?](#how-do-you-prevent-automatic-sanitization)|
-|169| [](#)|
-|170| [](#)|
+|169| [Is safe to use direct DOM API methods in terms of security?](#is-safe-to-use-direct-dom-api-methods-in-terms-of-security)|
+|170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
 
 1. ### What is Angular Framework?
 
@@ -2576,8 +2576,132 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-169. ### ?
+169. ### Is safe to use direct DOM API methods in terms of security?
+     No,the built-in browser DOM APIs or methods don't automatically protect you from security vulnerabilities. In this case it is recommended to use Angular templates instead of directly interacting with DOM. If it is unavoidable then use the built-in Angular sanitization functions.
 
      **[⬆ Back to Top](#table-of-contents)**
 
+170. ### What is DOM sanitizer?
+     DomSanitizer is used to help preventing Cross Site Scripting Security bugs (XSS) by sanitizing values to be safe to use in the different DOM contexts.
 
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+171. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+172. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+173. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+174. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+175. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+176. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+177. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+178. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+179. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+180. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+181. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+182. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+183. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+184. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+185. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+186. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+187. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+188. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+189. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+190. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+191. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+192. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+193. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+194. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+195. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+196. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+197. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+198. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+199. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+200. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
