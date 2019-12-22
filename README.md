@@ -176,6 +176,8 @@
 |168| [How do you prevent automatic sanitization?](#how-do-you-prevent-automatic-sanitization)|
 |169| [Is safe to use direct DOM API methods in terms of security?](#is-safe-to-use-direct-dom-api-methods-in-terms-of-security)|
 |170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
+|171| [How do you support server side XSS protection in Angular application?](#how-do-you-support-server-side-xss-protection-in-angular-application)
+|172| [Is angular prevents http level vulnerabilities?](#is-angular-prevents-http-level-vulnerabilities)|
 
 1. ### What is Angular Framework?
 
@@ -2584,14 +2586,17 @@
 170. ### What is DOM sanitizer?
      DomSanitizer is used to help preventing Cross Site Scripting Security bugs (XSS) by sanitizing values to be safe to use in the different DOM contexts.
 
+     **[⬆ Back to Top](#table-of-contents)**
+
+171. ### How do you support server side XSS protection in Angular application?
+     The server-side XSS protection is supported in an angular application by using a templating language that automatically escapes values to prevent XSS vulnerabilities on the server. But don't use a templating language to generate Angular templates on the server side which creates a high risk of introducing template-injection vulnerabilities.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-171. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-172. ### ?
+172. ### Is angular prevents http level vulnerabilities?
+     Angular has built-in support for preventing http level vulnerabilities such as as cross-site request forgery (CSRF or XSRF) and cross-site script inclusion (XSSI). Even though these vulnerabilities need to be mitigated on server-side, Angular provides helpers to make the integration easier on the client side.
+     1. HttpClient supports a token mechanism used to prevent XSRF attacks
+     2. HttpClient library recognizes the convention of prefixed JSON responses(which non-executable js code with ")]}',\n" characters) and automatically strips the string ")]}',\n" from all responses before further parsing
 
      **[⬆ Back to Top](#table-of-contents)**
 
