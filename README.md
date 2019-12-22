@@ -178,6 +178,9 @@
 |170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
 |171| [How do you support server side XSS protection in Angular application?](#how-do-you-support-server-side-xss-protection-in-angular-application)
 |172| [Is angular prevents http level vulnerabilities?](#is-angular-prevents-http-level-vulnerabilities)|
+|173| [What are Http Interceptors?](#what-are-http-interceptors)|
+|174| [What are the applications of HTTP interceptors?](#what-are-the-applications-of-http-interceptors)|
+|175| [Is multiple interceptors supported in Angular?](#is-multiple-interceptors-supported-in-angular)|
 
 1. ### What is Angular Framework?
 
@@ -2600,16 +2603,62 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-173. ### ?
+173. ### What are Http Interceptors?
+     Http Interceptors are part of @angular/common/http, which inspect and transform HTTP requests from your application to the server and vice-versa on HTTP responses. These interceptors can perform a variety of implicit tasks, from authentication to logging. The syntax of HttpInterceptor interface looks like as below,
+     ```javascript
+     interface HttpInterceptor {
+       intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+     }
+     ```
+     You can use interceptors by declaring a service class that implements the intercept() method of the HttpInterceptor interface.
+     ```javascript
+     @Injectable()
+     export class MyInterceptor implements HttpInterceptor {
+         constructor() {}
+         intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+             ...
+         }
+     }
+     ```
+     After that you can use it in your module,
+     ```javascript
+     @NgModule({
+         ...
+         providers: [
+             {
+                 provide: HTTP_INTERCEPTORS,
+                 useClass: MyInterceptor,
+                 multi: true
+             }
+         ]
+         ...
+     })
+     export class AppModule {}
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-174. ### ?
+174. ### What are the applications of HTTP interceptors?
+     The HTTP Interceptors can be used for different variety of tasks,
+
+     1. Authentication
+     2. Logging
+     3. Caching
+     4. Fake backend
+     5. URL transformation
+     6. Modifying headers
 
      **[⬆ Back to Top](#table-of-contents)**
 
-175. ### ?
-
+175. ### Is multiple interceptors supported in Angular?
+     Yes, Angular supports multiple interceptors at a time. You could define multiple interceptors in providers property:
+     ```javascript
+     providers: [
+       { provide: HTTP_INTERCEPTORS, useClass: MyFirstInterceptor, multi: true },
+       { provide: HTTP_INTERCEPTORS, useClass: MySecondInterceptor, multi: true }
+     ],
+     ```
+     The interceptors will be called in the order in which they were provided. i.e, MyFirstInterceptor will be called first in the above interceptors configuration.
      **[⬆ Back to Top](#table-of-contents)**
 
 176. ### ?
@@ -2697,16 +2746,4 @@
 
 197. ### ?
 
-     **[⬆ Back to Top](#table-of-contents)**
-
-198. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-199. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-200. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#
