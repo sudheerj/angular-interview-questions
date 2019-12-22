@@ -178,6 +178,7 @@
 |170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
 |171| [How do you support server side XSS protection in Angular application?](#how-do-you-support-server-side-xss-protection-in-angular-application)
 |172| [Is angular prevents http level vulnerabilities?](#is-angular-prevents-http-level-vulnerabilities)|
+|173| [What are Http Interceptors?](#what-are-http-interceptors)|
 
 1. ### What is Angular Framework?
 
@@ -2600,11 +2601,42 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-173. ### ?
+173. ### What are Http Interceptors?
+     Http Interceptors are part of @angular/common/http, which inspect and transform HTTP requests from your application to the server and vice-versa on HTTP responses. These interceptors can perform a variety of implicit tasks, from authentication to logging. The syntax of HttpInterceptor interface looks like as below,
+     ```javascript
+     interface HttpInterceptor {
+       intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+     }
+     ```
+     You can use interceptors by declaring a service class that implements the intercept() method of the HttpInterceptor interface.
+     ```javascript
+     @Injectable()
+     export class MyInterceptor implements HttpInterceptor {
+         constructor() {}
+         intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+             ...
+         }
+     }
+     ```
+     After that you can use it in your module,
+     ```javascript
+     @NgModule({
+         ...
+         providers: [
+             {
+                 provide: HTTP_INTERCEPTORS,
+                 useClass: MyInterceptor,
+                 multi: true
+             }
+         ]
+         ...
+     })
+     export class AppModule {}
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-174. ### ?
+174. ### What are the applications of HTTP interceptors?
 
      **[⬆ Back to Top](#table-of-contents)**
 
