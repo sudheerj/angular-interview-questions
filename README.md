@@ -181,6 +181,7 @@
 |173| [What are Http Interceptors?](#what-are-http-interceptors)|
 |174| [What are the applications of HTTP interceptors?](#what-are-the-applications-of-http-interceptors)|
 |175| [Is multiple interceptors supported in Angular?](#is-multiple-interceptors-supported-in-angular)|
+|176| [How can I use interceptor for an entire application?](#how-can-i-use-interceptor-for-an-entire-application)|
 
 1. ### What is Angular Framework?
 
@@ -2661,7 +2662,38 @@
      The interceptors will be called in the order in which they were provided. i.e, MyFirstInterceptor will be called first in the above interceptors configuration.
      **[⬆ Back to Top](#table-of-contents)**
 
-176. ### ?
+176. ### How can I use interceptor for an entire application?
+     You can use same instance of `HttpInterceptors` for the entire app by importing the `HttpClientModule` only in your AppModule, and add the interceptors to the root application injector.
+     For example, let's define a class that is injectable in root application.
+      ```javascript
+      @Injectable()
+      export class MyInterceptor implements HttpInterceptor {
+        intercept(
+          req: HttpRequest<any>,
+          next: HttpHandler
+        ): Observable<HttpEvent<any>> {
+
+          return next.handle(req).do(event => {
+            if (eventt instanceof HttpResponse) {
+                 // Code goes here
+            }
+          });
+
+        }
+      }
+      ```
+     After that import HttpClientModule in AppModule
+     ```javascript
+     @NgModule({
+       declarations: [AppComponent],
+       imports: [BrowserModule, HttpClientModule],
+       providers: [
+         { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+       ],
+       bootstrap: [AppComponent]
+     })
+     export class AppModule {}
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2746,4 +2778,16 @@
 
 197. ### ?
 
-     **[⬆ Back to Top](#
+     **[⬆ Back to Top](#table-of-contents)**
+
+198. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+199. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+200. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
