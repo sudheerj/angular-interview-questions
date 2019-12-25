@@ -182,6 +182,30 @@
 |174| [What are the applications of HTTP interceptors?](#what-are-the-applications-of-http-interceptors)|
 |175| [Is multiple interceptors supported in Angular?](#is-multiple-interceptors-supported-in-angular)|
 |176| [How can I use interceptor for an entire application?](#how-can-i-use-interceptor-for-an-entire-application)|
+|177| [How does Angular simplifies Internationalization?](#how-does-angular-simplifies-internationalization)|
+|178| [How do you manually register locale data?](#how-do-you-manually-register-locale-data)|
+|179| [What are the four phases of template translation?](#what-are-the-four-phases-of-template-translation)|
+|180| [What is the purpose of i18n attribute?](#what-is-the-purpose-of-i18n-attribute)|
+|181| [](#)|
+|182| [](#)|
+|183| [](#)|
+|184| [](#)|
+|185| [](#)|
+|186| [](#)|
+|187| [](#)|
+|188| [](#)|
+|189| [](#)|
+|190| [](#)|
+|191| [](#)|
+|192| [](#)|
+|193| [](#)|
+|194| [](#)|
+|195| [](#)|
+|196| [](#)|
+|197| [](#)|
+|198| [](#)|
+|199| [](#)|
+|200| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -2697,19 +2721,68 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-177. ### ?
+177. ### How does Angular simplifies Internationalization?
+
+     Angular simplifies the below areas of internationalization,
+     1. Displaying dates, number, percentages, and currencies in a local format.
+     2. Preparing text in component templates for translation.
+     3. Handling plural forms of words.
+     4. Handling alternative text.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-178. ### ?
+178. ### How do you manually register locale data?
+     By default, Angular only contains locale data for en-US which is English as spoken in the United States of America . But if you want to set to another locale, you must import locale data for that new locale. After that you can register using `registerLocaleData` method and the syntax of this method looks like below,
+     ```javascript
+     registerLocaleData(data: any, localeId?: any, extraData?: any): void
+     ```
+     For example, let us import German locale and register it in the application
+     ```javascript
+     import { registerLocaleData } from '@angular/common';
+     import localeDe from '@angular/common/locales/de';
+
+     registerLocaleData(localeDe, 'de');
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-179. ### ?
+179. ### What are the four phases of template translation?
+     The i18n template translation process has four phases:
+
+     1. **Mark static text messages in your component templates for translation:** You can place i18n on every element tag whose fixed text is to be translated. For example, you need i18n attribue for heading as below,
+     ```javascript
+     <h1 i18n>Hello i18n!</h1>
+     ```
+
+     2. **Create a translation file:** Use the Angular CLI xi18n command to extract the marked text into an industry-standard translation source file. i.e, Open terminal window at the root of the app project and run the CLI command xi18n.
+     ```bash
+     ng xi18n
+     ```
+     The above command creates a file named `messages.xlf` in your project's root directory.
+     **Note:** You can supply command options to change the format, the name, the location, and the source locale of the extracted file.
+
+     3. **Edit the generated translation file:** Translate the extracted text into the target language. In this step, create a localization folder (such as `locale`)under root directory(src) and then create target language translation file by copying and renaming the default messages.xlf file. You need to copy source text node and provide the translation under target tag.
+     For example, create the translation file(messages.de.xlf) for German language
+     ```javascript
+     <trans-unit id="greetingHeader" datatype="html">
+       <source>Hello i18n!</source>
+       <target>Hallo i18n !</target>
+       <note priority="1" from="description">A welcome header for this sample</note>
+       <note priority="1" from="meaning">welcome message</note>
+     </trans-unit>
+     ```
+
+     4. **Merge the completed translation file into the app:** You need to use Angular CLI build command to compile the app, choosing a locale-specific configuration, or specifying the following command options.
+            1. --i18nFile=path to the translation file
+            2. --i18nFormat=format of the translation file
+            3. --i18nLocale= locale id
 
      **[⬆ Back to Top](#table-of-contents)**
 
-180. ### ?
+180. ### What is the purpose of i18n attribute?
+     The Angular i18n attribute marks translatable content. It is a custom attribute, recognized by Angular tools and compilers. The compiler removes it after translation.
+     **Note:** Remember that i18n is not an Angular directive.
+
 
      **[⬆ Back to Top](#table-of-contents)**
 
