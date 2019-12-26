@@ -186,10 +186,10 @@
 |178| [How do you manually register locale data?](#how-do-you-manually-register-locale-data)|
 |179| [What are the four phases of template translation?](#what-are-the-four-phases-of-template-translation)|
 |180| [What is the purpose of i18n attribute?](#what-is-the-purpose-of-i18n-attribute)|
-|181| [](#)|
-|182| [](#)|
-|183| [](#)|
-|184| [](#)|
+|181| [What is the purpose of custom id?](#what-is-the-purpose-of-custom-id)|
+|182| [What happens if the custom id is not unique?](#what-happens-if-the-custom-id-is-not-unique)|
+|183| [Can I translate text without creating an element?](#can-i-translate-text-without-creating-an-element)|
+|184| [How can I translate attribute?](#how-can-i-translate-attribute)|
 |185| [](#)|
 |186| [](#)|
 |187| [](#)|
@@ -2786,19 +2786,55 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-181. ### ?
+181. ### What is the purpose of custom id?
+     When you change the translatable text, the Angular extractor tool generates a new id for that translation unit. Because of this behavior, you must then update the translation file with the new id every time.
+     For example, the translation file `messages.de.xlf.html` has generated trans-unit for some text message as below
+     ```html
+     <trans-unit id="827wwe104d3d69bf669f823jjde888" datatype="html">
+     ```
+     You can avoid this manual update of `id` attribute by specifying a custom id in the i18n attribute by using the prefix @@.
+     ```javascript
+     <h1 i18n="@@welcomeHeader">Hello i18n!</h1>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-182. ### ?
+182. ### What happens if the custom id is not unique?
+     You need to define custom ids as unique. If you use the same id for two different text messages then only the first one is extracted. But its translation is used in place of both original text messages. For example, let's define same custom id `myCustomId` for two messages,
+     ```html
+     <h2 i18n="@@myCustomId">Good morning</h3>
+     <!-- ... -->
+     <h2 i18n="@@myCustomId">Good night</p>
+     ```
+     and the translation unit generated for first text in for German language as
+     ```html
+     <trans-unit id="myId" datatype="html">
+       <source>Good morning</source>
+       <target state="new">Guten Morgen</target>
+     </trans-unit>
+     ```
+     Since custom id is the same, both of the elements in the translation contain the same text as below
+     ```html
+     <h2>Guten Morgen</h2>
+     <h2>Guten Morgen</h2>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-183. ### ?
-
+183. ### Can I translate text without creating an element?
+     Yes, you can achieve using `<ng-container>` attribute. Normally you need to wrap a text content with i18n attribute for the translation. But if you don't want to create a new DOM element just for the sake of translation, you can wrap the text in an <ng-container> element.
+     ```html
+     <ng-container i18n>I'm not using any DOM element for translation</ng-container>
+     ```
+     Remember that `<ng-container>` is transformed into an html comment
      **[⬆ Back to Top](#table-of-contents)**
 
-184. ### ?
+184. ### How can I translate attribute?
+     You can translate attributes by attaching `i18n-x` attribute  where x is the name of the attribute to translate. For example, you can translate image title attribute as below,
+     ```html
+     <img [src]="example" i18n-title title="Internationlization" />
+     ```
+     By the way, you can also assign meaning, description and id with the i18n-x="<meaning>|<description>@@<id>" syntax.
 
      **[⬆ Back to Top](#table-of-contents)**
 
