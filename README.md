@@ -190,8 +190,8 @@
 |182| [What happens if the custom id is not unique?](#what-happens-if-the-custom-id-is-not-unique)|
 |183| [Can I translate text without creating an element?](#can-i-translate-text-without-creating-an-element)|
 |184| [How can I translate attribute?](#how-can-i-translate-attribute)|
-|185| [](#)|
-|186| [](#)|
+|185| [List down the pluralization categories?](#list-down-the-pluralization-categories)|
+|186| [What is select ICU expression?](#what-is-select-icu-expression)|
 |187| [](#)|
 |188| [](#)|
 |189| [](#)|
@@ -2838,11 +2838,24 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-185. ### ?
+185. ### List down the pluralization categories?
+     Pluralization has below categories depending on the language.
+     1. =0 (or any other number)
+     2. zero
+     3. one
+     4. two
+     5. few
+     6. many
+     7. other
 
      **[⬆ Back to Top](#table-of-contents)**
 
-186. ### ?
+186. ### What is select ICU expression?
+     ICU expression is is similar to the plural expressions except that you choose among alternative translations based on a string value instead of a number. Here you define those string values.
+     Let's take component binding with `residenceStatus` property which has "citizen", "permanent resident" and "foreigner" possible values and the message maps those values to the appropriate translations.
+     ```javascript
+     <span i18n>The person is {residenceStatus, select, citizen {citizen} permanent resident {permanentResident} foreigner {foreigner}}</span>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
