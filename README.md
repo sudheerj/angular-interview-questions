@@ -192,8 +192,8 @@
 |184| [How can I translate attribute?](#how-can-i-translate-attribute)|
 |185| [List down the pluralization categories?](#list-down-the-pluralization-categories)|
 |186| [What is select ICU expression?](#what-is-select-icu-expression)|
-|187| [](#)|
-|188| [](#)|
+|187| [How do you report missing translations?](#how-do-you-report-missing-translations)|
+|188| [How do you provide build configuration for multiple locales?](#how-do-you-provide-build-configuration-for-multiple-locales)|
 |189| [](#)|
 |190| [](#)|
 |191| [](#)|
@@ -2859,10 +2859,49 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-187. ### ?
+187. ### How do you report missing translations?
+     By default, When translation is missing, it generates a warning message such as "Missing translation for message 'somekey'". But you can configure with a different level of message in Angular compiler as below,
+     1. **Error:** It throws an error. If you are using AOT compilation, the build will fail. But if you are using JIT compilation, the app will fail to load.
+     2. **Warning (default):** It shows a 'Missing translation' warning in the console or shell.
+     3. **Ignore:** It doesn't do anything.
+     If you use AOT compiler then you need to perform changes in `configurations` section of your Angular CLI configuration file, angular.json.
+     ```javascript
+     "configurations": {
+       ...
+       "de": {
+         ...
+         "i18nMissingTranslation": "error"
+       }
+     }
+     ```
+     If you use the JIT compiler, specify the warning level in the compiler config at bootstrap by adding the 'MissingTranslationStrategy' property as below,
+     ```javascript
+     import { MissingTranslationStrategy } from '@angular/core';
+     import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+     import { AppModule } from './app/app.module';
 
+     platformBrowserDynamic().bootstrapModule(AppModule, {
+       missingTranslation: MissingTranslationStrategy.Error,
+       providers: [
+         // ...
+       ]
+     });
+     ```
      **[⬆ Back to Top](#table-of-contents)**
-188. ### ?
+188. ### How do you provide build configuration for multiple locales?
+     You can provide build configuration such as translation file path, name, format and application url in `configuration` settings of Angular.json file. For example, the German version of your application configured the build as follows,
+     ```javascript
+     "configurations": {
+       "de": {
+         "aot": true,
+         "outputPath": "dist/my-project-de/",
+         "baseHref": "/fr/",
+         "i18nFile": "src/locale/messages.de.xlf",
+         "i18nFormat": "xlf",
+         "i18nLocale": "de",
+         "i18nMissingTranslation": "error",
+       }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
