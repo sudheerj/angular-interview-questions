@@ -194,7 +194,7 @@
 |186| [What is select ICU expression?](#what-is-select-icu-expression)|
 |187| [How do you report missing translations?](#how-do-you-report-missing-translations)|
 |188| [How do you provide build configuration for multiple locales?](#how-do-you-provide-build-configuration-for-multiple-locales)|
-|189| [](#)|
+|189| [What is an angular library?](#what-is-an-angular-library)|
 |190| [](#)|
 |191| [](#)|
 |192| [](#)|
@@ -2905,7 +2905,9 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-189. ### ?
+189. ### What is an angular library?
+     An Angular library is an Angular project that differs from an app in that it cannot run on its own. It must be imported and used in an app. For example,  you can import or add `service worker` library to an Angular application which turns an application into a Progressive Web App (PWA).
+     **Note:** You can create own third party library and publish it as npm package to be used in an Application.
 
      **[⬆ Back to Top](#table-of-contents)**
 
