@@ -195,7 +195,7 @@
 |187| [How do you report missing translations?](#how-do-you-report-missing-translations)|
 |188| [How do you provide build configuration for multiple locales?](#how-do-you-provide-build-configuration-for-multiple-locales)|
 |189| [What is an angular library?](#what-is-an-angular-library)|
-|190| [](#)|
+|190| [What is AOT compiler?](#what-is-aot-compiler)|
 |191| [](#)|
 |192| [](#)|
 |193| [](#)|
@@ -2911,7 +2911,8 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-190. ### ?
+190. ### What is AOT compiler?
+     The AOT compiler is part of a build process that produces a small, fast, ready-to-run application package, typically for production. It converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code.
 
      **[⬆ Back to Top](#table-of-contents)**
 
