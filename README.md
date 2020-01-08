@@ -196,9 +196,9 @@
 |188| [How do you provide build configuration for multiple locales?](#how-do-you-provide-build-configuration-for-multiple-locales)|
 |189| [What is an angular library?](#what-is-an-angular-library)|
 |190| [What is AOT compiler?](#what-is-aot-compiler)|
-|191| [](#)|
-|192| [](#)|
-|193| [](#)|
+|191| [How do you select an element in component template?](#how-do-you-select-an-element-in-component-template)|
+|192| [What is TestBed?](#what-is-testbed)|
+|193| [What is protractor?](#what-is-protractor)|
 |194| [](#)|
 |195| [](#)|
 |196| [](#)|
@@ -2916,15 +2916,26 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-191. ### ?
+191. ### How do you select an element in component template?
+     You can control any DOM element via ElementRef by injecting it into your component's constructor. i.e, The component should have constructor with ElementRef parameter,
+     ```javascript
+     constructor(myElement: ElementRef) {
+        el.nativeElement.style.backgroundColor = 'yellow';
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-192. ### ?
+192. ### What is TestBed?
+     TestBed is an api for writing unit tests for Angular applications and it's libraries. Even though We still write our tests in Jasmine and run using Karma, this API provides an easier way to create components, handle injection, test asynchronous behaviour and interact with our application.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-193. ### ?
+193. ### What is protractor?
+     Protractor is an end-to-end test framework for Angular and AngularJS applications. It runs tests against your application running in a real browser, interacting with it as a user would.
+     ```javascript
+     npm install -g protractor
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
