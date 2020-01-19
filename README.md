@@ -201,8 +201,8 @@
 |193| [What is protractor?](#what-is-protractor)|
 |194| [What is collection?](#what-is-collection)|
 |195| [How do you create schematics for libraries?](#how-do-you-create-schematics-for-libraries)|
-|196| [](#)|
-|197| [](#)|
+|196| [How do you use jquery in Angular?](#how-do-you-use-jquery-in-angular)|
+|197| [What is the reason for No provider for HTTP exception?](#what-is-the-reason-for-no-provider-for-http-exception)|
 |198| [](#)|
 |199| [](#)|
 |200| [](#)|
@@ -2955,11 +2955,60 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-196. ### ?
+196. ### How do you use jquery in Angular?
+     You can use jquery in Angular using 3 simple steps,
+     1. Install the dependency: At first, install the jquery dependency using npm
+     ```cmd
+        npm install --save jquery
+     ```
+     2. Add the jquery script: In Angular-CLI project, add the relative path to jquery in the angular.json file.
+     ```javascript
+     "scripts": [
+        "node_modules/jquery/dist/jquery.min.js"
+     ]
+     ```
+     3. Start using jquery: Define the element in template. Whereas declare the jquery variable and apply CSS classes on the element.
+     ```html
+     <div id="elementId">
+       <h1>JQuery integration</h1>
+     </div>
+     ```
+     ```javascript
+     import {Component, OnInit} from '@angular/core';
+
+     declare var $: any; // (or) import * as $ from 'jquery';
+
+     @Component({
+       selector: 'app-root',
+       templateUrl: './app.component.html',
+       styleUrls: ['./app.component.css']
+     })
+     export class AppComponent implements OnInit {
+       ngOnInit(): void {
+         $(document).ready(() => {
+           $('#elementId').css({'text-color': 'blue', 'font-size': '150%'});
+         });
+       }
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-197. ### ?
+197. ### What is the reason for No provider for HTTP exception?
+     This exception is due to missing HttpClientModule in your module. You just need to import in module as below,
+     ```javascript
+     import { HttpClientModule } from '@angular/common/http';
+
+     @NgModule({
+       imports: [
+         BrowserModule,
+         HttpClientModule,
+       ],
+       declarations: [ AppComponent ],
+       bootstrap:    [ AppComponent ]
+     })
+     export class AppModule { }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
