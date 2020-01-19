@@ -199,8 +199,8 @@
 |191| [How do you select an element in component template?](#how-do-you-select-an-element-in-component-template)|
 |192| [What is TestBed?](#what-is-testbed)|
 |193| [What is protractor?](#what-is-protractor)|
-|194| [](#)|
-|195| [](#)|
+|194| [What is collection?](#what-is-collection)|
+|195| [How do you create schematics for libraries?](#how-do-you-create-schematics-for-libraries)|
 |196| [](#)|
 |197| [](#)|
 |198| [](#)|
@@ -2939,11 +2939,19 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-194. ### ?
+194. ### What is collection?
+     Collection is a set of related schematics collected in an npm package. For example, `@schematics/angular` collection is used in Angular CLI to apply transforms to a web-app project. You can create your own schematic collection for customizing angular projects.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-195. ### ?
+195. ### How do you create schematics for libraries?
+     You can create your own schematic collections to integrate your library with the Angular CLI. These collections are classified as 3 main schematics,
+     1. **Add schematics:** These schematics are used to install library in an Angular workspace using `ng add` command.
+        For example, @angular/material schematic tells the add command to install and set up Angular Material and theming.
+     2. **Generate schematics**: These schematics are used to modify projects, add configurations and scripts, and scaffold artifacts in library using `ng generate` command.
+        For example, @angular/material generation schematic supplies generation schematics for the UI components. Let's say the table component is generated using `ng generate @angular/material:table `.
+     3. **Update schematics:** These schematics are used to update library's dependencies and adjust for breaking changes in a new library release using `ng update` command.
+        For example, @angular/material update schematic updates material and cdk dependencies using `ng update @angular/material` command.
 
      **[⬆ Back to Top](#table-of-contents)**
 
