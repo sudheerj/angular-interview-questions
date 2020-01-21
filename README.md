@@ -204,7 +204,7 @@
 |196| [How do you use jquery in Angular?](#how-do-you-use-jquery-in-angular)|
 |197| [What is the reason for No provider for HTTP exception?](#what-is-the-reason-for-no-provider-for-http-exception)|
 |198| [](#)|
-|199| [](#)|
+|199| [How can I use SASS in angular project?](#how-can-i-use-sass-in-angular-project)|
 |200| [](#)|
 
 1. ### What is Angular Framework?
@@ -2443,8 +2443,8 @@
         • TypeScript 3.1
         • RxJS 6.3
         • New Angular CLI
-        • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the           user and the CLI
-        • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS           styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
+        • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the user and the CLI
+        • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
 
       **[⬆ Back to Top](#table-of-contents)**
 
@@ -3012,12 +3012,19 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-198. ### ?
+198. ### How do you determine active route?
 
      **[⬆ Back to Top](#table-of-contents)**
 
-199. ### ?
-
+199. ### How can I use SASS in angular project?
+     When you are creating your project with angular cli, you can use `ng new`command. It generates all your components with predefined sass files.
+     ```javascript
+     ng new My_New_Project --style=sass
+     ```
+     But if you are changing your existing style in your project then use `ng set` command,
+     ```javascript
+     ng set defaults.styleExt scss
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
 200. ### ?
