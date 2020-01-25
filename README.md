@@ -207,6 +207,7 @@
 |199| [How can I use SASS in angular project?](#how-can-i-use-sass-in-angular-project)|
 |200| [What is the purpose of hidden property?](#what-is-the-purpose-of-hidden-property)|
 |201| [What is the difference between ngIf and hidden property?](#what-is-the-difference-between-ngif-and-hidden-property)|
+|202| [What is slice pipe?](#what-is-slice-pipe)|
 
 1. ### What is Angular Framework?
 
@@ -3047,3 +3048,25 @@
 
 201. ### What is the difference between ngIf and hidden property?
      The main difference is that *ngIf will remove the element from the DOM, while [hidden] actually plays with the CSS style by setting `display:none`. Generally it is expensive to add and remove stuff from the DOM for frequent actions.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+202. ### What is slice pipe?
+     The slice pipe is used to create a new Array or String containing a subset (slice) of the elements. The syntax looks like as below,
+     ```javascript
+     {{ value_expression | slice : start [ : end ] }}
+     ```
+     For example, you can provide 'hello' list based on a greeting array,
+     ```javascript
+     @Component({
+       selector: 'list-pipe',
+       template: `<ul>
+         <li *ngFor="let i of greeting | slice:0:5">{{i}}</li>
+       </ul>`
+     })
+     export class PipeListComponent {
+       greeting: string[] = ['h', 'e', 'l', 'l', 'o', 'm','o', 'r', 'n', 'i', 'n', 'g'];
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
