@@ -203,9 +203,10 @@
 |195| [How do you create schematics for libraries?](#how-do-you-create-schematics-for-libraries)|
 |196| [How do you use jquery in Angular?](#how-do-you-use-jquery-in-angular)|
 |197| [What is the reason for No provider for HTTP exception?](#what-is-the-reason-for-no-provider-for-http-exception)|
-|198| [](#)|
+|198| [What is router state?](#what-is-router-state)|
 |199| [How can I use SASS in angular project?](#how-can-i-use-sass-in-angular-project)|
-|200| [](#)|
+|200| [What is the purpose of hidden property?](#what-is-the-purpose-of-hidden-property)|
+|201| [What is the difference between ngIf and hidden property?](#what-is-the-difference-between-ngif-and-hidden-property)|
 
 1. ### What is Angular Framework?
 
@@ -3012,7 +3013,15 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-198. ### How do you determine active route?
+198. ### What is router state?
+     The RouteState is an interface which represents the state of the router as a tree of activated routes.
+     ```javascript
+     interface RouterState extends Tree {
+       snapshot: RouterStateSnapshot
+       toString(): string
+     }
+     ```
+     You can access the current RouterState from anywhere in the Angular app using the Router service and the routerState property.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3027,6 +3036,14 @@
      ```
      **[⬆ Back to Top](#table-of-contents)**
 
-200. ### ?
-
+200. ### What is the purpose of hidden property?
+     The hidden property is used  to show or hide the associated DOM element, based on an expression. It can be compared close to `ng-show` directive in AngularJS. Let's say you want to show user name based on the availability of user using `hidden` property.
+     ```javascript
+     <div [hidden]="!user.name">
+       My name is: {{user.name}}
+     </div>
+     ```
      **[⬆ Back to Top](#table-of-contents)**
+
+201. ### What is the difference between ngIf and hidden property?
+     The main difference is that *ngIf will remove the element from the DOM, while [hidden] actually plays with the CSS style by setting `display:none`. Generally it is expensive to add and remove stuff from the DOM for frequent actions.
