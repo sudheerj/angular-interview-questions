@@ -208,6 +208,14 @@
 |200| [What is the purpose of hidden property?](#what-is-the-purpose-of-hidden-property)|
 |201| [What is the difference between ngIf and hidden property?](#what-is-the-difference-between-ngif-and-hidden-property)|
 |202| [What is slice pipe?](#what-is-slice-pipe)|
+|203| [What is index property in ngFor directive?](#what-is-index-property-in-ngfor-directive)|
+|204| [What is the purpose of ngFor trackBy?](#what-is-the-purpose-of-ngfor-trackby)|
+|205| [](#)|
+|206| [](#)|
+|207| [](#)|
+|208| [](#)|
+|209| [](#)|
+|210| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -3068,5 +3076,41 @@
        greeting: string[] = ['h', 'e', 'l', 'l', 'o', 'm','o', 'r', 'n', 'i', 'n', 'g'];
      }
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+203. ### What is index property in ngFor directive?
+     The index property of the NgFor directive is used to return the zero-based index of the item in each iteration. You can capture the index in a template input variable and use it in the template. For example, you can capture the index in a variable named indexVar and displays it with the todo's name using ngFor directive as below.
+     ```javascript
+     <div *ngFor="let todo of todos; let i=index">{{i + 1}} - {{todo.name}}</div>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+204. ### What is the purpose of ngFor trackBy?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+205. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+206. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+207. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+208. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+209. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+210. ### ?
 
      **[⬆ Back to Top](#table-of-contents)**
