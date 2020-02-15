@@ -214,8 +214,8 @@
 |206| [Is it possible to do aliasing for inputs and outputs?](#is-it-possible-to-do-aliasing-for-inputs-and-outputs)|
 |207| [What is safe navigation operator?](#what-is-safe-navigation-operator)|
 |208| [Is any special configuration required for Angular9?](#is-any-special-configuration-required-for-angular9)|
-|209| [](#)|
-|210| [](#)|
+|209| [What are type safe TestBed API changes in Angular9?](#what-are-type-safe-testbed-api-changes-in-angular9)|
+|210| [Is mandatory to pass static flag for ViewChild?](#is-mandatory-to-pass-static-flag-for-viewchild)|
 
 1. ### What is Angular Framework?
 
@@ -3148,10 +3148,21 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-209. ### ?
+209. ### What are type safe TestBed API changes in Angular9?
+     Angular 9 provides type safe changes in TestBed API changes by replacing the old get function with the new inject method. Because TestBed.get method is not type-safe. The usage would be as below,
+     ```javascript
+     TestBed.get(ChangeDetectorRef) // returns any. It is deprecated now.
+
+     TestBed.inject(ChangeDetectorRef) // returns ChangeDetectorRef
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-210. ### ?
+210. ### Is mandatory to pass static flag for ViewChild?
+     In Angular 8, the static flag is required for ViewChild. Whereas in Angular9, you no longer need to pass this property. Once you updated to Angular9 using `ng update`, the migration will remove { static: false } script everywhere.
+     ```javascript
+     @ViewChild(ChildDirective) child: ChildDirective; // Angular9 usage
+     @ViewChild(ChildDirective, { static: false }) child: ChildDirective; //Angular8 usage
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
