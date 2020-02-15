@@ -216,6 +216,8 @@
 |208| [Is any special configuration required for Angular9?](#is-any-special-configuration-required-for-angular9)|
 |209| [What are type safe TestBed API changes in Angular9?](#what-are-type-safe-testbed-api-changes-in-angular9)|
 |210| [Is mandatory to pass static flag for ViewChild?](#is-mandatory-to-pass-static-flag-for-viewchild)|
+|211| [What are the list of template expression operators?](#what-are-the-list-of-template-expression-operators)
+|212| [What is the precedence between pipe and ternary operators??](#what-is-the-precedence-between-pipe-and-ternary-operators)
 
 1. ### What is Angular Framework?
 
@@ -3164,5 +3166,18 @@
      @ViewChild(ChildDirective) child: ChildDirective; // Angular9 usage
      @ViewChild(ChildDirective, { static: false }) child: ChildDirective; //Angular8 usage
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+211. ### What are the list of template expression operators?
+     The Angular template expression language supports three special template expression operators.
+     1. Pipe operator
+     2. Safe navigation operator
+     3. Non-null assertion operator
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+212. ### What is the precedence between pipe and ternary operators?
+     The pipe operator has a higher precedence than the ternary operator (?:). For example, the expression `first ? second : third | fourth` is parsed as `first ? second : (third | fourth)`.
 
      **[⬆ Back to Top](#table-of-contents)**
