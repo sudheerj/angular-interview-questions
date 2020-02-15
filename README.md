@@ -212,8 +212,8 @@
 |204| [What is the purpose of ngFor trackBy?](#what-is-the-purpose-of-ngfor-trackby)|
 |205| [What is the purpose of ngSwitch directive?](#what-is-the-purpose-of-ngswitch-directive)|
 |206| [Is it possible to do aliasing for inputs and outputs?](#is-it-possible-to-do-aliasing-for-inputs-and-outputs)|
-|207| [](#)|
-|208| [](#)|
+|207| [What is safe navigation operator?](#what-is-safe-navigation-operator)|
+|208| [Is any special configuration required for Angular9?](#is-any-special-configuration-required-for-angular9)|
 |209| [](#)|
 |210| [](#)|
 
@@ -3131,11 +3131,20 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-207. ### ?
+207. ### What is safe navigation operator?
+     The safe navigation operator(?)(or known as Elvis Operator) is used to guard against `null` and `undefined` values in property paths when you are not aware whether a path exists or not. i.e. It returns value of the object path if it exists, else it returns the null value. For example, you can access nested properties of a user profile easily without null reference errors as below,
+     ```javascript
+     <p>The user firstName is: {{user?.fullName.firstName}}</p>
+     ```
+     Using this safe navigation operator, Angular framework stops evaluating the expression when it hits the first null value and renders the view without any errors.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-208. ### ?
+208. ### Is any special configuration required for Angular9?
+     You don't need any special configuration. In Angular9, the Ivy renderer is the default Angular compiler. Even though Ivy is available Angular8 itself, you had to configure it in tsconfig.json file as below,
+     ```javascript
+     "angularCompilerOptions": {    "enableIvy": true  }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
