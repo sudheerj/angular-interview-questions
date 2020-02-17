@@ -946,7 +946,7 @@
     };
 
     // Execute with the observer object and Prints out each item
-    myObservable.subscribe(myObserver);
+    source.subscribe(myObserver);
     // => Observer got a next value: 1
     // => Observer got a next value: 2
     // => Observer got a next value: 3
