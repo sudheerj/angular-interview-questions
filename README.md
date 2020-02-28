@@ -212,10 +212,12 @@
 |204| [What is the purpose of ngFor trackBy?](#what-is-the-purpose-of-ngfor-trackby)|
 |205| [What is the purpose of ngSwitch directive?](#what-is-the-purpose-of-ngswitch-directive)|
 |206| [Is it possible to do aliasing for inputs and outputs?](#is-it-possible-to-do-aliasing-for-inputs-and-outputs)|
-|207| [](#)|
-|208| [](#)|
-|209| [](#)|
-|210| [](#)|
+|207| [What is safe navigation operator?](#what-is-safe-navigation-operator)|
+|208| [Is any special configuration required for Angular9?](#is-any-special-configuration-required-for-angular9)|
+|209| [What are type safe TestBed API changes in Angular9?](#what-are-type-safe-testbed-api-changes-in-angular9)|
+|210| [Is mandatory to pass static flag for ViewChild?](#is-mandatory-to-pass-static-flag-for-viewchild)|
+|211| [What are the list of template expression operators?](#what-are-the-list-of-template-expression-operators)
+|212| [What is the precedence between pipe and ternary operators??](#what-is-the-precedence-between-pipe-and-ternary-operators)
 
 1. ### What is Angular Framework?
 
@@ -712,13 +714,13 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 29. ### What is a parameterized pipe?
-    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/mm/yyyy):
+    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/MM/yyyy):
     ```javascript
     import { Component } from '@angular/core';
 
         @Component({
           selector: 'app-birthday',
-          template: `<p>Birthday is {{ birthday | date:'dd/mm/yyyy'}}</p>` // 18/06/1987
+          template: `<p>Birthday is {{ birthday | date:'dd/MM/yyyy'}}</p>` // 18/06/1987
         })
         export class BirthdayComponent {
           birthday = new Date(1987, 6, 18);
@@ -944,7 +946,7 @@
     };
 
     // Execute with the observer object and Prints out each item
-    myObservable.subscribe(myObserver);
+    source.subscribe(myObserver);
     // => Observer got a next value: 1
     // => Observer got a next value: 2
     // => Observer got a next value: 3
@@ -3131,18 +3133,51 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-207. ### ?
+207. ### What is safe navigation operator?
+     The safe navigation operator(?)(or known as Elvis Operator) is used to guard against `null` and `undefined` values in property paths when you are not aware whether a path exists or not. i.e. It returns value of the object path if it exists, else it returns the null value. For example, you can access nested properties of a user profile easily without null reference errors as below,
+     ```javascript
+     <p>The user firstName is: {{user?.fullName.firstName}}</p>
+     ```
+     Using this safe navigation operator, Angular framework stops evaluating the expression when it hits the first null value and renders the view without any errors.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-208. ### ?
+208. ### Is any special configuration required for Angular9?
+     You don't need any special configuration. In Angular9, the Ivy renderer is the default Angular compiler. Even though Ivy is available Angular8 itself, you had to configure it in tsconfig.json file as below,
+     ```javascript
+     "angularCompilerOptions": {    "enableIvy": true  }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-209. ### ?
+209. ### What are type safe TestBed API changes in Angular9?
+     Angular 9 provides type safe changes in TestBed API changes by replacing the old get function with the new inject method. Because TestBed.get method is not type-safe. The usage would be as below,
+     ```javascript
+     TestBed.get(ChangeDetectorRef) // returns any. It is deprecated now.
+
+     TestBed.inject(ChangeDetectorRef) // returns ChangeDetectorRef
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-210. ### ?
+210. ### Is mandatory to pass static flag for ViewChild?
+     In Angular 8, the static flag is required for ViewChild. Whereas in Angular9, you no longer need to pass this property. Once you updated to Angular9 using `ng update`, the migration will remove { static: false } script everywhere.
+     ```javascript
+     @ViewChild(ChildDirective) child: ChildDirective; // Angular9 usage
+     @ViewChild(ChildDirective, { static: false }) child: ChildDirective; //Angular8 usage
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+211. ### What are the list of template expression operators?
+     The Angular template expression language supports three special template expression operators.
+     1. Pipe operator
+     2. Safe navigation operator
+     3. Non-null assertion operator
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+212. ### What is the precedence between pipe and ternary operators?
+     The pipe operator has a higher precedence than the ternary operator (?:). For example, the expression `first ? second : third | fourth` is parsed as `first ? second : (third | fourth)`.
 
      **[⬆ Back to Top](#table-of-contents)**
