@@ -169,13 +169,55 @@
 |161| [What are the best practices for security in angular?](#what-are-the-best-practices-for-security-in-angular)|
 |162| [What is Angular security model for preventing XSS attacks?](#what-is-angular-security-model-for-preventing-xss-attacks)|
 |163| [What is the role of template compiler for prevention of XSS attacks?](#what-is-the-role-of-template-compiler-for-prevention-of-xss-attacks)|
-|164| [](#)|
-|165| [](#)|
-|166| [](#)|
-|167| [](#)|
-|168| [](#)|
-|169| [](#)|
-|170| [](#)|
+|164| [What are the various security contexts in Angular?](#what-are-the-various-security-contexts-in-Angular)|
+|165| [What is Sanitization? Is angular supports it?](#what-is-sanitization?Is-angular-supports-it)|
+|166| [What is the purpose of innerHTML?](#what-is-the-purpose-of-innerhtml)|
+|167| [What is the difference between interpolated content and innerHTML?](#what-is-the-difference-between-interpolated-content-and-innerhtml)|
+|168| [How do you prevent automatic sanitization?](#how-do-you-prevent-automatic-sanitization)|
+|169| [Is safe to use direct DOM API methods in terms of security?](#is-safe-to-use-direct-dom-api-methods-in-terms-of-security)|
+|170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
+|171| [How do you support server side XSS protection in Angular application?](#how-do-you-support-server-side-xss-protection-in-angular-application)
+|172| [Is angular prevents http level vulnerabilities?](#is-angular-prevents-http-level-vulnerabilities)|
+|173| [What are Http Interceptors?](#what-are-http-interceptors)|
+|174| [What are the applications of HTTP interceptors?](#what-are-the-applications-of-http-interceptors)|
+|175| [Is multiple interceptors supported in Angular?](#is-multiple-interceptors-supported-in-angular)|
+|176| [How can I use interceptor for an entire application?](#how-can-i-use-interceptor-for-an-entire-application)|
+|177| [How does Angular simplifies Internationalization?](#how-does-angular-simplifies-internationalization)|
+|178| [How do you manually register locale data?](#how-do-you-manually-register-locale-data)|
+|179| [What are the four phases of template translation?](#what-are-the-four-phases-of-template-translation)|
+|180| [What is the purpose of i18n attribute?](#what-is-the-purpose-of-i18n-attribute)|
+|181| [What is the purpose of custom id?](#what-is-the-purpose-of-custom-id)|
+|182| [What happens if the custom id is not unique?](#what-happens-if-the-custom-id-is-not-unique)|
+|183| [Can I translate text without creating an element?](#can-i-translate-text-without-creating-an-element)|
+|184| [How can I translate attribute?](#how-can-i-translate-attribute)|
+|185| [List down the pluralization categories?](#list-down-the-pluralization-categories)|
+|186| [What is select ICU expression?](#what-is-select-icu-expression)|
+|187| [How do you report missing translations?](#how-do-you-report-missing-translations)|
+|188| [How do you provide build configuration for multiple locales?](#how-do-you-provide-build-configuration-for-multiple-locales)|
+|189| [What is an angular library?](#what-is-an-angular-library)|
+|190| [What is AOT compiler?](#what-is-aot-compiler)|
+|191| [How do you select an element in component template?](#how-do-you-select-an-element-in-component-template)|
+|192| [What is TestBed?](#what-is-testbed)|
+|193| [What is protractor?](#what-is-protractor)|
+|194| [What is collection?](#what-is-collection)|
+|195| [How do you create schematics for libraries?](#how-do-you-create-schematics-for-libraries)|
+|196| [How do you use jquery in Angular?](#how-do-you-use-jquery-in-angular)|
+|197| [What is the reason for No provider for HTTP exception?](#what-is-the-reason-for-no-provider-for-http-exception)|
+|198| [What is router state?](#what-is-router-state)|
+|199| [How can I use SASS in angular project?](#how-can-i-use-sass-in-angular-project)|
+|200| [What is the purpose of hidden property?](#what-is-the-purpose-of-hidden-property)|
+|201| [What is the difference between ngIf and hidden property?](#what-is-the-difference-between-ngif-and-hidden-property)|
+|202| [What is slice pipe?](#what-is-slice-pipe)|
+|203| [What is index property in ngFor directive?](#what-is-index-property-in-ngfor-directive)|
+|204| [What is the purpose of ngFor trackBy?](#what-is-the-purpose-of-ngfor-trackby)|
+|205| [What is the purpose of ngSwitch directive?](#what-is-the-purpose-of-ngswitch-directive)|
+|206| [Is it possible to do aliasing for inputs and outputs?](#is-it-possible-to-do-aliasing-for-inputs-and-outputs)|
+|207| [What is safe navigation operator?](#what-is-safe-navigation-operator)|
+|208| [Is any special configuration required for Angular9?](#is-any-special-configuration-required-for-angular9)|
+|209| [What are type safe TestBed API changes in Angular9?](#what-are-type-safe-testbed-api-changes-in-angular9)|
+|210| [Is mandatory to pass static flag for ViewChild?](#is-mandatory-to-pass-static-flag-for-viewchild)|
+|211| [What are the list of template expression operators?](#what-are-the-list-of-template-expression-operators)
+|212| [What is the precedence between pipe and ternary operators??](#what-is-the-precedence-between-pipe-and-ternary-operators)
 
 1. ### What is Angular Framework?
 
@@ -672,13 +714,13 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 29. ### What is a parameterized pipe?
-    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/mm/yyyy):
+    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/MM/yyyy):
     ```javascript
     import { Component } from '@angular/core';
 
         @Component({
           selector: 'app-birthday',
-          template: `<p>Birthday is {{ birthday | date:'dd/mm/yyyy'}}</p>` // 18/06/1987
+          template: `<p>Birthday is {{ birthday | date:'dd/MM/yyyy'}}</p>` // 18/06/1987
         })
         export class BirthdayComponent {
           birthday = new Date(1987, 6, 18);
@@ -904,7 +946,7 @@
     };
 
     // Execute with the observer object and Prints out each item
-    myObservable.subscribe(myObserver);
+    source.subscribe(myObserver);
     // => Observer got a next value: 1
     // => Observer got a next value: 2
     // => Observer got a next value: 3
@@ -2375,10 +2417,10 @@
      2. NgZone.run(callback): It evaluate the callback function inside the Angular zone.
      3. ChangeDetectorRef.detectChanges(): It detects only the components and it's children.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 152. ### What are the differences of various versions of Angular?
-    There are different versions of Angular framework. Let's see the features of all the various versions,
+     There are different versions of Angular framework. Let's see the features of all the various versions,
 
      1. Angular 1
         • Angular 1 (AngularJS) is the first angular framework released in the year 2010.
@@ -2413,10 +2455,10 @@
         • TypeScript 3.1
         • RxJS 6.3
         • New Angular CLI
-        • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the           user and the CLI
-        • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS           styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
+        • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the user and the CLI
+        • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
 
-     **[⬆ Back to Top](#table-of-contents)**
+      **[⬆ Back to Top](#table-of-contents)**
 
 153. ### What are the security principles in angular?
 		1.	You should avoid direct use of the DOM APIs.
@@ -2498,40 +2540,644 @@
      2. Don't modify your copy of Angular
      3. Avoid Angular APIs marked in the documentation as “Security Risk.”
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 162. ### What is Angular security model for preventing XSS attacks?
-    Angular treats all values as untrusted by default. i.e, Angular sanitizes and escapes untrusted values When a value is inserted into the DOM from a template, via property, attribute, style, class binding, or interpolation.
+     Angular treats all values as untrusted by default. i.e, Angular sanitizes and escapes untrusted values When a value is inserted into the DOM from a template, via property, attribute, style, class binding, or interpolation.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
 163. ### What is the role of template compiler for prevention of XSS attacks?
      The offline template compiler prevents vulnerabilities caused by template injection, and greatly improves application performance. So it is recommended to use offline template compiler in production deployments without dynamically generating any template.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
-164. ### ?
+164. ### What are the various security contexts in Angular?
+     Angular defines the following security contexts for sanitization,
+     1. **HTML:** It is used when interpreting a value as HTML such as binding to innerHtml.
+     2. **Style:** It is used when binding CSS into the style property.
+     3. **URL:** It is used for URL properties such as <a href>.
+     4. **Resource URL:** It is a URL that will be loaded and executed as code such as <script src>.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
-165. ### ?
+165. ### What is Sanitization? Is angular supports it?
+     **Sanitization** is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM. Yes, Angular suppports sanitization. It sanitizes untrusted values for HTML, styles, and URLs but sanitizing resource URLs isn't possible because they contain arbitrary code.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
-166. ### ?
+166. ### What is the purpose of innerHTML?
+     The innerHtml is a property of HTML-Elements, which allows you to set it's html-content programatically. Let's display the below html code snippet in a <div> tag as below using innerHTML binding,
+     ```html
+     <div [innerHTML]="htmlSnippet"></div>
+     ```
+     and define the htmlSnippet property from any component
+     ```javascript
+     export class myComponent {
+       htmlSnippet: string = '<b>Hello World</b>, Angular';
+     }
+     ```
+     Unfortunately this property could cause Cross Site Scripting (XSS) security bugs when improperly handled.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
 
-167. ### ?
+167. ### What is the difference between interpolated content and innerHTML?
+     The main difference between interpolated and innerHTML code is the behavior of code interpreted. Interpolated content is always escaped i.e,  HTML isn't interpreted and the browser displays angle brackets in the element's text content. Where as in innerHTML binding, the content is interpreted i.e, the browser will convert < and > characters as HTMLEntities. For example, the usage in template would be as below,
+     ```html
+     <p>Interpolated value:</p>
+     <div >{{htmlSnippet}}</div>
+     <p>Binding of innerHTML:</p>
+     <div [innerHTML]="htmlSnippet"></div>
+     ```
+     and the property defined in a component.
+     ```javascript
+     export class InnerHtmlBindingComponent {
+       htmlSnippet = 'Template <script>alert("XSS Attack")</script> <b>Code attached</b>';
+     }
+     ```
+     Even though innerHTML binding create a chance of XSS attack, Angular recognizes the value as unsafe and automatically sanitizes it.
+     **[⬆ Back to Top](#table-of-contents)**
 
-    **[⬆ Back to Top](#table-of-contents)**
+168. ### How do you prevent automatic sanitization?
+     Sometimes the applications genuinely need to include executable code such as displaying <iframe> from an URL. In this case, you need to prevent automatic sanitization in Angular by saying that you inspected a value, checked how it was generated, and made sure it will always be secure. Basically it involves 2 steps,
+     i. Inject DomSanitizer: You can inject DomSanitizer in component as parameter in constructor
+     ii. Mark the trusted value by calling some of the below methods
 
-168. ### ?
+     1. bypassSecurityTrustHtml
+     2. bypassSecurityTrustScript
+     3. bypassSecurityTrustStyle
+     4. bypassSecurityTrustUrl
+     5. bypassSecurityTrustResourceUrl
 
-    **[⬆ Back to Top](#table-of-contents)**
+     For example,The  usage of dagerous url to trusted url would be as below,
+     ```javascript
+     constructor(private sanitizer: DomSanitizer) {
+       this.dangerousUrl = 'javascript:alert("XSS attack")';
+       this.trustedUrl = sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
+     ```
 
-169. ### ?
+     **[⬆ Back to Top](#table-of-contents)**
 
-    **[⬆ Back to Top](#table-of-contents)**
+169. ### Is safe to use direct DOM API methods in terms of security?
+     No,the built-in browser DOM APIs or methods don't automatically protect you from security vulnerabilities. In this case it is recommended to use Angular templates instead of directly interacting with DOM. If it is unavoidable then use the built-in Angular sanitization functions.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+170. ### What is DOM sanitizer?
+     DomSanitizer is used to help preventing Cross Site Scripting Security bugs (XSS) by sanitizing values to be safe to use in the different DOM contexts.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+171. ### How do you support server side XSS protection in Angular application?
+     The server-side XSS protection is supported in an angular application by using a templating language that automatically escapes values to prevent XSS vulnerabilities on the server. But don't use a templating language to generate Angular templates on the server side which creates a high risk of introducing template-injection vulnerabilities.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+172. ### Is angular prevents http level vulnerabilities?
+     Angular has built-in support for preventing http level vulnerabilities such as as cross-site request forgery (CSRF or XSRF) and cross-site script inclusion (XSSI). Even though these vulnerabilities need to be mitigated on server-side, Angular provides helpers to make the integration easier on the client side.
+     1. HttpClient supports a token mechanism used to prevent XSRF attacks
+     2. HttpClient library recognizes the convention of prefixed JSON responses(which non-executable js code with ")]}',\n" characters) and automatically strips the string ")]}',\n" from all responses before further parsing
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+173. ### What are Http Interceptors?
+     Http Interceptors are part of @angular/common/http, which inspect and transform HTTP requests from your application to the server and vice-versa on HTTP responses. These interceptors can perform a variety of implicit tasks, from authentication to logging. The syntax of HttpInterceptor interface looks like as below,
+     ```javascript
+     interface HttpInterceptor {
+       intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+     }
+     ```
+     You can use interceptors by declaring a service class that implements the intercept() method of the HttpInterceptor interface.
+     ```javascript
+     @Injectable()
+     export class MyInterceptor implements HttpInterceptor {
+         constructor() {}
+         intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+             ...
+         }
+     }
+     ```
+     After that you can use it in your module,
+     ```javascript
+     @NgModule({
+         ...
+         providers: [
+             {
+                 provide: HTTP_INTERCEPTORS,
+                 useClass: MyInterceptor,
+                 multi: true
+             }
+         ]
+         ...
+     })
+     export class AppModule {}
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+174. ### What are the applications of HTTP interceptors?
+     The HTTP Interceptors can be used for different variety of tasks,
+
+     1. Authentication
+     2. Logging
+     3. Caching
+     4. Fake backend
+     5. URL transformation
+     6. Modifying headers
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+175. ### Is multiple interceptors supported in Angular?
+     Yes, Angular supports multiple interceptors at a time. You could define multiple interceptors in providers property:
+     ```javascript
+     providers: [
+       { provide: HTTP_INTERCEPTORS, useClass: MyFirstInterceptor, multi: true },
+       { provide: HTTP_INTERCEPTORS, useClass: MySecondInterceptor, multi: true }
+     ],
+     ```
+     The interceptors will be called in the order in which they were provided. i.e, MyFirstInterceptor will be called first in the above interceptors configuration.
+     **[⬆ Back to Top](#table-of-contents)**
+
+176. ### How can I use interceptor for an entire application?
+     You can use same instance of `HttpInterceptors` for the entire app by importing the `HttpClientModule` only in your AppModule, and add the interceptors to the root application injector.
+     For example, let's define a class that is injectable in root application.
+      ```javascript
+      @Injectable()
+      export class MyInterceptor implements HttpInterceptor {
+        intercept(
+          req: HttpRequest<any>,
+          next: HttpHandler
+        ): Observable<HttpEvent<any>> {
+
+          return next.handle(req).do(event => {
+            if (eventt instanceof HttpResponse) {
+                 // Code goes here
+            }
+          });
+
+        }
+      }
+      ```
+     After that import HttpClientModule in AppModule
+     ```javascript
+     @NgModule({
+       declarations: [AppComponent],
+       imports: [BrowserModule, HttpClientModule],
+       providers: [
+         { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+       ],
+       bootstrap: [AppComponent]
+     })
+     export class AppModule {}
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+177. ### How does Angular simplifies Internationalization?
+
+     Angular simplifies the below areas of internationalization,
+     1. Displaying dates, number, percentages, and currencies in a local format.
+     2. Preparing text in component templates for translation.
+     3. Handling plural forms of words.
+     4. Handling alternative text.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+178. ### How do you manually register locale data?
+     By default, Angular only contains locale data for en-US which is English as spoken in the United States of America . But if you want to set to another locale, you must import locale data for that new locale. After that you can register using `registerLocaleData` method and the syntax of this method looks like below,
+     ```javascript
+     registerLocaleData(data: any, localeId?: any, extraData?: any): void
+     ```
+     For example, let us import German locale and register it in the application
+     ```javascript
+     import { registerLocaleData } from '@angular/common';
+     import localeDe from '@angular/common/locales/de';
+
+     registerLocaleData(localeDe, 'de');
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+179. ### What are the four phases of template translation?
+     The i18n template translation process has four phases:
+
+     1. **Mark static text messages in your component templates for translation:** You can place i18n on every element tag whose fixed text is to be translated. For example, you need i18n attribue for heading as below,
+     ```javascript
+     <h1 i18n>Hello i18n!</h1>
+     ```
+
+     2. **Create a translation file:** Use the Angular CLI xi18n command to extract the marked text into an industry-standard translation source file. i.e, Open terminal window at the root of the app project and run the CLI command xi18n.
+     ```bash
+     ng xi18n
+     ```
+     The above command creates a file named `messages.xlf` in your project's root directory.
+     **Note:** You can supply command options to change the format, the name, the location, and the source locale of the extracted file.
+
+     3. **Edit the generated translation file:** Translate the extracted text into the target language. In this step, create a localization folder (such as `locale`)under root directory(src) and then create target language translation file by copying and renaming the default messages.xlf file. You need to copy source text node and provide the translation under target tag.
+     For example, create the translation file(messages.de.xlf) for German language
+     ```javascript
+     <trans-unit id="greetingHeader" datatype="html">
+       <source>Hello i18n!</source>
+       <target>Hallo i18n !</target>
+       <note priority="1" from="description">A welcome header for this sample</note>
+       <note priority="1" from="meaning">welcome message</note>
+     </trans-unit>
+     ```
+
+     4. **Merge the completed translation file into the app:** You need to use Angular CLI build command to compile the app, choosing a locale-specific configuration, or specifying the following command options.
+            1. --i18nFile=path to the translation file
+            2. --i18nFormat=format of the translation file
+            3. --i18nLocale= locale id
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+180. ### What is the purpose of i18n attribute?
+     The Angular i18n attribute marks translatable content. It is a custom attribute, recognized by Angular tools and compilers. The compiler removes it after translation.
+     **Note:** Remember that i18n is not an Angular directive.
 
 
+     **[⬆ Back to Top](#table-of-contents)**
+
+181. ### What is the purpose of custom id?
+     When you change the translatable text, the Angular extractor tool generates a new id for that translation unit. Because of this behavior, you must then update the translation file with the new id every time.
+     For example, the translation file `messages.de.xlf.html` has generated trans-unit for some text message as below
+     ```html
+     <trans-unit id="827wwe104d3d69bf669f823jjde888" datatype="html">
+     ```
+     You can avoid this manual update of `id` attribute by specifying a custom id in the i18n attribute by using the prefix @@.
+     ```javascript
+     <h1 i18n="@@welcomeHeader">Hello i18n!</h1>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+182. ### What happens if the custom id is not unique?
+     You need to define custom ids as unique. If you use the same id for two different text messages then only the first one is extracted. But its translation is used in place of both original text messages. For example, let's define same custom id `myCustomId` for two messages,
+     ```html
+     <h2 i18n="@@myCustomId">Good morning</h3>
+     <!-- ... -->
+     <h2 i18n="@@myCustomId">Good night</p>
+     ```
+     and the translation unit generated for first text in for German language as
+     ```html
+     <trans-unit id="myId" datatype="html">
+       <source>Good morning</source>
+       <target state="new">Guten Morgen</target>
+     </trans-unit>
+     ```
+     Since custom id is the same, both of the elements in the translation contain the same text as below
+     ```html
+     <h2>Guten Morgen</h2>
+     <h2>Guten Morgen</h2>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+183. ### Can I translate text without creating an element?
+     Yes, you can achieve using `<ng-container>` attribute. Normally you need to wrap a text content with i18n attribute for the translation. But if you don't want to create a new DOM element just for the sake of translation, you can wrap the text in an <ng-container> element.
+     ```html
+     <ng-container i18n>I'm not using any DOM element for translation</ng-container>
+     ```
+     Remember that `<ng-container>` is transformed into an html comment
+     **[⬆ Back to Top](#table-of-contents)**
+
+184. ### How can I translate attribute?
+     You can translate attributes by attaching `i18n-x` attribute  where x is the name of the attribute to translate. For example, you can translate image title attribute as below,
+     ```html
+     <img [src]="example" i18n-title title="Internationlization" />
+     ```
+     By the way, you can also assign meaning, description and id with the i18n-x="<meaning>|<description>@@<id>" syntax.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+185. ### List down the pluralization categories?
+     Pluralization has below categories depending on the language.
+     1. =0 (or any other number)
+     2. zero
+     3. one
+     4. two
+     5. few
+     6. many
+     7. other
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+186. ### What is select ICU expression?
+     ICU expression is is similar to the plural expressions except that you choose among alternative translations based on a string value instead of a number. Here you define those string values.
+     Let's take component binding with `residenceStatus` property which has "citizen", "permanent resident" and "foreigner" possible values and the message maps those values to the appropriate translations.
+     ```javascript
+     <span i18n>The person is {residenceStatus, select, citizen {citizen} permanent resident {permanentResident} foreigner {foreigner}}</span>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+187. ### How do you report missing translations?
+     By default, When translation is missing, it generates a warning message such as "Missing translation for message 'somekey'". But you can configure with a different level of message in Angular compiler as below,
+     1. **Error:** It throws an error. If you are using AOT compilation, the build will fail. But if you are using JIT compilation, the app will fail to load.
+     2. **Warning (default):** It shows a 'Missing translation' warning in the console or shell.
+     3. **Ignore:** It doesn't do anything.
+     If you use AOT compiler then you need to perform changes in `configurations` section of your Angular CLI configuration file, angular.json.
+     ```javascript
+     "configurations": {
+       ...
+       "de": {
+         ...
+         "i18nMissingTranslation": "error"
+       }
+     }
+     ```
+     If you use the JIT compiler, specify the warning level in the compiler config at bootstrap by adding the 'MissingTranslationStrategy' property as below,
+     ```javascript
+     import { MissingTranslationStrategy } from '@angular/core';
+     import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+     import { AppModule } from './app/app.module';
+
+     platformBrowserDynamic().bootstrapModule(AppModule, {
+       missingTranslation: MissingTranslationStrategy.Error,
+       providers: [
+         // ...
+       ]
+     });
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
+188. ### How do you provide build configuration for multiple locales?
+     You can provide build configuration such as translation file path, name, format and application url in `configuration` settings of Angular.json file. For example, the German version of your application configured the build as follows,
+     ```javascript
+     "configurations": {
+       "de": {
+         "aot": true,
+         "outputPath": "dist/my-project-de/",
+         "baseHref": "/fr/",
+         "i18nFile": "src/locale/messages.de.xlf",
+         "i18nFormat": "xlf",
+         "i18nLocale": "de",
+         "i18nMissingTranslation": "error",
+       }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+189. ### What is an angular library?
+     An Angular library is an Angular project that differs from an app in that it cannot run on its own. It must be imported and used in an app. For example,  you can import or add `service worker` library to an Angular application which turns an application into a Progressive Web App (PWA).
+     **Note:** You can create own third party library and publish it as npm package to be used in an Application.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+190. ### What is AOT compiler?
+     The AOT compiler is part of a build process that produces a small, fast, ready-to-run application package, typically for production. It converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+191. ### How do you select an element in component template?
+     You can control any DOM element via ElementRef by injecting it into your component's constructor. i.e, The component should have constructor with ElementRef parameter,
+     ```javascript
+     constructor(myElement: ElementRef) {
+        el.nativeElement.style.backgroundColor = 'yellow';
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+192. ### What is TestBed?
+     TestBed is an api for writing unit tests for Angular applications and it's libraries. Even though We still write our tests in Jasmine and run using Karma, this API provides an easier way to create components, handle injection, test asynchronous behaviour and interact with our application.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+193. ### What is protractor?
+     Protractor is an end-to-end test framework for Angular and AngularJS applications. It runs tests against your application running in a real browser, interacting with it as a user would.
+     ```javascript
+     npm install -g protractor
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+194. ### What is collection?
+     Collection is a set of related schematics collected in an npm package. For example, `@schematics/angular` collection is used in Angular CLI to apply transforms to a web-app project. You can create your own schematic collection for customizing angular projects.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+195. ### How do you create schematics for libraries?
+     You can create your own schematic collections to integrate your library with the Angular CLI. These collections are classified as 3 main schematics,
+     1. **Add schematics:** These schematics are used to install library in an Angular workspace using `ng add` command.
+        For example, @angular/material schematic tells the add command to install and set up Angular Material and theming.
+     2. **Generate schematics**: These schematics are used to modify projects, add configurations and scripts, and scaffold artifacts in library using `ng generate` command.
+        For example, @angular/material generation schematic supplies generation schematics for the UI components. Let's say the table component is generated using `ng generate @angular/material:table `.
+     3. **Update schematics:** These schematics are used to update library's dependencies and adjust for breaking changes in a new library release using `ng update` command.
+        For example, @angular/material update schematic updates material and cdk dependencies using `ng update @angular/material` command.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+196. ### How do you use jquery in Angular?
+     You can use jquery in Angular using 3 simple steps,
+     1. Install the dependency: At first, install the jquery dependency using npm
+     ```cmd
+        npm install --save jquery
+     ```
+     2. Add the jquery script: In Angular-CLI project, add the relative path to jquery in the angular.json file.
+     ```javascript
+     "scripts": [
+        "node_modules/jquery/dist/jquery.min.js"
+     ]
+     ```
+     3. Start using jquery: Define the element in template. Whereas declare the jquery variable and apply CSS classes on the element.
+     ```html
+     <div id="elementId">
+       <h1>JQuery integration</h1>
+     </div>
+     ```
+     ```javascript
+     import {Component, OnInit} from '@angular/core';
+
+     declare var $: any; // (or) import * as $ from 'jquery';
+
+     @Component({
+       selector: 'app-root',
+       templateUrl: './app.component.html',
+       styleUrls: ['./app.component.css']
+     })
+     export class AppComponent implements OnInit {
+       ngOnInit(): void {
+         $(document).ready(() => {
+           $('#elementId').css({'text-color': 'blue', 'font-size': '150%'});
+         });
+       }
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+197. ### What is the reason for No provider for HTTP exception?
+     This exception is due to missing HttpClientModule in your module. You just need to import in module as below,
+     ```javascript
+     import { HttpClientModule } from '@angular/common/http';
+
+     @NgModule({
+       imports: [
+         BrowserModule,
+         HttpClientModule,
+       ],
+       declarations: [ AppComponent ],
+       bootstrap:    [ AppComponent ]
+     })
+     export class AppModule { }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+198. ### What is router state?
+     The RouteState is an interface which represents the state of the router as a tree of activated routes.
+     ```javascript
+     interface RouterState extends Tree {
+       snapshot: RouterStateSnapshot
+       toString(): string
+     }
+     ```
+     You can access the current RouterState from anywhere in the Angular app using the Router service and the routerState property.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+199. ### How can I use SASS in angular project?
+     When you are creating your project with angular cli, you can use `ng new`command. It generates all your components with predefined sass files.
+     ```javascript
+     ng new My_New_Project --style=sass
+     ```
+     But if you are changing your existing style in your project then use `ng set` command,
+     ```javascript
+     ng set defaults.styleExt scss
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
+
+200. ### What is the purpose of hidden property?
+     The hidden property is used  to show or hide the associated DOM element, based on an expression. It can be compared close to `ng-show` directive in AngularJS. Let's say you want to show user name based on the availability of user using `hidden` property.
+     ```javascript
+     <div [hidden]="!user.name">
+       My name is: {{user.name}}
+     </div>
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
+
+201. ### What is the difference between ngIf and hidden property?
+     The main difference is that *ngIf will remove the element from the DOM, while [hidden] actually plays with the CSS style by setting `display:none`. Generally it is expensive to add and remove stuff from the DOM for frequent actions.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+202. ### What is slice pipe?
+     The slice pipe is used to create a new Array or String containing a subset (slice) of the elements. The syntax looks like as below,
+     ```javascript
+     {{ value_expression | slice : start [ : end ] }}
+     ```
+     For example, you can provide 'hello' list based on a greeting array,
+     ```javascript
+     @Component({
+       selector: 'list-pipe',
+       template: `<ul>
+         <li *ngFor="let i of greeting | slice:0:5">{{i}}</li>
+       </ul>`
+     })
+     export class PipeListComponent {
+       greeting: string[] = ['h', 'e', 'l', 'l', 'o', 'm','o', 'r', 'n', 'i', 'n', 'g'];
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+203. ### What is index property in ngFor directive?
+     The index property of the NgFor directive is used to return the zero-based index of the item in each iteration. You can capture the index in a template input variable and use it in the template. For example, you can capture the index in a variable named indexVar and displays it with the todo's name using ngFor directive as below.
+     ```javascript
+     <div *ngFor="let todo of todos; let i=index">{{i + 1}} - {{todo.name}}</div>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+204. ### What is the purpose of ngFor trackBy?
+     The main purpose of using *ngFor with trackBy option is performance optimization. Normally if you use NgFor with large data sets, a small change to one item by removing or adding an item, can trigger a cascade of DOM manipulations. In this case, Angular sees only a fresh list of new object references and to replace the old DOM elements with all new DOM elements. You can help Angular to track which items added or removed by providing a `trackBy` function which takes the index and the current item as arguments and needs to return the unique identifier for this item.
+     For example, lets set trackBy to the trackByTodos() method
+     ```javascript
+     <div *ngFor="let todo of todos; trackBy: trackByTodos">
+       ({{todo.id}}) {{todo.name}}
+     </div>
+     ```
+     and define the trackByTodos method,
+     ```javascript
+     trackByTodos(index: number, item: Todo): number { return todo.id; }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+205. ### What is the purpose of ngSwitch directive?
+     **NgSwitch** directive is similar to JavaScript switch statement which displays one element from among several possible elements, based on a switch condition. In this case only the selected element placed into the DOM. It has been used along with `NgSwitch`, `NgSwitchCase` and `NgSwitchDefault` directives. For example, let's display the browser details based on selected browser using ngSwitch directive.
+     ```javascript
+     <div [ngSwitch]="currentBrowser.name">
+       <chrome-browser    *ngSwitchCase="'chrome'"    [item]="currentBrowser"></chrome-browser>
+       <firefox-browser   *ngSwitchCase="'firefox'"     [item]="currentBrowser"></firefox-browser>
+       <opera-browser     *ngSwitchCase="'opera'"  [item]="currentBrowser"></opera-browser>
+       <safari-browser     *ngSwitchCase="'safari'"   [item]="currentBrowser"></safari-browser>
+       <ie-browser  *ngSwitchDefault           [item]="currentItem"></ie-browser>
+     </div>
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+206. ### Is it possible to do aliasing for inputs and outputs?
+     Yes, it is possible to do aliasing for inputs and outputs in two ways.
+     1. **Aliasing in metadata:** The inputs and outputs in the metadata aliased using a colon-delimited (:) string with the directive property name on the left and the public alias on the right. i.e. It will be in the format of propertyName:alias.
+     ```javascript
+     inputs: ['input1: buyItem'],
+     outputs: ['outputEvent1: completedEvent']
+     ```
+     2. **Aliasing with @Input()/@Output() decorator:** The alias can be specified for the property name by passing the alias name to the @Input()/@Output() decorator.i.e. It will be in the form of @Input(alias) or @Output(alias).
+     ```javascript
+     @Input('buyItem') input1: string;
+     @Output('completedEvent') outputEvent1 = new EventEmitter<string>();
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+207. ### What is safe navigation operator?
+     The safe navigation operator(?)(or known as Elvis Operator) is used to guard against `null` and `undefined` values in property paths when you are not aware whether a path exists or not. i.e. It returns value of the object path if it exists, else it returns the null value. For example, you can access nested properties of a user profile easily without null reference errors as below,
+     ```javascript
+     <p>The user firstName is: {{user?.fullName.firstName}}</p>
+     ```
+     Using this safe navigation operator, Angular framework stops evaluating the expression when it hits the first null value and renders the view without any errors.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+208. ### Is any special configuration required for Angular9?
+     You don't need any special configuration. In Angular9, the Ivy renderer is the default Angular compiler. Even though Ivy is available Angular8 itself, you had to configure it in tsconfig.json file as below,
+     ```javascript
+     "angularCompilerOptions": {    "enableIvy": true  }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+209. ### What are type safe TestBed API changes in Angular9?
+     Angular 9 provides type safe changes in TestBed API changes by replacing the old get function with the new inject method. Because TestBed.get method is not type-safe. The usage would be as below,
+     ```javascript
+     TestBed.get(ChangeDetectorRef) // returns any. It is deprecated now.
+
+     TestBed.inject(ChangeDetectorRef) // returns ChangeDetectorRef
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+210. ### Is mandatory to pass static flag for ViewChild?
+     In Angular 8, the static flag is required for ViewChild. Whereas in Angular9, you no longer need to pass this property. Once you updated to Angular9 using `ng update`, the migration will remove { static: false } script everywhere.
+     ```javascript
+     @ViewChild(ChildDirective) child: ChildDirective; // Angular9 usage
+     @ViewChild(ChildDirective, { static: false }) child: ChildDirective; //Angular8 usage
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+211. ### What are the list of template expression operators?
+     The Angular template expression language supports three special template expression operators.
+     1. Pipe operator
+     2. Safe navigation operator
+     3. Non-null assertion operator
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+212. ### What is the precedence between pipe and ternary operators?
+     The pipe operator has a higher precedence than the ternary operator (?:). For example, the expression `first ? second : third | fourth` is parsed as `first ? second : (third | fourth)`.
+
+     **[⬆ Back to Top](#table-of-contents)**
