@@ -725,13 +725,13 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 29. ### What is a parameterized pipe?
-    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/mm/yyyy):
+    A pipe can accept any number of optional parameters to fine-tune its output. The parameterized pipe can be created by declaring the pipe name with a colon ( : ) and then the parameter value. If the pipe accepts multiple parameters, separate the values with colons. Let's take a birthday example with a particular format(dd/MM/yyyy):
     ```javascript
     import { Component } from '@angular/core';
 
         @Component({
           selector: 'app-birthday',
-          template: `<p>Birthday is {{ birthday | date:'dd/mm/yyyy'}}</p>` // 18/06/1987
+          template: `<p>Birthday is {{ birthday | date:'dd/MM/yyyy'}}</p>` // 18/06/1987
         })
         export class BirthdayComponent {
           birthday = new Date(1987, 6, 18);
