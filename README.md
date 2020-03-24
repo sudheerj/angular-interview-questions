@@ -217,7 +217,18 @@
 |209| [What are type safe TestBed API changes in Angular9?](#what-are-type-safe-testbed-api-changes-in-angular9)|
 |210| [Is mandatory to pass static flag for ViewChild?](#is-mandatory-to-pass-static-flag-for-viewchild)|
 |211| [What are the list of template expression operators?](#what-are-the-list-of-template-expression-operators)
-|212| [What is the precedence between pipe and ternary operators??](#what-is-the-precedence-between-pipe-and-ternary-operators)
+|212| [What is the precedence between pipe and ternary operators?](#what-is-the-precedence-between-pipe-and-ternary-operators)
+|213| [What is an entry component?](#what-is-an-entry-component)|
+|214| [What is a bootstrapped component?](#what-is-a-bootstrapped-component)|
+|215| [How do you manually bootstrap an application?](#how-do-you-manually-bootstrap-an-application)|
+|216| [?](#)|
+|217| [?](#)|
+|218| [?](#)|
+|219| [?](#)|
+|220| [?](#)|
+|221| [?](#)|
+|222| [?](#)|
+
 
 1. ### What is Angular Framework?
 
@@ -3179,5 +3190,78 @@
 
 212. ### What is the precedence between pipe and ternary operators?
      The pipe operator has a higher precedence than the ternary operator (?:). For example, the expression `first ? second : third | fourth` is parsed as `first ? second : (third | fourth)`.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+213. ### What is an entry component?
+     An entry component is any component that Angular loads imperatively(i.e, not referencing it in the template) by type. Due to this behavior, they can’t be found by the Angular compiler during compilation. These components created dynamically with `ComponentFactoryResolver`.
+
+     Basically, there are two main kinds of entry components which are following -
+     1. The bootstrapped root component
+     2. A component you specify in a route
+
+     **[⬆ Back to Top](#table-of-contents)**
+214. ### What is a bootstrapped component?
+     A bootstrapped component is an entry component that Angular loads into the DOM during the bootstrap process or application launch time. Generally, this bootstrapped or root component is named as `AppComponent` in your root module using `bootstrap` property as below.
+     ```js
+     @NgModule({
+       declarations: [
+         AppComponent
+       ],
+       imports: [
+         BrowserModule,
+         FormsModule,
+         HttpClientModule,
+         AppRoutingModule
+       ],
+       providers: [],
+       bootstrap: [AppComponent] // bootstrapped entry component need to be declared here
+     })
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+215. ### How do you manually bootstrap an application?
+     You can use `ngDoBootstrap` hook for a manual bootstrapping of the application instead of using bootstrap array in `@NgModule` annotation. This hook is part of `DoBootstap` interface.
+     ```js
+     interface DoBootstrap {
+       ngDoBootstrap(appRef: ApplicationRef): void
+     }
+     ```
+     The module needs to be implement the above interface to use the hook for bootstrapping.
+     ```js
+     class AppModule implements DoBootstrap {
+       ngDoBootstrap(appRef: ApplicationRef) {
+         appRef.bootstrap(AppComponent); // bootstrapped entry component need to be passed
+       }
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+216. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+217. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+218. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+219. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+220. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+221. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+222. ### ?
 
      **[⬆ Back to Top](#table-of-contents)**
