@@ -237,8 +237,8 @@
 |229| [What are the steps to use declaration elements?](#what-are-the-steps-to-use-declaration-elements)|
 |230| [What happens if browserModule used in feature module?](#what-happens-if-browsermodule-used-in-feature-module)|
 |231| [What are the types of feature modules?](#what-are-the-types-of-feature-modules)|
-|232| [?](#)|
-|233| [?](#)|
+|232| [What is a provider?](#what-is-a-provider)|
+|233| [What is the recommendation for provider scope?](#what-is-the-recommendation-for-provider-scope#)|
 |234| [?](#)|
 |235| [?](#)|
 |236| [?](#)|
@@ -3404,15 +3404,25 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-231. ### ?
+232. ### What is a provider?
+     A provider is an instruction to the Dependency Injection system on how to obtain a value for a dependency(aka services created). The service can be provided using Angular CLI as below,
+     ```javascript
+     ng generate service my-service
+     ```
+     The created service by CLI would be as below,
+     ```js
+     import { Injectable } from '@angular/core';
 
+     @Injectable({
+       providedIn: 'root', //Angular provide the service in root injector
+     })
+     export class MyService {
+     }
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
-232. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-233. ### ?
+233. ### What is the recommendation for provider scope?
+     You should always provide your service in the root injector unless there is a case where you want the service to be available only if you import a particular @NgModule.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3481,5 +3491,9 @@
      **[⬆ Back to Top](#table-of-contents)**
 
 250. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+251. ### ?
 
      **[⬆ Back to Top](#table-of-contents)**
