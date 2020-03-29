@@ -225,9 +225,38 @@
 |217| [What is a routed entry component?](#what-is-a-routed-entry-component#)|
 |218| [Why is not necessary to use entryComponents array every time?](#why-is-not-necessary-to-use-entrycomponents-array-every-time)|
 |219| [Do I still need to use entryComponents array in Angular9?](do-i-still-need-to-use-entrycomponents-array-in-angular9#)|
-|220| [?](#)|
-|221| [?](#)|
-|222| [?](#)|
+|220| [Is it all components generated in production build?](#is-it-all-components-generated-in-production-build)|
+|221| [What is Angular compiler?](#what-is-angular-compiler)|
+|222| [What is the role of ngModule metadata in compilation process?](#what-is-the-role-of-ngmodule-metadata-in-compilation-process)|
+|223| [How does angular finds components, directives and pipes?](#how-does-angular-finds-components-directives-and-pipes)|
+|224| [Give few examples for NgModules?](#give-few-examples-for-ngmodules)|
+|225| [What are feature modules?](#what-are-feature-modules)|
+|226| [What are the imported modules in CLI generated feature modules?](#what-are-the-imported-modules-in-cli-generated-feature-modules)|
+|227| [What are the differences between ngmodule and javascript module?](#what-are-the-differences-between-ngmodule-and-javascript-module)|
+|228| [What are the possible errors with declarations?](#what-are-the-possible-errors-with-declarations)|
+|229| [What are the steps to use declaration elements?](#what-are-the-steps-to-use-declaration-elements)|
+|230| [What happens if browserModule used in feature module?](#what-happens-if-browsermodule-used-in-feature-module)|
+|231| [What are the types of feature modules?](#what-are-the-types-of-feature-modules)|
+|232| [?](#)|
+|233| [?](#)|
+|234| [?](#)|
+|235| [?](#)|
+|236| [?](#)|
+|237| [?](#)|
+|238| [?](#)|
+|239| [?](#)|
+|240| [?](#)|
+|241| [?](#)|
+|242| [?](#)|
+|243| [?](#)|
+|244| [?](#)|
+|245| [?](#)|
+|246| [?](#)|
+|247| [?](#)|
+|248| [?](#)|
+|249| [?](#)|
+|250| [?](#)|
+|251| [?](#)|
 
 
 1. ### What is Angular Framework?
@@ -2095,7 +2124,14 @@
    **[⬆ Back to Top](#table-of-contents)**
 
  127. ### What is declarable in Angular?
-      Declarable is a class type that you can add to the declarations list of an NgModule. The class types such as components, directives, and pipes comes can be declared in the module.
+      Declarable is a class type that you can add to the declarations list of an NgModule. The class types such as components, directives, and pipes comes can be declared in the module. The structure of declarations would be,
+      ```javascript
+      declarations: [
+        YourComponent,
+        YourPipe,
+        YourDirective
+      ],
+      ```
 
    **[⬆ Back to Top](#table-of-contents)**
 
@@ -3268,14 +3304,181 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-220. ### ?
+220. ### Is it all components generated in production build?
+     No, only the entry components and template components appears in production builds. If a component isn't an entry component and isn't found in a template, the tree shaker will throw it away. Due to this reason, make sure to add only true entry components to reduce the bundle size.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-221. ### ?
+221. ### What is Angular compiler?
+     The Angular compiler is used to convert the application code into JavaScript code. It reads the template markup, combines it with the corresponding component class code, and emits component factories which creates JavaScript representation of the component along with elements of @Component metadata.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-222. ### ?
+222. ### What is the role of ngModule metadata in compilation process?
+     The `@NgModule` metadata is used to tell the Angular compiler what components to be compiled for this module and how to link this module with other modules.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+223. ### How does angular finds components, directives and pipes?
+     The Angular compiler finds a component or directive in a template when it can match the selector of that component or directive in that template. Whereas it finds a pipe if the pipe's name appears within the pipe syntax of the template HTML.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+224. ### Give few examples for NgModules?
+     The Angular core libraries and third-party libraries are available as NgModules.
+     1. Angular libraries such as FormsModule, HttpClientModule, and RouterModule are NgModules.
+     2. Many third-party libraries such as Material Design, Ionic, and AngularFire2 are NgModules.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+225. ### What are feature modules?
+     Feature modules are NgModules, which are used for the purpose of organizing code. The feature module can be created with Angular CLI using the below command in the root directory,
+     ```javascript
+     ng generate module MyCustomFeature //
+     ```
+     Angular CLI creates a folder called `my-custom-feature` with a file inside called `my-custom-feature.module.ts` with the following contents
+     ```javascript
+     import { NgModule } from '@angular/core';
+     import { CommonModule } from '@angular/common';
+
+     @NgModule({
+       imports: [
+         CommonModule
+       ],
+       declarations: []
+     })
+     export class MyCustomFeature { }
+     ```
+     **Note:**  The "Module" suffix shouldn't present in the name because the CLI appends it.
+     **[⬆ Back to Top](#table-of-contents)**
+
+226. ### What are the imported modules in CLI generated feature modules?
+     In the CLI generated feature module, there are two JavaScript import statements at the top of the file
+     1. NgModule: InOrder to use the `@NgModule` decorator
+     2. CommonModule: It provides many common directives such as `ngIf` and `ngFor`.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+227. ### What are the differences between ngmodule and javascript module?
+     Below are the main differences between Angular NgModule and javascript module,
+
+     | NgModule | JavaScript module |
+     |---- | --------- |
+     | NgModule bounds declarable classes only | There is no restriction classes |
+     | List the module's classes in declarations array only | Can define all member classes in one giant file |
+     | It only export the declarable classes it owns or imports from other modules| It can export any classes |
+     | Extend the entire application with services by adding providers to provides array | Can't extend the application with services |
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+228. ### What are the possible errors with declarations?
+     There are two common possible errors with declarations array,
+     1. If you use a component without declaring it, Angular returns an error message.
+     2. If you try to declare the same class in more than one module then compiler emits an error.
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+229. ### What are the steps to use declaration elements?
+     Below are the steps to be followed to use declaration elements.
+     1. Create the element(component, directive and pipes) and export it from the file where you wrote it
+     2. Import it into the appropriate module.
+     3. Declare it in the @NgModule declarations array.
+
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+230. ### What happens if browserModule used in feature module?
+     If you do import `BrowserModule` into a lazy loaded feature module, Angular returns an error telling you to use `CommonModule` instead. Because BrowserModule’s providers are for the entire app so it should only be in the root module, not in feature module. Whereas Feature modules only need the common directives in CommonModule.
+     ![ScreenShot](images/browser-module-error.png)
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+231. ### What are the types of feature modules?
+     Below are the five categories of feature modules,
+     1. **Domain:** Deliver a user experience dedicated to a particular application domain(For example, place an order, registration etc)
+     2. **Routed:** These are domain feature modules whose top components are the targets of router navigation routes.
+     3. **Routing:** It provides routing configuration for another module.
+     4. **Service:** It provides utility services such as data access and messaging(For example, HttpClientModule)
+     5. **Widget:** It makes components, directives, and pipes available to external modules(For example, third-party libraries such as Material UI)
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+231. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+232. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+233. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+234. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+235. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+236. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+237. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+238. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+239. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+240. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+241. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+242. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+243. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+244. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+245. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+246. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+247. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+248. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+249. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+250. ### ?
 
      **[⬆ Back to Top](#table-of-contents)**
