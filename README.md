@@ -3389,7 +3389,8 @@
 
 230. ### What happens if browserModule used in feature module?
      If you do import `BrowserModule` into a lazy loaded feature module, Angular returns an error telling you to use `CommonModule` instead. Because BrowserModule’s providers are for the entire app so it should only be in the root module, not in feature module. Whereas Feature modules only need the common directives in CommonModule.
-     ![ScreenShot](images/browser-module-error.png)
+
+     ![ScreenShot](images/browser-module-error.gif)
 
      **[⬆ Back to Top](#table-of-contents)**
 
