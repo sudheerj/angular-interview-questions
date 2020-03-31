@@ -239,14 +239,14 @@
 |231| [What are the types of feature modules?](#what-are-the-types-of-feature-modules)|
 |232| [What is a provider?](#what-is-a-provider)|
 |233| [What is the recommendation for provider scope?](#what-is-the-recommendation-for-provider-scope#)|
-|234| [?](#)|
-|235| [?](#)|
-|236| [?](#)|
-|237| [?](#)|
-|238| [?](#)|
-|239| [?](#)|
-|240| [?](#)|
-|241| [?](#)|
+|234| [How do you restrict provider scope to a module?](#how-do-you-restrict-provider-scope-to-a-module)|
+|235| [How do you provide a singleton service?](#how-do-you-provide-a-singleton-service)|
+|236| [What are the different ways to remove duplicate service registration?](#what-are-the-different-ways-to-remove-duplicate-service-registration)|
+|237| [How does forRoot method helpful to avoid duplicate router instances?](#how-does-forroot-method-helpful-to-avoid-duplicate-router-instances)|
+|238| [What is a shared module?](#what-is-a-shared-module)|
+|239| [Can I share services using modules?](#can-i-share-services-using-modules)|
+|240| [How do you get current direction for locales??](#how-do-you-get-current-direction-for-locales)|
+|241| [What is ngcc?](#what-is-ngcc)|
 |242| [?](#)|
 |243| [?](#)|
 |244| [?](#)|
@@ -3426,35 +3426,126 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-234. ### ?
+234. ### How do you restrict provider scope to a module?
+     It is possible to restrict service provider scope to a specific module instead making available to entire application. There are two possible ways to do it.
+     1. **Using providedIn in service:**
+     ```js
+     import { Injectable } from '@angular/core';
+     import { SomeModule } from './some.module';
+
+     @Injectable({
+       providedIn: SomeModule,
+     })
+     export class SomeService {
+     }
+     ```
+     2. **Declare provider for the service in module:**
+     ```js
+     import { NgModule } from '@angular/core';
+
+     import { SomeService } from './some.service';
+
+     @NgModule({
+       providers: [SomeService],
+     })
+     export class SomeModule {
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-235. ### ?
+235. ### How do you provide a singleton service?
+     There are two possible ways to provide a singleton service.
+     1. Set the providedIn property of the @Injectable() to "root". This is the preferred way(starting from Angular 6.0) of creating a singleton service since it makes your services tree-shakable.
+     ```js
+     import { Injectable } from '@angular/core';
+
+     @Injectable({
+       providedIn: 'root',
+     })
+     export class MyService {
+     }
+     ```
+     2. Include the service in root module or in a module that is only imported by root module. It has been used to register services before Angular 6.0.
+     ```js
+     @NgModule({
+       ...
+       providers: [MyService],
+       ...
+     })
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-236. ### ?
+236. ### What are the different ways to remove duplicate service registration?
+     If a module defines provides and declarations then loading the module in multiple feature modules will duplicate the registration of the service. Below are the different ways to prevent this duplicate behavior.
+     1. Use the providedIn syntax instead of registering the service in the module.
+     2. Separate your services into their own module.
+     3. Define forRoot() and forChild() methods in the module.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-237. ### ?
+237. ### How does forRoot method helpful to avoid duplicate router instances?
+     If the `RouterModule` module didn’t have forRoot() static method then each feature module would instantiate a new Router instance, which leads to broken application due to duplicate instances. After using forRoot() method, the root application module imports RouterModule.forRoot(...) and gets a Router, and all feature modules import RouterModule.forChild(...) which does not instantiate another Router.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-238. ### ?
+238. ### What is a shared module?
+     The Shared Module is the module in which you put commonly used directives, pipes, and components into one module that is shared(import it) throughout the application. For example, the below shared module imports CommonModule, FormsModule for common directives and components, pipes and directives based on the need,
+     ```js
+     import { CommonModule } from '@angular/common';
+     import { NgModule } from '@angular/core';
+     import { FormsModule } from '@angular/forms';
+     import { UserComponent } from './user.component';
+     import { NewUserDirective } from './new-user.directive';
+     import { OrdersPipe } from './orders.pipe';
+
+     @NgModule({
+      imports:      [ CommonModule ],
+      declarations: [ UserComponent, NewUserDirective, OrdersPipe ],
+      exports:      [ UserComponent, NewUserDirective, OrdersPipe,
+                      CommonModule, FormsModule ]
+     })
+     export class SharedModule { }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-239. ### ?
+239. ### Can I share services using modules?
+     No, it is not recommended to share services by importing module. i.e Import modules when you want to use directives, pipes, and components only. The best approach to get a hold of shared services is through 'Angular dependency injection' because importing a module will result in a new service instance.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-240. ### ?
+240. ### How do you get current direction for locales?
+     In Angular 9.1, the API method `getLocaleDirection` can be used to get the current direction in your app. This method is useful to support Right to Left locales for your Internationalization based applications.
+     ```js
+     import { getLocaleDirection, registerLocaleData } from '@angular/common';
+     import { LOCALE_ID } from '@angular/core';
+     import localeAr from '@angular/common/locales/ar';
+
+       ...
+
+       constructor(@Inject(LOCALE_ID) locale) {
+
+         const directionForLocale = getLocaleDirection(locale); // Returns 'rtl' or 'ltr' based on the current locale
+         registerLocaleData(localeAr, 'ar-ae');
+         const direction = getLocaleDirection('ar-ae'); // Returns 'rtl'
+
+         // Current direction is used to provide conditional logic here
+       }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-241. ### ?
+241. ### What is ngcc?
+     The ngcc(Angular Compatibility Compiler) is a tool which upgrades node_module compiled with non-ivy ngc into ivy compliant format. The `postinstall` script from package.json will make sure your node_modules will be compatible with the Ivy renderer.
+     ```js
+     "scripts": {
+        "postinstall": "ngcc"
+     }
+     ```
+
+     Whereas, Ivy compiler (ngtsc), which compiles Ivy-compatible code.
 
      **[⬆ Back to Top](#table-of-contents)**
 
