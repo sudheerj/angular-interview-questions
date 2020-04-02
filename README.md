@@ -247,9 +247,9 @@
 |239| [Can I share services using modules?](#can-i-share-services-using-modules)|
 |240| [How do you get current direction for locales??](#how-do-you-get-current-direction-for-locales)|
 |241| [What is ngcc?](#what-is-ngcc)|
-|242| [?](#)|
-|243| [?](#)|
-|244| [?](#)|
+|242| [What classes should not be added to declarations?](#what-classes-should-not-be-added-to-declarations)|
+|243| [Wat is ngzone?](#what-is-ngzone)|
+|244| [What is NoopZone?](#what-is-noopzone)|
 |245| [?](#)|
 |246| [?](#)|
 |247| [?](#)|
@@ -3549,16 +3549,35 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-242. ### ?
+242. ### What classes should not be added to declarations?
+     The below class types shouldn't be added to declarations
+     1. A class which is already declared in any another module.
+     2. Directives imported from another module.
+     3. Module classes.
+     4. Service classes.
+     5. Non-Angular classes and objects, such as strings, numbers, functions, entity models, configurations, business logic, and helper classes.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-243. ### ?
+243. ### What is NgZone?
 
      **[⬆ Back to Top](#table-of-contents)**
 
-244. ### ?
-
+244. ### What is NoopZone?
+     Zone is loaded/required by default in Angular applications and it helps Angular to know when to trigger the change detection. This way, it make sures developers focus on application development rather core part of Angular. You can also use Angular without Zone but the change detection need to be implemented on your own and `noop zone` need to be configured in bootstrap process.
+     Let's follow the below two steps to remove zone.js,
+     1. Remove the zone.js import from polyfills.ts.
+     ```js
+     /***************************************************************************************************
+      * Zone JS is required by default for Angular itself.
+      */
+     // import 'zone.js/dist/zone';  // Included with Angular CLI.
+     ```
+     2. Bootstrap Angular with noop zone in src/main.ts.
+     ```js
+     platformBrowserDynamic().bootstrapModule(AppModule, {ngZone: 'noop'})
+       .catch(err => console.error(err));
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
 245. ### ?
