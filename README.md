@@ -250,7 +250,7 @@
 |242| [What classes should not be added to declarations?](#what-classes-should-not-be-added-to-declarations)|
 |243| [Wat is ngzone?](#what-is-ngzone)|
 |244| [What is NoopZone?](#what-is-noopzone)|
-|245| [?](#)|
+|245| [How do you create displayBlock components?](#how-do-you-create-displayblock-components)|
 |246| [?](#)|
 |247| [?](#)|
 |248| [?](#)|
@@ -3580,7 +3580,12 @@
      ```
      **[⬆ Back to Top](#table-of-contents)**
 
-245. ### ?
+245. ### How do you create displayBlock components?
+     By default, Angular CLI creates components in an inline displayed mode(i.e, display:inline). But it is possible to create components with display: block style using `displayBlock` option,
+     ```js
+     ng generate component my-component --displayBlock
+     ```
+     (OR) the option can be turned on by default in Angular.json with `schematics.@schematics/angular:component.displayBlock` key value as true.
 
      **[⬆ Back to Top](#table-of-contents)**
 
