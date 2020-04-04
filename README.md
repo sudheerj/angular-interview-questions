@@ -251,7 +251,7 @@
 |243| [Wat is ngzone?](#what-is-ngzone)|
 |244| [What is NoopZone?](#what-is-noopzone)|
 |245| [How do you create displayBlock components?](#how-do-you-create-displayblock-components)|
-|246| [?](#)|
+|246| [What are the possible data change scenarios for change detection?](#what-are-the-possible-data-change-scenarios-for-change-detection)|
 |247| [?](#)|
 |248| [?](#)|
 |249| [?](#)|
@@ -3589,7 +3589,58 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-246. ### ?
+246. ### What are the possible data update scenarios for change detection?
+     The change detection works in the following scenarios where the data changes needs to update the application HTML.
+     1. **Component initialization:** While bootstrapping the Angular application, Angular triggers the `ApplicationRef.tick()` to call change detection and View Rendering.
+     2. **Event listener:**  The DOM event listener can update the data in an Angular component and trigger the change detection too.
+     ```js
+     @Component({
+       selector: 'app-event-listener',
+       template: `
+         <button (click)="onClick()">Click</button>
+         {{message}}`
+     })
+     export class EventListenerComponent {
+       message = '';
+
+       onClick() {
+         this.message = 'data updated';
+       }
+     }
+     ```
+     3. **HTTP Data Request:** You can get data from a server through an HTTP request
+     ```js
+     data = 'default value';
+     constructor(private httpClient: HttpClient) {}
+
+       ngOnInit() {
+         this.httpClient.get(this.serverUrl).subscribe(response => {
+           this.data = response.data; // change detection will happen automatically
+         });
+       }
+     ```
+     4. **Macro tasks setTimeout() or setInterval():** You can update the data in the callback function of setTimeout or setInterval
+     ```js
+     data = 'default value';
+
+       ngOnInit() {
+         setTimeout(() => {
+           this.data = 'data updated'; // Change detection will happen automatically
+         });
+       }
+     ```
+     5. **Micro tasks Promises:** You can update the data in the callback function of promise
+     ```js
+     data = 'initial value';
+
+       ngOnInit() {
+         Promise.resolve(1).then(v => {
+           this.data = v; // Change detection will happen automatically
+         });
+       }
+     ```
+     6. **Async operations like Web sockets and Canvas:** The data can be updated asynchronously using WebSocket.onmessage() and Canvas.toBlob().
+
 
      **[⬆ Back to Top](#table-of-contents)**
 
