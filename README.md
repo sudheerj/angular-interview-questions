@@ -252,10 +252,10 @@
 |244| [What is NoopZone?](#what-is-noopzone)|
 |245| [How do you create displayBlock components?](#how-do-you-create-displayblock-components)|
 |246| [What are the possible data change scenarios for change detection?](#what-are-the-possible-data-change-scenarios-for-change-detection)|
-|247| [?](#)|
-|248| [?](#)|
-|249| [?](#)|
-|250| [?](#)|
+|247| [What is a zone context?](#what-is-a-zone-context)|
+|248| [What are the lifecycle hooks of a zone?](#what-are-the-lifecycle-hooks-of-a-zone)|
+|249| [Which are the methods of NgZone used to control change detection?](#which-are-the-methods-of-ngzone-used-to-control-change-detection)|
+|250| [How do you change the settings of zonejs?](#how-do-you-change-the-settings-of-zonejs)|
 |251| [?](#)|
 
 
@@ -3560,6 +3560,9 @@
      **[⬆ Back to Top](#table-of-contents)**
 
 243. ### What is NgZone?
+     Angular provides a service called NgZone which creates a zone named `angular` to automatically trigger change detection when the following conditions are satisfied.
+     1. When a sync or async function is executed.
+     2. When there is no microTask scheduled.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3644,20 +3647,103 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-247. ### ?
+247. ### What is a zone context?
+      Execution Context is an abstract concept that holds information about the environment within the current code being executed. A zone provides an execution context that persists across asynchronous operations is called as zone context. For example, the zone context will be same in both outside and inside setTimeout callback function,
+      ```js
+      zone.run(() => {
+        // outside zone
+        expect(zoneThis).toBe(zone);
+        setTimeout(function() {
+          // the same outside zone exist here
+          expect(zoneThis).toBe(zone);
+        });
+      });
+      ```
+      The current zone is retrieved through `Zone.current`.
+     **[⬆ Back to Top](#table-of-contents)**
+
+248. ### What are the lifecycle hooks of a zone?
+     There are four lifecycle hooks for asynchronous operations from zone.js.
+     1. **onScheduleTask:** This hook triggers when a new asynchronous task is scheduled. For example, when you call setTimeout()
+     ```js
+     onScheduleTask: function(delegate, curr, target, task) {
+         console.log('new task is scheduled:', task.type, task.source);
+         return delegate.scheduleTask(target, task);
+       }
+     ```
+     2. **onInvokeTask:** This hook triggers when an asynchronous task is about to execute. For example, when the callback of setTimeout() is about to execute.
+     ```js
+     onInvokeTask: function(delegate, curr, target, task, applyThis, applyArgs) {
+         console.log('task will be invoked:', task.type, task.source);
+         return delegate.invokeTask(target, task, applyThis, applyArgs);
+       }
+     ```
+     3. **onHasTask:** This hook triggers when the status of one kind of task inside a zone changes from stable(no tasks in the zone) to unstable(a new task is scheduled in the zone) or from unstable to stable.
+     ```js
+       onHasTask: function(delegate, curr, target, hasTaskState) {
+         console.log('task state changed in the zone:', hasTaskState);
+         return delegate.hasTask(target, hasTaskState);
+       }
+     ```
+     4. **onInvoke:** This hook triggers when a synchronous function is going to execute in the zone.
+     ```js
+     onInvoke: function(delegate, curr, target, callback, applyThis, applyArgs) {
+         console.log('the callback will be invoked:', callback);
+         return delegate.invoke(target, callback, applyThis, applyArgs);
+       }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-248. ### ?
-
+249. ### What are the methods of NgZone used to control change detection?
+     NgZone service provides a `run()` method that allows you to execute a function inside the angular zone. This function is used to execute third party APIs which are not handled by Zone and trigger change detection automatically at the correct time.
+     ```js
+     export class AppComponent implements OnInit {
+       constructor(private ngZone: NgZone) {}
+       ngOnInit() {
+         // use ngZone.run() to make the asynchronous operation in the angular zone
+         this.ngZone.run(() => {
+           someNewAsyncAPI(() => {
+             // update the data of the component
+           });
+         });
+       }
+     }
+     ```
+     Whereas `runOutsideAngular()` method is used when you don't want to trigger change detection.
+     ```js
+     export class AppComponent implements OnInit {
+       constructor(private ngZone: NgZone) {}
+       ngOnInit() {
+         // Use this method when you know no data will be updated
+         this.ngZone.runOutsideAngular(() => {
+           setTimeout(() => {
+             // update component data and don't trigger change detection
+           });
+         });
+       }
+     }
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
-249. ### ?
+250. ### How do you change the settings of zonejs?
+     You can change the settings of zone by configuring them in a separate file and import it just after zonejs import.
+     For example, you can disable the requestAnimationFrame() monkey patch to prevent change detection for no data update as one setting and prevent DOM events(a mousemove or scroll event) to trigger change detection. Let's say the new file named zone-flags.js,
+     ```js
+     // disable patching requestAnimationFrame
+     (window as any).__Zone_disable_requestAnimationFrame = true;
 
-     **[⬆ Back to Top](#table-of-contents)**
-
-250. ### ?
-
+     // disable patching specified eventNames
+     (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove'];
+     ```
+     The above configuration file can be imported in a polyfill.ts file as below,
+     ```js
+     /***************************************************************************************************
+      * Zone JS is required by default for Angular.
+      */
+     import `./zone-flags`;
+     import 'zone.js/dist/zone';  // Included with Angular CLI.
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
 251. ### ?
