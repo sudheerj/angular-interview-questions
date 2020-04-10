@@ -256,7 +256,7 @@
 |248| [What are the lifecycle hooks of a zone?](#what-are-the-lifecycle-hooks-of-a-zone)|
 |249| [Which are the methods of NgZone used to control change detection?](#which-are-the-methods-of-ngzone-used-to-control-change-detection)|
 |250| [How do you change the settings of zonejs?](#how-do-you-change-the-settings-of-zonejs)|
-|251| [?](#)|
+|251| [How do you trigger an animation?](#how-do-you-trigger-an-animation)|
 
 
 1. ### What is Angular Framework?
@@ -3746,6 +3746,43 @@
      ```
      **[⬆ Back to Top](#table-of-contents)**
 
-251. ### ?
+251. ### How do you trigger an animation?
+     Angular provides a `trigger()` function for animation in order to collect the states and transitions with a specific animation name, so that you can attach it to the triggering element in the HTML template. This function watch for changes and trigger initiates the actions when a change occurs.
+     For example, let's create trigger named `upDown`, and attach it to the button element.
+     ```js
+     content_copy
+     @Component({
+       selector: 'app-up-down',
+       animations: [
+         trigger('upDown', [
+           state('up', style({
+             height: '200px',
+             opacity: 1,
+             backgroundColor: 'yellow'
+           })),
+           state('down', style({
+             height: '100px',
+             opacity: 0.5,
+             backgroundColor: 'green'
+           })),
+           transition('up => down', [
+             animate('1s')
+           ]),
+           transition('down => up', [
+             animate('0.5s')
+           ]),
+         ]),
+       ],
+       templateUrl: 'up-down.component.html',
+       styleUrls: ['up-down.component.css']
+     })
+     export class UpDownComponent {
+       isUp = true;
+
+       toggle() {
+         this.isUp = !this.isUp;
+       }
+
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
