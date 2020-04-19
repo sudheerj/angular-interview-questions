@@ -257,7 +257,31 @@
 |249| [Which are the methods of NgZone used to control change detection?](#which-are-the-methods-of-ngzone-used-to-control-change-detection)|
 |250| [How do you change the settings of zonejs?](#how-do-you-change-the-settings-of-zonejs)|
 |251| [How do you trigger an animation?](#how-do-you-trigger-an-animation)|
-
+|252| [How do you configure injectors with providers at different levels?](#how-do-you-configure-injectors-with-providers-at-different-levels)|
+|253| [Is it mandatory to use injectable on every service class?](#is-it-mandatory-to-use-injectable-on-every-service-class)|
+|254| [What is an optional dependency?](#what-is-an-optional-dependency)|
+|255| [What are the types of injector hierarchies?](#what-are-the-types-of-injector-hierarchies)|
+|256| [](#)|
+|257| [](#)|
+|258| [](#)|
+|259| [](#)|
+|260| [](#)|
+|261| [](#)|
+|262| [](#)|
+|263| [](#)|
+|264| [](#)|
+|265| [](#)|
+|266| [](#)|
+|267| [](#)|
+|268| [](#)|
+|269| [](#)|
+|270| [](#)|
+|271| [](#)|
+|272| [](#)|
+|273| [](#)|
+|274| [](#)|
+|275| [](#)|
+|276| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -531,7 +555,7 @@
         }
     }
     ```
-    4. **Parameter decorators** Used for parameters inside class constructors, e.g. @Inject
+    4. **Parameter decorators** Used for parameters inside class constructors, e.g. @Inject, Optional
     ```typescript
     import { Component, Inject } from '@angular/core';
     import { MyService } from './my-service';
@@ -3787,5 +3811,150 @@
        }
 
      ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+252. ### How do you configure injectors with providers at different levels?
+     You can configure injectors with providers at different levels of your application by setting a metadata value. The configuration can happen in one of three places,
+     1. In the `@Injectable()` decorator for the service itself
+     2. In the `@NgModule()` decorator for an NgModule
+     3. In the `@Component()` decorator for a component
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+253. ### Is it mandatory to use injectable on every service class?
+     No. The `@Injectable()` decorator is not strictly required if the class has other Angular decorators on it or does not have any dependencies. But the important thing here is any class that is going to be injected with Angular is decorated.
+     i.e, If we add the decorator, the metadata `design:paramtypes` is added, and the dependency injection can do it's job. That is the exact reason to add the @Injectable() decorator on a service if this service has some dependencies itself.
+     For example, Let's see the different variations of AppService in a root component,
+     1. The below AppService can be injected in AppComponent without any problems. This is because there are no dependency services inside AppService.
+     ```js
+     export class AppService {
+       constructor() {
+         console.log('A new app service');
+       }
+     }
+     ```
+     2. The below AppService with dummy decorator and httpService can be injected in AppComponent without any problems. This is because meta information is generated with dummy decorator.
+     ```js
+     function SomeDummyDecorator() {
+       return (constructor: Function) => console.log(constructor);
+     }
+
+     @SomeDummyDecorator()
+     export class AppService {
+       constructor(http: HttpService) {
+         console.log(http);
+       }
+     }
+     ```
+     and the generated javascript code of above service has meta information about HttpService,
+     ```js
+     var AppService = (function () {
+         function AppService(http) {
+             console.log(http);
+         }
+         AppService = __decorate([
+             core_1.Injectable(),
+             __metadata('design:paramtypes', [http_service_1.HttpService])
+         ], AppService);
+         return AppService;
+     }());
+     exports.AppService = AppService;
+     ```
+     3. The below AppService with @injectable decorator and httpService can be injected in AppComponent without any problems. This is because meta information is generated with Injectable decorator.
+     ```js
+     @Injectable({
+       providedIn: 'root',
+     })
+     export class AppService {
+       constructor(http: HttpService) {
+         console.log(http);
+       }
+     }
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
+
+254. ### What is an optional dependency?
+     The optional dependency is a parameter decorator to be used on constructor parameters, which marks the parameter as being an optional dependency. Due to this, the DI framework provides null if the dependency is not found.
+     For example, If you don't register a logger provider anywhere, the injector sets the value of logger(or logger service) to null in the below class.
+     ```js
+     import { Optional } from '@angular/core';
+
+     constructor(@Optional() private logger?: Logger) {
+       if (this.logger) {
+         this.logger.log('This is an optional dependency message');
+       } else {
+         console.log('The logger is not registered');
+       }
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+255. ### What are the types of injector hierarchies?
+     There are two types of injector hierarchies in Angular
+
+     1. ModuleInjector hierarchy: It configure on a module level using an @NgModule() or @Injectable() annotation.
+     2. ElementInjector hierarchy: It created implicitly at each DOM element. Also it is empty by default unless you configure it in the providers property on @Directive() or @Component().
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+256. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+257. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+258. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+259. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+260. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+261. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+262. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+263. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+264. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+265. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+266. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+267. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+268. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+269. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+270. ### ?
 
      **[⬆ Back to Top](#table-of-contents)**
