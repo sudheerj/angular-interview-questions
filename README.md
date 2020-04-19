@@ -419,14 +419,17 @@
     @NgModule ({
        imports:      [ BrowserModule ],
        declarations: [ AppComponent ],
-       bootstrap:    [ AppComponent ]
+       bootstrap:    [ AppComponent ],
+       providers: []
     })
     export class AppModule { }
     ```
-    The NgModule decorator has three options
+    The NgModule decorator has five important(among all) options
     1. The imports option is used to import other dependent modules. The BrowserModule is required by default for any web based angular application
     2. The declarations option is used to define components in the respective module
     3. The bootstrap option tells Angular which Component to bootstrap in the application
+    4. The providers option is used to configure set of injectable objects that are available in the injector of this module.
+    5. The entryComponents option is a set of components dynamically loaded into the view.
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -1262,7 +1265,7 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 64. ### What is the purpose of base href tag?
-    The routing application should add <base> element to the index.html as the first child in the <head> tag inorder to indicate how to compose navigation URLs. If app folder is the application root then you can set the href value as below
+    The routing application should add <base> element to the index.html as the first child in the <head> tag in order to indicate how to compose navigation URLs. If app folder is the application root then you can set the href value as below
     ```html
     <base href="/">
     ```
