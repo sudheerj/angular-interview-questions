@@ -261,8 +261,8 @@
 |253| [Is it mandatory to use injectable on every service class?](#is-it-mandatory-to-use-injectable-on-every-service-class)|
 |254| [What is an optional dependency?](#what-is-an-optional-dependency)|
 |255| [What are the types of injector hierarchies?](#what-are-the-types-of-injector-hierarchies)|
-|256| [](#)|
-|257| [](#)|
+|256| [What are dynamic forms?](#what-are-dynamic-forms)|
+|257| [What are the differences between reactive forms and template driven forms?](#what-are-the-differences-between-reactive-forms-and-template-driven-forms)|
 |258| [](#)|
 |259| [](#)|
 |260| [](#)|
@@ -3899,11 +3899,20 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-256. ### ?
-
+256. ### What are dynamic forms?
+     Dynamic forms is a pattern in which we build a form dynamically based on metadata that describes a business object model. You can create them based on reactive form API.
      **[⬆ Back to Top](#table-of-contents)**
 
-257. ### ?
+257. ### What are the differences between reactive forms and template driven forms?
+     Below are the main differences between reactive forms and template driven forms
+
+     | Feature | Reactive | Template-Driven |
+     |---- |---- | --------- |
+     | Form model setup | Created(FormControl instance) in component explicitly | Created by directives  |
+     | Data updates | Synchronous | Asynchronous |
+     | Form custom validation | Defined as Functions | Defined as Directives |
+     | Mutability | Immutable(by always returning new value for FormControl instance) | Mutable(Property always modified to new value) |
+     | Scalability | More scalable using low-level APIs | Less scalable using due to abstraction on APIs|
 
      **[⬆ Back to Top](#table-of-contents)**
 
