@@ -261,13 +261,13 @@
 |253| [Is it mandatory to use injectable on every service class?](#is-it-mandatory-to-use-injectable-on-every-service-class)|
 |254| [What is an optional dependency?](#what-is-an-optional-dependency)|
 |255| [What are the types of injector hierarchies?](#what-are-the-types-of-injector-hierarchies)|
-|256| [What are dynamic forms?](#what-are-dynamic-forms)|
-|257| [What are the differences between reactive forms and template driven forms?](#what-are-the-differences-between-reactive-forms-and-template-driven-forms)|
-|258| [](#)|
-|259| [](#)|
-|260| [](#)|
-|261| [](#)|
-|262| [](#)|
+|256| [What are reactive forms?](#what-are-reactive-forms)|
+|257| [What are dynamic forms?](#what-are-dynamic-forms)|
+|258| [What are template driven forms?](#what-are-template-driven-forms)|
+|259| [What are the differences between reactive forms and template driven forms?](#what-are-the-differences-between-reactive-forms-and-template-driven-forms)|
+|260| [What are the different ways to group form controls?](#what-are-the-different-ways-to-group-form-controls)|
+|261| [How do you update specific properties of a form model?](#how-do-you-update-specific-properties-of-a-form-model)|
+|262| [What is the purpose of FormBuilder?](#what-is-the-purpose-of-formbuilder)|
 |263| [](#)|
 |264| [](#)|
 |265| [](#)|
@@ -3894,16 +3894,77 @@
 255. ### What are the types of injector hierarchies?
      There are two types of injector hierarchies in Angular
 
-     1. ModuleInjector hierarchy: It configure on a module level using an @NgModule() or @Injectable() annotation.
-     2. ElementInjector hierarchy: It created implicitly at each DOM element. Also it is empty by default unless you configure it in the providers property on @Directive() or @Component().
+     1. **ModuleInjector hierarchy:** It configure on a module level using an @NgModule() or @Injectable() annotation.
+     2. **ElementInjector hierarchy:** It created implicitly at each DOM element. Also it is empty by default unless you configure it in the providers property on @Directive() or @Component().
 
      **[⬆ Back to Top](#table-of-contents)**
 
-256. ### What are dynamic forms?
+256. ### What are reactive forms?
+     Reactive forms is a model-driven approach for creating forms in a reactive style(form inputs changes over time). These are built around observable streams, where form inputs and values are provided as streams of input values. Let's follow the below steps to create reactive forms,
+     1. Register the reactive forms module which declares reactive-form directives in your app
+     ```js
+     import { ReactiveFormsModule } from '@angular/forms';
+
+     @NgModule({
+       imports: [
+         // other imports ...
+         ReactiveFormsModule
+       ],
+     })
+     export class AppModule { }
+     ```
+     2. Create a new FormControl instance and save it in the component.
+     ```js
+     import { Component } from '@angular/core';
+     import { FormControl } from '@angular/forms';
+
+     @Component({
+       selector: 'user-profile',
+       styleUrls: ['./user-profile.component.css']
+     })
+     export class UserProfileComponent {
+       userName = new FormControl('');
+     }
+     ```
+     3. Register the FormControl in the template.
+     ```js
+     <label>
+       User name:
+       <input type="text" [formControl]="userName">
+     </label>
+     ```
+     Finally, the component with reactive form control appears as below,
+     ```js
+     import { Component } from '@angular/core';
+     import { FormControl } from '@angular/forms';
+
+     @Component({
+       selector: 'user-profile',
+       styleUrls: ['./user-profile.component.css']
+       template: `
+          <label>
+            User name:
+            <input type="text" [formControl]="userName">
+          </label>
+       `
+     })
+     export class UserProfileComponent {
+       userName = new FormControl('');
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+257. ### What are dynamic forms?
      Dynamic forms is a pattern in which we build a form dynamically based on metadata that describes a business object model. You can create them based on reactive form API.
      **[⬆ Back to Top](#table-of-contents)**
 
-257. ### What are the differences between reactive forms and template driven forms?
+
+258. ### What are template driven forms?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+259. ### What are the differences between reactive forms and template driven forms?
      Below are the main differences between reactive forms and template driven forms
 
      | Feature | Reactive | Template-Driven |
@@ -3911,29 +3972,185 @@
      | Form model setup | Created(FormControl instance) in component explicitly | Created by directives  |
      | Data updates | Synchronous | Asynchronous |
      | Form custom validation | Defined as Functions | Defined as Directives |
+     | Testing | No interaction with change detection cycle | Need knowledge of the change detection process |
      | Mutability | Immutable(by always returning new value for FormControl instance) | Mutable(Property always modified to new value) |
      | Scalability | More scalable using low-level APIs | Less scalable using due to abstraction on APIs|
 
      **[⬆ Back to Top](#table-of-contents)**
 
-258. ### ?
+
+260. ### What are the different ways to group form controls?
+     Reactive forms provide two ways of grouping multiple related controls.
+     1. **FormGroup**: It defines a form with a fixed set of controls those can be managed together in an one object. It has same properties and methods similar to a FormControl instance.
+        This FormGroup can be nested to create complex forms as below.
+        ```js
+        import { Component } from '@angular/core';
+        import { FormGroup, FormControl } from '@angular/forms';
+
+        @Component({
+          selector: 'user-profile',
+          templateUrl: './user-profile.component.html',
+          styleUrls: ['./user-profile.component.css']
+        })
+        export class UserProfileComponent {
+          userProfile = new FormGroup({
+            firstName: new FormControl(''),
+            lastName: new FormControl(''),
+            address: new FormGroup({
+                  street: new FormControl(''),
+                  city: new FormControl(''),
+                  state: new FormControl(''),
+                  zip: new FormControl('')
+                })
+          });
+
+          onSubmit() {
+            // Store this.userProfile.value in DB
+          }
+        }
+        ```
+        ```html
+        <form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+
+          <label>
+            First Name:
+            <input type="text" formControlName="firstName">
+          </label>
+
+          <label>
+            Last Name:
+            <input type="text" formControlName="lastName">
+          </label>
+
+          <div formGroupName="address">
+            <h3>Address</h3>
+
+            <label>
+              Street:
+              <input type="text" formControlName="street">
+            </label>
+
+            <label>
+              City:
+              <input type="text" formControlName="city">
+            </label>
+
+            <label>
+              State:
+              <input type="text" formControlName="state">
+            </label>
+
+            <label>
+              Zip Code:
+              <input type="text" formControlName="zip">
+            </label>
+           </div>
+            <button type="submit" [disabled]="!userProfile.valid">Submit</button>
+
+        </form>
+        ```
+     2. **FormArray:** It defines a dynamic form in an array format, where you can add and remove controls at run time. This is useful for dynamic forms when you don’t know how many controls will be present within the group.
+       ```js
+        import { Component } from '@angular/core';
+        import { FormArray, FormControl } from '@angular/forms';
+
+        @Component({
+          selector: 'order-form',
+          templateUrl: './order-form.component.html',
+          styleUrls: ['./order-form.component.css']
+        })
+        export class OrderFormComponent {
+          constructor () {
+            this.orderForm = new FormGroup({
+              firstName: new FormControl('John', Validators.minLength(3)),
+              lastName: new FormControl('Rodson'),
+              items: new FormArray([
+                new FormControl(null)
+              ])
+            });
+          }
+
+          onSubmitForm () {
+            // Save the items this.orderForm.value in DB
+          }
+
+          onAddItem () {
+            this.orderForm.controls
+            .items.push(new FormControl(null));
+          }
+
+          onRemoveItem (index) {
+            this.orderForm.controls['items'].removeAt(index);
+          }
+        }
+       ```
+       ```html
+       <form [formControlName]="orderForm" (ngSubmit)="onSubmit()">
+
+         <label>
+           First Name:
+           <input type="text" formControlName="firstName">
+         </label>
+
+         <label>
+           Last Name:
+           <input type="text" formControlName="lastName">
+         </label>
+
+         <div>
+         <p>Add items</p>
+         <ul formArrayName="items">
+           <li *ngFor="let item of orderForm.controls.items.controls; let i = index">
+             <input type="text" formControlName="{{i}}">
+             <button type="button" title="Remove Item" (click)="onRemoveItem(i)">Remove</button>
+           </li>
+         </ul>
+         <button type="button" (click)="onAddItem">
+           Add an item
+         </button>
+        </div>
+       ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-259. ### ?
-
+261. ### How do you update specific properties of a form model?
+     You can use `patchValue()` method to update specific properties defined in the form model. For example,you can update the name and street of certain profile on click of the update button as shown below.
+     ```js
+     updateProfile() {
+       this.userProfile.patchValue({
+         firstName: 'John',
+         address: {
+           street: '98 Crescent Street'
+         }
+       });
+     }
+     ```
+     ```html
+       <button (click)="updateProfile()">Update Profile</button>
+     ```
      **[⬆ Back to Top](#table-of-contents)**
+     You can also use `setValue` method to update properties.
 
-260. ### ?
+     **Note:** Remember to update the properties against the exact model structure.
 
-     **[⬆ Back to Top](#table-of-contents)**
-
-261. ### ?
-
-     **[⬆ Back to Top](#table-of-contents)**
-
-262. ### ?
-
+262. ### What is the purpose of FormBuilder?
+     FormBuilder is used as syntactic sugar for easily creating instances of a FormControl, FormGroup, or FormArray. This is helpful to reduce the amount of boilerplate needed to build complex reactive forms. It is available as an injectable helper class of the `@angular/forms` package.
+     For example, the user profile component creation becomes easier as shown here.
+     ```js
+     export class UserProfileComponent {
+       profileForm = this.formBuilder.group({
+         firstName: [''],
+         lastName: [''],
+         address: this.formBuilder.group({
+           street: [''],
+           city: [''],
+           state: [''],
+           zip: ['']
+         }),
+       });
+       constructor(private formBuilder: FormBuilder) { }
+       }
+     ```
      **[⬆ Back to Top](#table-of-contents)**
 
 263. ### ?
