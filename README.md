@@ -271,9 +271,9 @@
 |263| [How do you verify the model changes in forms?](#how-do-you-verify-the-model-changes-in-forms)|
 |264| [What are the state CSS classes provided by ngModel?](#what-are-the-state-css-classes-provided-by-ngmodel)|
 |265| [How do you reset the form?](#how-do-you-reset-the-form)|
-|266| [](#)|
-|267| [](#)|
-|268| [](#)|
+|266| [What are the types of validator functions?](#what-are-the-types-of-validator-functions)|
+|267| [Can you give an example of built-in validators?](#can-you-give-an-example-of-built-in-validators)|
+|268| [How do you optimize the performance of async validators?](#how-do-you-optimize-the-performance-of-async-validators)|
 |269| [](#)|
 |270| [](#)|
 |271| [](#)|
@@ -4271,15 +4271,46 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-266. ### ?
+266. ### What are the types of validator functions?
+     In reactive forms, the validators can be either synchronous or asynchronous functions,
+     1. **Sync validators:** These are the synchronous functions which take a control instance and immediately return either a set of validation errors or null. Also, these functions passed as second argument while instantiating the form control. The main use cases are simple checks like whether a field is empty, whether it exceeds a maximum length etc.
+     2. **Async validators:** These are the asynchronous functions which take a control instance and return a Promise or Observable that later emits a set of validation errors or null. Also, these functions passed as second argument while instantiating the form control. The main use cases are complex validations like hitting a server to check the availability of a username or email.
+
+     The representation of these validators looks like below
+     ```js
+     this.myForm = formBuilder.group({
+         firstName: ['value'],
+         lastName: ['value', *Some Sync validation function*],
+         email: ['value', *Some validation function*, *Some asynchronous validation function*]
+     });
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-267. ### ?
-
+267. ### Can you give an example of built-in validators?
+     In reactive forms, you can use built-in validator like `required` and `minlength` on your input form controls. For example, the registration form can have these validators on name input field
+     ```js
+     this.registrationForm = new FormGroup({
+         'name': new FormControl(this.hero.name, [
+           Validators.required,
+           Validators.minLength(4),
+         ])
+       });
+     ```
+     Whereas in template-driven forms, both `required` and `minlength` validators available as attributes.
      **[⬆ Back to Top](#table-of-contents)**
 
-268. ### ?
+268. ### How do you optimize the performance of async validators?
+     Since all validators run after every form value change, it creates a major impact on performance with async validators by hitting the external API on each keystroke. This situation can be avoided by delaying the form validity by changing the updateOn property from change (default) to submit or blur.
+     The usage would be different based on form types,
+     1. **Template-driven forms:** Set the property on `ngModelOptions` directive
+     ```html
+     <input [(ngModel)]="name" [ngModelOptions]="{updateOn: 'blur'}">
+     ```
+     2. **Reactive-forms:** Set the property on FormControl instance
+     ```js
+     name = new FormControl('', {updateOn: 'blur'});
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
