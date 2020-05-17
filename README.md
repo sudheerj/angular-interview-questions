@@ -268,9 +268,9 @@
 |260| [What are the different ways to group form controls?](#what-are-the-different-ways-to-group-form-controls)|
 |261| [How do you update specific properties of a form model?](#how-do-you-update-specific-properties-of-a-form-model)|
 |262| [What is the purpose of FormBuilder?](#what-is-the-purpose-of-formbuilder)|
-|263| [](#)|
-|264| [](#)|
-|265| [](#)|
+|263| [How do you verify the model changes in forms?](#how-do-you-verify-the-model-changes-in-forms)|
+|264| [What are the state CSS classes provided by ngModel?](#what-are-the-state-css-classes-provided-by-ngmodel)|
+|265| [How do you reset the form?](#how-do-you-reset-the-form)|
 |266| [](#)|
 |267| [](#)|
 |268| [](#)|
@@ -3961,6 +3961,76 @@
 
 
 258. ### What are template driven forms?
+     Template driven forms are model-driven forms where you write the logic, validations, controls etc, in the template part of the code using directives. They are suitable for simple scenarios and uses two-way binding with [(ngModel)] syntax.
+     For example, you can create register form easily by following the below simple steps,
+
+     1. Import the FormsModule into the Application module's imports array
+     ```js
+        import { BrowserModule } from '@angular/platform-browser';
+        import { NgModule } from '@angular/core';
+        import {FormsModule} from '@angular/forms'
+        import { RegisterComponent } from './app.component';
+        @NgModule({
+          declarations: [
+            RegisterComponent,
+          ],
+          imports: [
+            BrowserModule,
+            FormsModule
+          ],
+          providers: [],
+          bootstrap: [RegisterComponent]
+        })
+        export class AppModule { }
+     ```
+     2. Bind the form from template to the component using ngModel syntax
+     ```html
+     <input type="text" class="form-control" id="name"
+            required
+            [(ngModel)]="model.name" name="name">
+     ```
+     3.  Attach NgForm directive to the <form> tag in order to create FormControl instances and register them
+     ```js
+     <form #registerForm="ngForm">
+     ```
+     4. Apply the validation message for form controls
+     ```html
+     <label for="name">Name</label>
+     <input type="text" class="form-control" id="name"
+            required
+            [(ngModel)]="model.name" name="name"
+            #name="ngModel">
+     <div [hidden]="name.valid || name.pristine"
+          class="alert alert-danger">
+       Please enter your name
+     </div>
+     ```
+     5. Let's submit the form with ngSubmit directive and add type="submit" button at the bottom of the form to trigger form submit.
+     ```html
+     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+     // Form goes here
+     <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
+     ```
+     Finally, the completed template-driven registration form will be appeared as follow.
+     ```html
+     <div class="container">
+         <h1>Registration Form</h1>
+         <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+           <div class="form-group">
+             <label for="name">Name</label>
+             <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="model.name" name="name"
+                    #name="ngModel">
+             <div [hidden]="name.valid || name.pristine"
+                  class="alert alert-danger">
+               Please enter your name
+             </div>
+           </div>
+                 <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
+         </form>
+     </div>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -4153,15 +4223,51 @@
      ```
      **[⬆ Back to Top](#table-of-contents)**
 
-263. ### ?
+263. ### How do you verify the model changes in forms?
+     You can add a getter property(let's say, diagnostic) inside component to return a JSON representation of the model during the development. This is useful to verify whether the values are really flowing from the input box to the model and vice versa or not.
+     ```js
+     export class UserProfileComponent {
+
+       model = new User('John', 29, 'Writer');
+
+       // TODO: Remove after the verification
+       get diagnostic() { return JSON.stringify(this.model); }
+     }
+     ```
+     and add `diagnostic` binding near the top of the form
+     ```html
+     {{diagnostic}}
+     <div class="form-group">
+       // FormControls goes here
+     </div>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-264. ### ?
+264. ### What are the state CSS classes provided by ngModel?
+     The ngModel directive updates the form control with special Angular CSS classes to reflect it's state. Let's find the list of classes in a tabular format,
+
+     | Form control state | If true | If false |
+     |---- | --------- | --- |
+     | Visited | ng-touched | ng-untouched |
+     | Value has changed | ng-dirty	 | ng-pristine |
+     | Value is valid| 	ng-valid | ng-invalid |
 
      **[⬆ Back to Top](#table-of-contents)**
 
-265. ### ?
+265. ### How do you reset the form?
+     In a model-driven form, you can reset the form just by calling the function `reset()` on our form model.
+     For example, you can reset the form model on submission as follows,
+     ```js
+     onSubmit() {
+       if (this.myform.valid) {
+         console.log("Form is submitted");
+         // Perform business logic here
+         this.myform.reset();
+       }
+     }
+     ```
+     Now, your form model resets the form back to its original pristine state.
 
      **[⬆ Back to Top](#table-of-contents)**
 
