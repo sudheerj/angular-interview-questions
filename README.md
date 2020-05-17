@@ -274,7 +274,7 @@
 |266| [What are the types of validator functions?](#what-are-the-types-of-validator-functions)|
 |267| [Can you give an example of built-in validators?](#can-you-give-an-example-of-built-in-validators)|
 |268| [How do you optimize the performance of async validators?](#how-do-you-optimize-the-performance-of-async-validators)|
-|269| [](#)|
+|269| [How to set ngFor and ngIf on the same element?](#how-to-set-ngfor-and-ngif-on-the-same-element)|
 |270| [](#)|
 |271| [](#)|
 |272| [](#)|
@@ -4314,7 +4314,26 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-269. ### ?
+269. ### How to set ngFor and ngIf on the same element?
+     Sometimes you may need to both ngFor and ngIf on the same element but unfortunately you are going to encounter below template error.
+     ```cmd
+      Template parse errors: Can't have multiple template bindings on one element.
+     ```
+      In this case, You need to use either ng-container or ng-template.
+      Let's say if you try to loop over the items only when the items are available, the below code throws an error in the browser
+      ```html
+      <ul *ngIf="items" *ngFor="let item of items">
+        <li></li>
+      </ul>
+      ```
+      and it can be fixed by
+      ```html
+      <ng-container *ngIf="items">
+        <ul *ngFor="let item of items">
+          <li></li>
+        </ul>
+      </ng-container>
+      ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
