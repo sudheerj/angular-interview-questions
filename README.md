@@ -275,7 +275,7 @@
 |267| [Can you give an example of built-in validators?](#can-you-give-an-example-of-built-in-validators)|
 |268| [How do you optimize the performance of async validators?](#how-do-you-optimize-the-performance-of-async-validators)|
 |269| [How to set ngFor and ngIf on the same element?](#how-to-set-ngfor-and-ngif-on-the-same-element)|
-|270| [](#)|
+|270| [What is host property in css?](#what-is-host-property-in-css)|
 |271| [](#)|
 |272| [](#)|
 |273| [](#)|
@@ -4337,6 +4337,16 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-270. ### ?
-
+270. ### What is host property in css?
+     The :host pseudo-class selector is used to target styles in the element that hosts the component. Since the host element is in a parent component's template, you can't reach the host element from inside the component by other means.
+     For example, you can create a border for parent element as below,
+     ```js
+     //Other styles for app.component.css
+     //...
+     :host {
+       display: block;
+       border: 1px solid black;
+       padding: 20px;
+     }
+     ```
      **[⬆ Back to Top](#table-of-contents)**
