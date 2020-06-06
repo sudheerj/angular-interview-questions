@@ -2,6 +2,24 @@
 
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
+---
+
+<div align="center">
+    <p>
+        <a href="https://www.fullstack.cafe/?utm_source=github&utm_medium=sud">
+            <b>Having Tech Interview?</b>
+            <br> 3600 Tech Interview Questions. <b>Answered</b>.
+            <br>
+            <div>
+                <img src="https://user-images.githubusercontent.com/13550565/76382460-cc784d80-6393-11ea-8837-2b89265ac853.png" width="260" alt="FullStack.Cafe">
+            </div>
+        </a>
+        <sub><i>Proudly supporting Angular Interview Questions</i></sub>
+    </p>
+</div>
+
+---
+
 ## Downloading PDF/Epub formats
 
 You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/angular-interview-questions/actions).
@@ -280,7 +298,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |268| [How do you optimize the performance of async validators?](#how-do-you-optimize-the-performance-of-async-validators)|
 |269| [How to set ngFor and ngIf on the same element?](#how-to-set-ngfor-and-ngif-on-the-same-element)|
 |270| [What is host property in css?](#what-is-host-property-in-css)|
-|271| [](#)|
+|271| [How do you get the current route?](#how-do-you-get-the-current-route)|
 |272| [](#)|
 |273| [](#)|
 |274| [](#)|
@@ -4510,3 +4528,21 @@ You can download the PDF and Epub version of this repository from the latest run
      }
      ```
      **[⬆ Back to Top](#table-of-contents)**
+
+271. ### How do you get the current route?
+     In Angular, there is an `url` property of router package to get the current route. You need to follow the below few steps,
+
+     1. Import Router from @angular/router
+      ```js
+        import { Router } from '@angular/router';
+      ```
+     2. Inject router inside constructor
+      ```js
+      constructor(private router: Router ) {
+
+      }
+      ```
+     3. Access url parameter
+      ```js
+        console.log(this.router.url); //  /routename
+      ```
