@@ -2648,13 +2648,21 @@ You can download the PDF and Epub version of this repository from the latest run
         • With Angular 4 the production bundles size is reduced by hundreds of KB’s.
         • Animation features are removed from angular/core and formed as a separate package.
         • Supports Typescript 2.1 and 2.2.
+        • Angular Universal
+        • New HttpClient
      5. **Angular 5:**
         • Angular 5 makes angular faster. It improved the loading time and execution time.
         • Shipped with new build optimizer.
         • Supports Typescript 2.5.
+        • Service Worker
      6. **Angular 6:**
         • It is released in May 2018.
-        • Includes Angular Command Line Interface (CLI), Component Development KIT (CDK), Angular Material Package.
+        • Includes Angular Command Line Interface (CLI), Component Development KIT (CDK), Angular Material Package, Angular Elements.
+        • Service Worker bug fixes.
+        • i18n
+        • Experimental mode for Ivy.
+        • RxJS 6.0
+        • Tree Shaking
      7. **Angular 7:**
         • It is released in October 2018.
         • TypeScript 3.1
@@ -2662,6 +2670,17 @@ You can download the PDF and Epub version of this repository from the latest run
         • New Angular CLI
         • CLI Prompts capability provide an ability to ask questions to the user before they run. It is like interactive dialog between the user and the CLI
         • With the improved CLI Prompts capability, it helps developers to make the decision. New ng commands ask users for routing and CSS styles types(SCSS) and ng add @angular/material asks for themes and gestures or animations.
+      8. **Angular 8:**
+        * It is released in May 2019.
+        * TypeScript 3.4
+      9. **Angular 9:**
+        • It is released in February 2020.
+        • TypeScript 3.7
+        • Ivy enabled by default
+      10.  **Angular 10:**
+        • It is released in June 2020.
+        • TypeScript 3.9
+        • TSlib 2.0
 
       **[⬆ Back to Top](#table-of-contents)**
 
