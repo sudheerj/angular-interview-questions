@@ -2677,10 +2677,10 @@ You can download the PDF and Epub version of this repository from the latest run
          * It is released in February 2020.
          * TypeScript 3.7
          * Ivy enabled by default
-      10.  **Angular 10:**
-         * It is released in June 2020.
-         * TypeScript 3.9
-         * TSlib 2.0
+      10. **Angular 10:**
+          * It is released in June 2020.
+          * TypeScript 3.9
+          * TSlib 2.0
 
       **[⬆ Back to Top](#table-of-contents)**
 
