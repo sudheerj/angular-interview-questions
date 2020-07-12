@@ -2688,11 +2688,11 @@ You can download the PDF and Epub version of this repository from the latest run
      Below are the list of security principles in angular,
 
 		1.	You should avoid direct use of the DOM APIs.
-		1.  You should enable Content Security Policy (CSP) and configure your web server to return appropriate CSP HTTP headers.
-		2.  You should Use the offline template compiler.
-		3.  You should Use Server Side XSS protection.
-		4.  You should Use DOM Sanitizer.
-		5.  You should Preventing CSRF or XSRF attacks. 
+		2.  You should enable Content Security Policy (CSP) and configure your web server to return appropriate CSP HTTP headers.
+		3.  You should Use the offline template compiler.
+		4.  You should Use Server Side XSS protection.
+		5.  You should Use DOM Sanitizer.
+		6.  You should Preventing CSRF or XSRF attacks. 
 
 	 **[⬆ Back to Top](#table-of-contents)**
 
