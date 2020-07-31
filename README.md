@@ -329,7 +329,7 @@ You can download the PDF and Epub version of this repository from the latest run
 3. ### What is TypeScript?
     TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await, and many other features, and compiles to plain JavaScript. Angular built entirely in TypeScript and used as a primary language.
     You can install it globally as
-    ```
+    ```cmd
     npm install -g typescript
     ```
     Let's see a simple example of TypeScript usage,
@@ -1531,7 +1531,7 @@ You can download the PDF and Epub version of this repository from the latest run
 77. ### What is JIT?
     Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. i.e, the below commands used for JIT compilation,
 
-    ```javascript
+    ```cmd
     ng build
     ng serve
     ```
@@ -1541,7 +1541,7 @@ You can download the PDF and Epub version of this repository from the latest run
 78. ### What is AOT?
     Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. For AOT compilation, include the `--aot` option with the ng build or ng serve command as below,
 
-    ```javascript
+    ```cmd
     ng build --aot
     ng serve --aot
     ```
