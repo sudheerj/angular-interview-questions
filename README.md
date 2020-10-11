@@ -1819,11 +1819,13 @@ You can download the PDF and Epub version of this repository from the latest run
 94. ### What is the purpose of any type cast function?
     You can disable binding expression type checking using $any() type cast function(by surrounding the expression). In the following example, the error Property contacts does not exist is suppressed by casting user to the any type.
     ```javascript
-      template: '{{$any(user).contacts.email}}'
+      template:
+      '{{ $any(user).contacts.email }}'
     ```
     The $any() cast function also works with this to allow access to undeclared members of the component.
     ```javascript
-       template: '{{$any(this).contacts.email}}'
+       template:
+       '{{ $any(this).contacts.email }}'
     ```
 
   **[⬆ Back to Top](#table-of-contents)**
