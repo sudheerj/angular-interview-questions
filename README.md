@@ -299,8 +299,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |269| [How to set ngFor and ngIf on the same element?](#how-to-set-ngfor-and-ngif-on-the-same-element)|
 |270| [What is host property in css?](#what-is-host-property-in-css)|
 |271| [How do you get the current route?](#how-do-you-get-the-current-route)|
-|272| [](#)|
-|273| [](#)|
+|272| [What is Component Test Harnesses?](#what-is-component-test-harnesses)|
+|273| [What is the benefit of Automatic Inlining of Fonts?](#what-is-the-benefit-of-automatic-inlining-of-fonts)|
 |274| [](#)|
 |275| [](#)|
 |276| [](#)|
@@ -4567,3 +4567,8 @@ You can download the PDF and Epub version of this repository from the latest run
       ```js
         console.log(this.router.url); //  /routename
       ```
+272. ### What is Component Test Harnesses?
+     A component harness is a testing API around an Angular directive or component to make tests simpler by hiding implementation details from test suites. This can be shared between unit tests, integration tests, and end-to-end tests. The idea for component harnesses comes from the **PageObject** pattern commonly used for integration testing.
+     
+273. ### What is the benefit of Automatic Inlining of Fonts?
+     During compile time, Angular CLI will download and inline the fonts that your application is using. This performance update speed up the first contentful paint(FCP) and this feature is enabled by default in apps built with version 11.
