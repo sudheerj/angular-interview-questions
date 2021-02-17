@@ -3,18 +3,24 @@
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ---
-
 <div align="center">
-    <p>
         <a href="https://www.fullstack.cafe/?utm_source=github&utm_medium=sud">
-            <b>Having Tech Interview?</b>
-            <br> 3600 Tech Interview Questions. <b>Answered</b>.
-            <br>
+            3600 Tech Interview Questions. <b>Answered</b>.
             <div>
-                <img src="https://user-images.githubusercontent.com/13550565/76382460-cc784d80-6393-11ea-8837-2b89265ac853.png" width="260" alt="FullStack.Cafe">
+                <img src="https://user-images.githubusercontent.com/13550565/76382460-cc784d80-6393-11ea-8837-2b89265ac853.png" width="150" alt="FullStack.Cafe">
             </div>
         </a>
-        <sub><i>Proudly supporting Angular Interview Questions</i></sub>
+</div>
+
+---
+<div align="center">
+    <p>
+        <a href="https://youtu.be/-jeoyDJDsSM">
+            25 Angular interview questions with answers video.
+            <div>
+                <img src="https://img.youtube.com/vi/-jeoyDJDsSM/0.jpg" width="150" height="100" alt="Angular">
+            </div>
+        </a>
     </p>
 </div>
 
