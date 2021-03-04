@@ -324,8 +324,8 @@ You can download the PDF and Epub version of this repository from the latest run
 
     | AngularJS | Angular |
     |---- | ---------
-    | It is based on MVC architecture  | This is based on Service/Controller |
-    | This uses use JavaScript to build the application| Introduced the typescript to write the application |
+    | It is based on MVC architecture| This is based on Service/Controller|
+    | It uses JavaScript to build the application| Introduced the TypeScript to write the application|
     | Based on controllers concept| This is a component based UI approach|
     | Not a mobile friendly framework| Developed considering mobile platform|
     | Difficulty in SEO friendly application development| Ease to create SEO friendly applications|
