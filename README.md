@@ -116,7 +116,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |80| [What are the advantages with AOT?](#what-are-the-advantages-with-aot)|
 |81| [What are the ways to control AOT compilation?](#what-are-the-ways-to-control-aot-compilation)|
 |82| [What are the restrictions of metadata?](#what-are-the-restrictions-of-metadata)|
-|83| [What are the two phases of AOT?](#what-are-the-two-phases-of-aot)|
+|83| [What are the three phases of AOT?](#what-are-the-three-phases-of-aot)|
 |84| [Can I use arrow functions in AOT?](#can-i-use-arrow-functions-in-aot)|
 |85| [What is the purpose of metadata json files?](#what-is-the-purpose-of-metadata-json-files)|
 |86| [Can I use any javascript feature for expression syntax in AOT?](#can-i-use-any-javascript-feature-for-expression-syntax-in-aot)|
