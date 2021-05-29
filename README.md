@@ -1587,7 +1587,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-83. ### What are the two phases of AOT?
+83. ### What are the three phases of AOT?
     The AOT compiler works in three phases,
     1. **Code Analysis:** The compiler records a representation of the source
     2. **Code generation:** It handles the interpretation as well as places restrictions on what it interprets.
