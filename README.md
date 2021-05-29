@@ -1587,7 +1587,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-83. ### What are the two phases of AOT?
+83. ### What are the three phases of AOT?
     The AOT compiler works in three phases,
     1. **Code Analysis:** The compiler records a representation of the source
     2. **Code generation:** It handles the interpretation as well as places restrictions on what it interprets.
@@ -4573,8 +4573,15 @@ You can download the PDF and Epub version of this repository from the latest run
       ```js
         console.log(this.router.url); //  /routename
       ```
+
+      **[⬆ Back to Top](#table-of-contents)**
+
 272. ### What is Component Test Harnesses?
      A component harness is a testing API around an Angular directive or component to make tests simpler by hiding implementation details from test suites. This can be shared between unit tests, integration tests, and end-to-end tests. The idea for component harnesses comes from the **PageObject** pattern commonly used for integration testing.
+
+     **[⬆ Back to Top](#table-of-contents)**
      
 273. ### What is the benefit of Automatic Inlining of Fonts?
      During compile time, Angular CLI will download and inline the fonts that your application is using. This performance update speed up the first contentful paint(FCP) and this feature is enabled by default in apps built with version 11.
+
+    **[⬆ Back to Top](#table-of-contents)**
