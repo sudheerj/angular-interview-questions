@@ -4574,4 +4574,4 @@ You can download the PDF and Epub version of this repository from the latest run
 273. ### What is the benefit of Automatic Inlining of Fonts?
      During compile time, Angular CLI will download and inline the fonts that your application is using. This performance update speed up the first contentful paint(FCP) and this feature is enabled by default in apps built with version 11.
 
-    **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
