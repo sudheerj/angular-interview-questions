@@ -297,8 +297,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |271| [How do you get the current route?](#how-do-you-get-the-current-route)|
 |272| [What is Component Test Harnesses?](#what-is-component-test-harnesses)|
 |273| [What is the benefit of Automatic Inlining of Fonts?](#what-is-the-benefit-of-automatic-inlining-of-fonts)|
-|274| [](#)|
-|275| [](#)|
+|274| [What is content projection?](#what-is-content-projection)|
+|275| [What is ng-content and its purpose?](#what-is-ng-content-and-its-purpose)|
 |276| [](#)|
 
 1. ### What is Angular Framework?
@@ -4575,3 +4575,8 @@ You can download the PDF and Epub version of this repository from the latest run
      During compile time, Angular CLI will download and inline the fonts that your application is using. This performance update speed up the first contentful paint(FCP) and this feature is enabled by default in apps built with version 11.
 
      **[⬆ Back to Top](#table-of-contents)**
+
+274. ### What is content projection?
+     Content projection is a pattern in which you insert, or project, the content you want to use inside another component.
+275. ### What is ng-content and its purpose?
+     The ng-content is used to insert the content dynamically inside the component that helps to increase component reusability. 
