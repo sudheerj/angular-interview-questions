@@ -631,17 +631,20 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 15. ### What is the difference between constructor and ngOnInit?
-    TypeScript classes has a default method called constructor which is normally used for the initialization purpose. Whereas ngOnInit method is specific to Angular, especially used to define Angular bindings. Even though constructor getting called first, it is preferred to move all of your Angular bindings to ngOnInit method.
-    In order to use ngOnInit, you need to implement OnInit interface as below,
+    The **Constructor** is a default method of the class that is executed when the class is instantiated and ensures proper initialisation of fields in the class and its subclasses. Angular, or better Dependency Injector (DI), analyses the constructor parameters and when it creates a new instance by calling new MyClass() it tries to find providers that match the types of the constructor parameters, resolves them and passes them to the constructor.  
+    **ngOnInit** is a life cycle hook called by Angular to indicate that Angular is done creating the component.  
+    Mostly we use ngOnInit for all the initialization/declaration and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
+    So you should use constructor() to setup Dependency Injection and not much else. ngOnInit() is better place to "start" - it's where/when components' bindings are resolved.
 
     ```typescript
     export class App implements OnInit{
-      constructor(){
+      constructor(private myService: MyService){
          //called first time before the ngOnInit()
       }
 
       ngOnInit(){
          //called after the constructor and called  after the first ngOnChanges()
+         //e.g. http call...
       }
     }
     ```
