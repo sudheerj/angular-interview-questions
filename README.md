@@ -318,22 +318,22 @@ You can download the PDF and Epub version of this repository from the latest run
 
 1. ### What is Angular Framework?
 
-    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build applications with in web/mobile/desktop. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
+    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. The major features of this framework include declarative templates, dependency injection, end to end tooling which ease application development.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 2. ### What is the difference between AngularJS and Angular?
     Angular is a completely revived component-based framework in which an application is a tree of individual components.
 
-    Some of the major difference in tabular form
+    Here are some of the major differences in tabular format:-
 
     | AngularJS | Angular |
     |---- | ---------
     | It is based on MVC architecture| This is based on Service/Controller|
-    | It uses JavaScript to build the application| Introduced the TypeScript to write the application|
+    | It uses JavaScript to build the application| Uses TypeScript to build the application|
     | Based on controllers concept| This is a component based UI approach|
-    | Not a mobile friendly framework| Developed considering mobile platform|
-    | Difficulty in SEO friendly application development| Ease to create SEO friendly applications|
+    | No support for mobile platforms| Fully supports mobile platforms|
+    | Difficult to build SEO friendly application| Ease to build SEO friendly applications|
 
   **[⬆ Back to Top](#table-of-contents)**
 
