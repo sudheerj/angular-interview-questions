@@ -338,12 +338,12 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 3. ### What is TypeScript?
-    TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await, and many other features, and compiles to plain JavaScript. Angular built entirely in TypeScript and used as a primary language.
-    You can install it globally as
+    TypeScript is a strongly typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await and many other features, and compiles to plain JavaScript. Angular is written entirely in TypeScript as a primary language.
+    You can install TypeScript globally as
     ```cmd
     npm install -g typescript
     ```
-    Let's see a simple example of TypeScript usage,
+    Let's see a simple example of TypeScript usage:-
     ```typescript
     function greeter(person: string) {
         return "Hello, " + person;
@@ -358,17 +358,17 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 4. ### Write a pictorial diagram of Angular architecture?
-    The main building blocks of an Angular application is shown in the below diagram
+    The main building blocks of an Angular application are shown in the diagram below:-
     ![ScreenShot](images/architecture.png)
 
   **[⬆ Back to Top](#table-of-contents)**
 
 5. ### What are the key components of Angular?
-    Angular has the below key components,
-    1. **Component:** These are the basic building blocks of angular application to control HTML views.
-    2. **Modules:** An angular module is set of angular basic building blocks like component, directives, services etc. An application is divided into logical pieces and each piece of code is called as "module" which perform a single task.
-    3. **Templates:** This represent the views of an Angular application.
-    4. **Services:** It is used to create components which can be shared across the entire application.
+    Angular has the key components below,
+    1. **Component:** These are the basic building blocks of an Angular application to control HTML views.
+    2. **Modules:** An Angular module is a set of angular basic building blocks like components, directives, services etc. An application is divided into logical pieces and each piece of code is called as "module" which perform a single task.
+    3. **Templates:** These represent the views of an Angular application.
+    4. **Services:** Are used to create components which can be shared across the entire application.
     5. **Metadata:** This can be used to add more data to an Angular class.
 
   **[⬆ Back to Top](#table-of-contents)**
