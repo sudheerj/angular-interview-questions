@@ -314,7 +314,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |273| [What is the benefit of Automatic Inlining of Fonts?](#what-is-the-benefit-of-automatic-inlining-of-fonts)|
 |274| [What is content projection?](#what-is-content-projection)|
 |275| [What is ng-content and its purpose?](#what-is-ng-content-and-its-purpose)|
-|276| [](#)|
+|276| [How to use ng-content](#how-use-ng-content)|
+|277| [](#)|
 
 1. ### What is Angular Framework?
 
@@ -4596,5 +4597,44 @@ You can download the PDF and Epub version of this repository from the latest run
 
 274. ### What is content projection?
      Content projection is a pattern in which you insert, or project, the content you want to use inside another component.
+		   
 275. ### What is ng-content and its purpose?
      The ng-content is used to insert the content dynamically inside the component that helps to increase component reusability. 
+		   
+276. ### How to use ng-content?
+     When I first found this tag in the project, I didn't know what it was used for. Opening the browser debugging window I did not find its existence, which indicates that it is not a component or an instruction, but just a special tag.
+
+     Use(ng-container The content of the template included in the representation does not include itself. )
+
+	1. Angular code snippet
+       ```js
+       <div>
+         <ng-container>
+	          <p>My name is wyl.</p>
+	          <p>What is you name?</p>
+         </ng-container>
+       </div>
+       ```
+		   
+	2. The browser debugging window can be found.<ng-container>The tag disappeared and did not work
+      ```js	   
+      <div>
+        <p>My name is wyl.</p>
+        <p>What is you name?</p>
+      </div>
+      ```
+		   
+	3. The usage scenarios are as follows. When we need to traverse or judge, you can take on the role of a carrier
+      ```js
+      <ul>
+        <ng-container *ngFor="let item of items">
+          <li>{{ item .name}}</li>
+          <li>{{ item .age}}</li>
+          <li>{{ item .sex}}</li>
+        </ng-container>
+      </ul>
+      ```
+		   
+     Also, one of the common errors in ng, for and if, cannot be written to the same tag (only one structural statement can be applied to a host element), useng-container tags can reduce nesting level based on the implementation of functions.
+
+     **[⬆ Back to Top](#table-of-contents)**
