@@ -314,7 +314,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |273| [What is the benefit of Automatic Inlining of Fonts?](#what-is-the-benefit-of-automatic-inlining-of-fonts)|
 |274| [What is content projection?](#what-is-content-projection)|
 |275| [What is ng-content and its purpose?](#what-is-ng-content-and-its-purpose)|
-|276| [How to use ng-content](#how-use-ng-content)|
+|276| [How to use ng-content?](#how-use-ng-content)|
 |277| [](#)|
 
 1. ### What is Angular Framework?
@@ -4606,8 +4606,9 @@ You can download the PDF and Epub version of this repository from the latest run
 
      Use(ng-container The content of the template included in the representation does not include itself. )
 
-	1. Angular code snippet
-       ```js
+1. Angular code snippet
+
+       ```javascript
        <div>
          <ng-container>
 	          <p>My name is wyl.</p>
@@ -4616,16 +4617,18 @@ You can download the PDF and Epub version of this repository from the latest run
        </div>
        ```
 		   
-	2. The browser debugging window can be found.<ng-container>The tag disappeared and did not work
-      ```js	   
+2. The browser debugging window can be found.<ng-container>The tag disappeared and did not work
+		   
+      ```javascript	   
       <div>
         <p>My name is wyl.</p>
         <p>What is you name?</p>
       </div>
       ```
 		   
-	3. The usage scenarios are as follows. When we need to traverse or judge, you can take on the role of a carrier
-      ```js
+3. The usage scenarios are as follows. When we need to traverse or judge, you can take on the role of a carrier
+		   
+      ```javascript
       <ul>
         <ng-container *ngFor="let item of items">
           <li>{{ item .name}}</li>
