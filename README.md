@@ -4602,9 +4602,7 @@ You can download the PDF and Epub version of this repository from the latest run
      The ng-content is used to insert the content dynamically inside the component that helps to increase component reusability. 
 		   
 276. ### How to use ng-content?
-     When I first found this tag in the project, I didn't know what it was used for. Opening the browser debugging window I did not find its existence, which indicates that it is not a component or an instruction, but just a special tag.
-
-     Use(ng-container The content of the template included in the representation does not include itself. )
+     When I first found this tag in the project, I didn't know what it was used for. Opening the browser debugging window I did not find its existence, which indicates that it is not a component or an instruction, but just a special tag. Use(ng-container The content of the template included in the representation does not include itself. )
 
 1. Angular code snippet
 
