@@ -4604,8 +4604,7 @@ You can download the PDF and Epub version of this repository from the latest run
 276. ### How to use ng-content?
      When I first found this tag in the project, I didn't know what it was used for. Opening the browser debugging window I did not find its existence, which indicates that it is not a component or an instruction, but just a special tag. Use(ng-container The content of the template included in the representation does not include itself. )
 
-1. Angular code snippet
-
+     1. Angular code snippet
        ```javascript
        <div>
          <ng-container>
@@ -4615,8 +4614,7 @@ You can download the PDF and Epub version of this repository from the latest run
        </div>
        ```
 		   
-2. The browser debugging window can be found.<ng-container>The tag disappeared and did not work
-		   
+     2. The browser debugging window can be found.<ng-container>The tag disappeared and did not work
       ```javascript	   
       <div>
         <p>My name is wyl.</p>
@@ -4624,8 +4622,7 @@ You can download the PDF and Epub version of this repository from the latest run
       </div>
       ```
 		   
-3. The usage scenarios are as follows. When we need to traverse or judge, you can take on the role of a carrier
-		   
+     3. The usage scenarios are as follows. When we need to traverse or judge, you can take on the role of a carrier	   
       ```javascript
       <ul>
         <ng-container *ngFor="let item of items">
