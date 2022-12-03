@@ -1543,23 +1543,17 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 77. ### What is JIT?
-    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. i.e, the below commands used for JIT compilation,
-
-    ```cmd
-    ng build
-    ng serve
-    ```
+    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation was the default until Angular 8, now default is AOT. When you run the ng build (build only) or ng serve (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the aot property in your build configuration specified in angular.json. By default, aot is set to true.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 78. ### What is AOT?
-    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. For AOT compilation, include the `--aot` option with the ng build or ng serve command as below,
-
+    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. This is the default starting in Angular 9. When you run the ng build (build only) or ng serve (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the aot property in your build configuration specified in angular.json. By default, aot is set to true.
+    
     ```cmd
-    ng build --aot
-    ng serve --aot
+    ng build
+    ng serve
     ```
-    **Note:** The ng build command with the --prod meta-flag (`ng build --prod`) compiles with AOT by default.
 
   **[⬆ Back to Top](#table-of-contents)**
 
