@@ -318,32 +318,32 @@ You can download the PDF and Epub version of this repository from the latest run
 
 1. ### What is Angular Framework?
 
-    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build applications with in web/mobile/desktop. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
+    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. The major features of this framework include declarative templates, dependency injection, end to end tooling which ease application development.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 2. ### What is the difference between AngularJS and Angular?
     Angular is a completely revived component-based framework in which an application is a tree of individual components.
 
-    Some of the major difference in tabular form
+    Here are some of the major differences in tabular format:-
 
     | AngularJS | Angular |
     |---- | ---------
     | It is based on MVC architecture| This is based on Service/Controller|
-    | It uses JavaScript to build the application| Introduced the TypeScript to write the application|
+    | It uses JavaScript to build the application| Uses TypeScript to build the application|
     | Based on controllers concept| This is a component based UI approach|
-    | Not a mobile friendly framework| Developed considering mobile platform|
-    | Difficulty in SEO friendly application development| Ease to create SEO friendly applications|
+    | No support for mobile platforms| Fully supports mobile platforms|
+    | Difficult to build SEO friendly application| Ease to build SEO friendly applications|
 
   **[⬆ Back to Top](#table-of-contents)**
 
 3. ### What is TypeScript?
-    TypeScript is a typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await, and many other features, and compiles to plain JavaScript. Angular built entirely in TypeScript and used as a primary language.
-    You can install it globally as
+    TypeScript is a strongly typed superset of JavaScript created by Microsoft that adds optional types, classes, async/await and many other features, and compiles to plain JavaScript. Angular is written entirely in TypeScript as a primary language.
+    You can install TypeScript globally as
     ```cmd
     npm install -g typescript
     ```
-    Let's see a simple example of TypeScript usage,
+    Let's see a simple example of TypeScript usage:-
     ```typescript
     function greeter(person: string) {
         return "Hello, " + person;
@@ -358,17 +358,17 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 4. ### Write a pictorial diagram of Angular architecture?
-    The main building blocks of an Angular application is shown in the below diagram
+    The main building blocks of an Angular application are shown in the diagram below:-
     ![ScreenShot](images/architecture.png)
 
   **[⬆ Back to Top](#table-of-contents)**
 
 5. ### What are the key components of Angular?
-    Angular has the below key components,
-    1. **Component:** These are the basic building blocks of angular application to control HTML views.
-    2. **Modules:** An angular module is set of angular basic building blocks like component, directives, services etc. An application is divided into logical pieces and each piece of code is called as "module" which perform a single task.
-    3. **Templates:** This represent the views of an Angular application.
-    4. **Services:** It is used to create components which can be shared across the entire application.
+    Angular has the key components below,
+    1. **Component:** These are the basic building blocks of an Angular application to control HTML views.
+    2. **Modules:** An Angular module is a set of angular basic building blocks like components, directives, services etc. An application is divided into logical pieces and each piece of code is called as "module" which perform a single task.
+    3. **Templates:** These represent the views of an Angular application.
+    4. **Services:** Are used to create components which can be shared across the entire application.
     5. **Metadata:** This can be used to add more data to an Angular class.
 
   **[⬆ Back to Top](#table-of-contents)**
@@ -631,17 +631,20 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 15. ### What is the difference between constructor and ngOnInit?
-    TypeScript classes has a default method called constructor which is normally used for the initialization purpose. Whereas ngOnInit method is specific to Angular, especially used to define Angular bindings. Even though constructor getting called first, it is preferred to move all of your Angular bindings to ngOnInit method.
-    In order to use ngOnInit, you need to implement OnInit interface as below,
+    The **Constructor** is a default method of the class that is executed when the class is instantiated and ensures proper initialisation of fields in the class and its subclasses. Angular, or better Dependency Injector (DI), analyses the constructor parameters and when it creates a new instance by calling new MyClass() it tries to find providers that match the types of the constructor parameters, resolves them and passes them to the constructor.  
+    **ngOnInit** is a life cycle hook called by Angular to indicate that Angular is done creating the component.  
+    Mostly we use ngOnInit for all the initialization/declaration and avoid stuff to work in the constructor. The constructor should only be used to initialize class members but shouldn't do actual "work".
+    So you should use constructor() to setup Dependency Injection and not much else. ngOnInit() is better place to "start" - it's where/when components' bindings are resolved.
 
     ```typescript
     export class App implements OnInit{
-      constructor(){
+      constructor(private myService: MyService){
          //called first time before the ngOnInit()
       }
 
       ngOnInit(){
          //called after the constructor and called  after the first ngOnChanges()
+         //e.g. http call...
       }
     }
     ```
@@ -1540,23 +1543,17 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 77. ### What is JIT?
-    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. i.e, the below commands used for JIT compilation,
-
-    ```cmd
-    ng build
-    ng serve
-    ```
+    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation was the default until Angular 8, now default is AOT. When you run the ng build (build only) or ng serve (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the aot property in your build configuration specified in angular.json. By default, aot is set to true.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 78. ### What is AOT?
-    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. For AOT compilation, include the `--aot` option with the ng build or ng serve command as below,
-
+    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. This is the default starting in Angular 9. When you run the ng build (build only) or ng serve (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the aot property in your build configuration specified in angular.json. By default, aot is set to true.
+    
     ```cmd
-    ng build --aot
-    ng serve --aot
+    ng build
+    ng serve
     ```
-    **Note:** The ng build command with the --prod meta-flag (`ng build --prod`) compiles with AOT by default.
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -2225,7 +2222,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
 
  121. ### What is a builder?
-      A builder function ia a function that uses the `Architect API` to perform a complex process such as "build" or "test". The builder code is defined in an npm package. For example, BrowserBuilder runs a webpack build for a browser target and KarmaBuilder starts the Karma server and runs a webpack build for unit tests.
+      A builder function is a function that uses the `Architect API` to perform a complex process such as "build" or "test". The builder code is defined in an npm package. For example, BrowserBuilder runs a webpack build for a browser target and KarmaBuilder starts the Karma server and runs a webpack build for unit tests.
 
    **[⬆ Back to Top](#table-of-contents)**
 
