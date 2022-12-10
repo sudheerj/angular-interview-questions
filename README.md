@@ -8,7 +8,7 @@
         <a href="https://youtu.be/-jeoyDJDsSM">
             25 Angular interview questions with answers video.
             <div>
-                <img src="https://img.youtube.com/vi/-jeoyDJDsSM/0.jpg" width="150" height="100" alt="Angular">
+                <img src="https://img.youtube.com/vi/-jeoyDJDsSM/0.jpg" width="120" height="70" alt="Angular">
             </div>
         </a>
     </p>
@@ -16,14 +16,9 @@
 
 ---
 
-## Downloading PDF/Epub formats
-
-You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/angular-interview-questions/actions).
-
----
 <p align="center">
   <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions>
-    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo">
+    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo" width="100" height="50">
   </a>
   <p align="center">
     <ol>
@@ -34,6 +29,22 @@ You can download the PDF and Epub version of this repository from the latest run
 </p>
 
 ---
+
+<p align="center">
+  <a href=https://bit.ly/3Fg9pgx>
+    <img src="images/collab/codestudio-logo.svg" alt="Codestudio Logo">
+  </a>
+  <p>
+    Explore the best free resource to learn Angular and kickstart your journey as an angular frontend developer <a href=https://bit.ly/3Fg9pgx target="_blank">here</a>. Earn a free certification in just 25 days.
+  </p>
+</p>
+
+---
+
+## Downloading PDF/Epub formats
+
+You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/angular-interview-questions/actions).
+
 
 ### Table of Contents
 
