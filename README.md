@@ -1,8 +1,20 @@
 # Angular Interview Questions & Answers
 
-> Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
+> Click :star:if you like the project and follow [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates. PDF and Epub versions are available at [actions tab](https://github.com/sudheerj/angular-interview-questions/actions).
 
 ---
+
+<p align="center">
+  <a href=https://bit.ly/3Fg9pgx>
+    <img src="images/collab/codestudio-logo.svg" alt="Codestudio Logo">
+  </a>
+  <p>
+    Explore the best free resource to learn Angular and kickstart your journey as an angular frontend developer <a href=https://bit.ly/3Fg9pgx target="_blank">here</a>. Earn a free certification in just 25 days.
+  </p>
+</p>
+
+---
+
 <div align="center">
     <p>
         <a href="https://youtu.be/-jeoyDJDsSM">
