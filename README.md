@@ -4602,5 +4602,15 @@ You can download the PDF and Epub version of this repository from the latest run
 
 274. ### What is content projection?
      Content projection is a pattern in which you insert, or project, the content you want to use inside another component.
+
+      **[⬆ Back to Top](#table-of-contents)**
+
 275. ### What is ng-content and its purpose?
      The ng-content is used to insert the content dynamically inside the component that helps to increase component reusability. 
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+276. ### What is standalone component?
+      A standalone component is a type of component which is not part of any Angular module. It provides a simplified way to build Angular applications.
+
+      **[⬆ Back to Top](#table-of-contents)**
