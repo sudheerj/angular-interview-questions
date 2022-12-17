@@ -4614,3 +4614,36 @@ You can download the PDF and Epub version of this repository from the latest run
       A standalone component is a type of component which is not part of any Angular module. It provides a simplified way to build Angular applications.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+278. ### How to create a standalone component suing CLI command?
+
+      To generate standalone component CLI command is
+      ```bash
+      ng generate component component-name --standalone
+      ```
+      On running the command standalone component is created.
+      Here is the list of file created.
+      
+      1. `component-name.component.ts`
+      2. `component-name.component.css`
+      3. `component-name.component.spec`
+      4. `component-name.component.html`
+      
+      Next need to update `app.module.ts` as shown below. Instead of adding component name to declaration need to add it to imports and import the component.
+
+      ```typescript
+      import { NgModule } from '@angular/core';
+      import { BrowserModule } from '@angular/platform-browser';
+      import { ComponentNameComponent } from './component-name/component-name.component';
+
+      @NgModule({
+        imports: [
+          BrowserModule,
+          ComponentNameComponent
+        ],
+        declarations: [AppComponent],
+        bootstrap: [AppComponent],
+      })
+      export class AppModule {}
+      ```
+
