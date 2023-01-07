@@ -4620,7 +4620,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 278. ### How to create a standalone component uing CLI command?
 
-      To generate standalone component CLI command is
+      Generate standalone component using CLI command as shown below
       ```bash
       ng generate component component-name --standalone
       ```
@@ -4632,7 +4632,7 @@ You can download the PDF and Epub version of this repository from the latest run
       3. `component-name.component.spec`
       4. `component-name.component.html`
       
-      Next need to update `app.module.ts` as shown below. Instead of adding component name to declaration need to add it to imports and import the component.
+      Next need to update `app.module.ts` as shown below.
 
       ```typescript
       import { NgModule } from '@angular/core';
@@ -4653,7 +4653,7 @@ You can download the PDF and Epub version of this repository from the latest run
       **[⬆ Back to Top](#table-of-contents)**
 
 278. ### How to create a standalone component manually?
-      If  you want existed component to make standalone then need to add `standalone: true` in `component-name.component.ts`
+      To make existing component to standalone, then add `standalone: true` in `component-name.component.ts`
       as shown below
 
       ```typescript
@@ -4673,52 +4673,7 @@ You can download the PDF and Epub version of this repository from the latest run
         ngOnInit() {}
       }
       ```
-      Next need to update `app.module.ts` as shown below. Instead of adding component name to declaration need to add it to imports and import the component.
-
-      ```typescript
-      import { NgModule } from '@angular/core';
-      import { BrowserModule } from '@angular/platform-browser';
-      import { ComponentNameComponent } from './component-name/component-name.component';
-
-      @NgModule({
-        imports: [
-          BrowserModule,
-          ComponentNameComponent
-        ],
-        declarations: [AppComponent],
-        bootstrap: [AppComponent],
-      })
-      export class AppModule {}
-      ```
-      Else you want to create seperate standalone component then need to create component first. You can create component using CLI command or manually, since question is related to manual creation.
-
-      First need to create these files
-
-      1. `component-name.component.ts`
-      2. `component-name.component.css`
-      3. `component-name.component.spec` (optional only for testing)
-      4. `component-name.component.html`
-
-      Next update `component-name.component.ts` as shown below.
-
-      ```typescript
-      import { CommonModule } from '@angular/common';
-      import { Component, OnInit } from '@angular/core';
-
-      @Component({
-        standalone: true,
-        imports: [CommonModule],
-        selector: 'app-standalone-component',
-        templateUrl: './standalone-component.component.html',
-        styleUrls: ['./standalone-component.component.css'],
-      })
-      export class ComponentNameComponent implements OnInit {
-        constructor() {}
-
-        ngOnInit() {}
-      }
-      ```
-      Then need to update `app.module.ts` as shown below. Instead of adding component name to declaration need to add it to imports and import the component.
+      Next need to update `app.module.ts` as shown below.
 
       ```typescript
       import { NgModule } from '@angular/core';
