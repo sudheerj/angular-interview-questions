@@ -326,7 +326,10 @@ You can download the PDF and Epub version of this repository from the latest run
 |273| [What is the benefit of Automatic Inlining of Fonts?](#what-is-the-benefit-of-automatic-inlining-of-fonts)|
 |274| [What is content projection?](#what-is-content-projection)|
 |275| [What is ng-content and its purpose?](#what-is-ng-content-and-its-purpose)|
-|276| [](#)|
+|276| [What is standalone component?](#what-is-standalone-component)|
+|277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
+|278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
+|279| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4602,5 +4605,90 @@ You can download the PDF and Epub version of this repository from the latest run
 
 274. ### What is content projection?
      Content projection is a pattern in which you insert, or project, the content you want to use inside another component.
+
+      **[⬆ Back to Top](#table-of-contents)**
+
 275. ### What is ng-content and its purpose?
      The ng-content is used to insert the content dynamically inside the component that helps to increase component reusability. 
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+276. ### What is standalone component?
+      A standalone component is a type of component which is not part of any Angular module. It provides a simplified way to build Angular applications.
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+278. ### How to create a standalone component uing CLI command?
+
+      Generate standalone component using CLI command as shown below
+      ```bash
+      ng generate component component-name --standalone
+      ```
+      On running the command standalone component is created.
+      Here is the list of file created.
+      
+      1. `component-name.component.ts`
+      2. `component-name.component.css`
+      3. `component-name.component.spec`
+      4. `component-name.component.html`
+      
+      Next need to update `app.module.ts` as shown below.
+
+      ```typescript
+      import { NgModule } from '@angular/core';
+      import { BrowserModule } from '@angular/platform-browser';
+      import { ComponentNameComponent } from './component-name/component-name.component';
+
+      @NgModule({
+        imports: [
+          BrowserModule,
+          ComponentNameComponent
+        ],
+        declarations: [AppComponent],
+        bootstrap: [AppComponent],
+      })
+      export class AppModule {}
+      ```
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+278. ### How to create a standalone component manually?
+      To make existing component to standalone, then add `standalone: true` in `component-name.component.ts`
+      as shown below
+
+      ```typescript
+      import { CommonModule } from '@angular/common';
+      import { Component, OnInit } from '@angular/core';
+
+      @Component({
+        standalone: true,
+        imports: [CommonModule],
+        selector: 'app-standalone-component',
+        templateUrl: './standalone-component.component.html',
+        styleUrls: ['./standalone-component.component.css'],
+      })
+      export class ComponentNameComponent implements OnInit {
+        constructor() {}
+
+        ngOnInit() {}
+      }
+      ```
+      Next need to update `app.module.ts` as shown below.
+
+      ```typescript
+      import { NgModule } from '@angular/core';
+      import { BrowserModule } from '@angular/platform-browser';
+      import { ComponentNameComponent } from './component-name/component-name.component';
+
+      @NgModule({
+        imports: [
+          BrowserModule,
+          ComponentNameComponent
+        ],
+        declarations: [AppComponent],
+        bootstrap: [AppComponent],
+      })
+      export class AppModule {}
+      ```
+      
+      **[⬆ Back to Top](#table-of-contents)**
