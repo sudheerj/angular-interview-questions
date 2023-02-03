@@ -420,9 +420,9 @@ You can download the PDF and Epub version of this repository from the latest run
 
     | Component | Directive |
     |---- | ---------
-    | To register a component we use @Component meta-data annotation  | To register directives we use @Directive meta-data annotation |
-    | Components are typically used to create UI widgets| Directive is used to add behavior to an existing DOM element |
-    | Component is used to break up the application into smaller components| Directive is use to design re-usable components|
+    | To register a component we use @Component meta-data annotation  | To register a directive we use @Directive meta-data annotation |
+    | Components are typically used to create UI widgets| Directives are used to add behavior to an existing DOM element |
+    | Component is used to break down the application into smaller components| Directive is used to design re-usable components|
     | Only one component can be present per DOM element | Many directives can be used per DOM element |
     | @View decorator or templateurl/template are mandatory | Directive doesn't use View|
 
@@ -482,11 +482,11 @@ You can download the PDF and Epub version of this repository from the latest run
     })
     export class AppModule { }
     ```
-    The NgModule decorator has five important(among all) options
-    1. The imports option is used to import other dependent modules. The BrowserModule is required by default for any web based angular application
-    2. The declarations option is used to define components in the respective module
-    3. The bootstrap option tells Angular which Component to bootstrap in the application
-    4. The providers option is used to configure set of injectable objects that are available in the injector of this module.
+    The NgModule decorator has five important (among all) options:
+    1. The imports option is used to import other dependent modules. The BrowserModule is required by default for any web based angular application.
+    2. The declarations option is used to define components in the respective module.
+    3. The bootstrap option tells Angular which Component to bootstrap in the application.
+    4. The providers option is used to configure a set of injectable objects that are available in the injector of this module.
     5. The entryComponents option is a set of components dynamically loaded into the view.
 
   **[⬆ Back to Top](#table-of-contents)**
