@@ -605,7 +605,7 @@ You can download the PDF and Epub version of this repository from the latest run
             }
         }
         ```
-    4. **Parameter decorators** Used for parameters inside class constructors, e.g. @Inject, Optional
+    4. **Parameter decorators** Used for parameters inside class constructors, e.g. @Inject, @Optional
         ```typescript
         import { Component, Inject } from '@angular/core';
         import { MyService } from './my-service';
