@@ -698,6 +698,28 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 18. ### How is Dependency Hierarchy formed?
+    Injectors in Angular have rules that can be leveraged to achieve the desired visibility of injectables in your applications. By understanding these rules, you can determine in which NgModule, Component, or Directive you should declare a provider.
+
+    #### Angular has two injector hierarchies:
+    ![Screenshot](/images/injector%20hierarchies.png)
+
+    - __Module injector__ 
+    When angular starts, it creates a root injector where the services will be registered, these are provided via injectable annotation. All services provided in the `ng-model` property are called providers (if those modules are not lazy-loaded).
+
+    Angular recursively goes through all models which are being used in the application and creates instances for provided services in the root injector. If you provide some service in an eagerly-loaded model, the service will be added to the root injector, which makes it available across the whole application.
+
+    - __Platform Module__
+    During application bootstrapping angular creates a few more injectors, above the root injector goes the platform injector, this one is created by the platform browser dynamic function inside the `main.ts` file, and it provides some platform-specific features like `DomSanitizer`. 
+
+    - __NullInjector()__
+    At the very top, the next parent injector in the hierarchy is the `NullInjector()`.The responsibility of this injector is to throw the error if something tries to find dependencies there, unless you've used `@Optional()` because ultimately, everything ends at the `NullInjector()` and it returns an error or, in the case of `@Optional()`, `null`.
+
+    ![Screenshot](images/hierarchy%20diagram.png)
+
+    - __ElementInjector__
+    Angular creates `ElementInjector` hierarchies implicitly for each DOM element. `ElementInjector` injector is being created for any tag that matches the angular component, or any tag on which directive is applied, and you can configure it in component and directive annotations inside the provider's property, thus, it creates its own hierarchy likewise the upper one.
+
+    ![Screenshot](images/element%20injector%20hieracrhy.png)
 
   **[⬆ Back to Top](#table-of-contents)**
 
