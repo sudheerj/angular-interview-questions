@@ -735,9 +735,14 @@ You can download the PDF and Epub version of this repository from the latest run
            Time: {{ time | async }}</div>`
     })
     export class AsyncObservablePipeComponent {
-      time = new Observable(observer =>
-        setInterval(() => observer.next(new Date().toString()), 2000)
-      );
+      time: Observable<string>;
+      constructor() {
+        this.time = new Observable((observer) => {
+          setInterval(() => {
+            observer.next(new Date().toString());
+          }, 2000);
+        });
+      }
     }
     ```
 
