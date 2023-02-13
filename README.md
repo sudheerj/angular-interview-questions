@@ -758,19 +758,19 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-21. ### What is the purpose of ngFor directive?
-    We use Angular ngFor directive in the template to display each item in the list. For example, here we iterate over list of users,
+21. ### What is the purpose of `*ngFor` directive?
+    We use Angular `*ngFor` directive in the template to display each item in the list. For example, here we can iterate over a list of users:
     ```html
     <li *ngFor="let user of users">
       {{ user }}
     </li>
     ```
-    The user variable in the ngFor double-quoted instruction is a **template input variable**
+    The user variable in the `*ngFor` double-quoted instruction is a **template input variable**.
 
   **[⬆ Back to Top](#table-of-contents)**
 
-22. ### What is the purpose of ngIf directive?
-    Sometimes an app needs to display a view or a portion of a view only under specific circumstances. The Angular ngIf directive inserts or removes an element based on a truthy/falsy condition. Let's take an example to display a message if the user age is more than 18,
+22. ### What is the purpose of `*ngIf` directive?
+    Sometimes an app needs to display a view or a portion of a view only under specific circumstances. The Angular `*ngIf` directive inserts or removes an element based on a truthy/falsy condition. Let's take an example to display a message if the user age is more than 18:
     ```html
     <p *ngIf="user.age > 18">You are not eligible for student pass!</p>
     ```
