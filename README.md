@@ -808,8 +808,8 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 25. ### What are template expressions?
-    A template expression produces a value similar to any Javascript expression. Angular executes the expression and assigns it to a property of a binding target; the target might be an HTML element, a component, or a directive. In the property binding, a template expression appears in quotes to the right of the = symbol as in [property]="expression".
-    In interpolation syntax, the template expression is surrounded by double curly braces. For example, in the below interpolation, the template expression is {{username}},
+    A template expression produces a value similar to any Javascript expression. Angular executes the expression and assigns it to a property of a binding target; the target might be an HTML element, a component, or a directive. In the property binding, a template expression appears in quotes to the right of the = symbol as in `[property]="expression"`.
+    In interpolation syntax, the template expression is surrounded by double curly braces. For example, in the below interpolation, the template expression is `{{username}}`,
 
     ```html
     <h3>{{username}}, welcome to Angular</h3>
@@ -825,7 +825,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 26. ### What are template statements?
-    A template statement responds to an event raised by a binding target such as an element, component, or directive. The template statements appear in quotes to the right of the = symbol like **(event)="statement"**.
+    A template statement responds to an event raised by a binding target such as an element, component, or directive. The template statements appear in quotes to the right of the = symbol like `(event)="statement"`.
 
     Let's take an example of button click event's statement
 
