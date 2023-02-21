@@ -913,7 +913,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 31. ### What is a custom pipe?
-    Apart from built-inn pipes, you can write your own custom pipe with the below key characteristics,
+    Apart from built-in pipes, you can write your own custom pipe with the below key characteristics:
     1. A pipe is a class decorated with pipe metadata **@Pipe** decorator, which you import from the core Angular library
        For example,
         ```javascript
