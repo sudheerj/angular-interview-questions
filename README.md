@@ -995,8 +995,8 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 36. ### What is HttpClient and its benefits?
-    Most of the Front-end applications communicate with backend services over `HTTP` protocol using either `XMLHttpRequest` interface or the `fetch()` API. Angular provides a simplified client HTTP API known as `HttpClient` which is based on top of XMLHttpRequest interface. This client is avaialble from `@angular/common/http` package.
-    You can import in your root module as below,
+    Most of the Front-end applications communicate with backend services over `HTTP` protocol using either `XMLHttpRequest` interface or the `fetch()` API. Angular provides a simplified client HTTP API known as `HttpClient` which is based on top of `XMLHttpRequest` interface. This client is avaialble from `@angular/common/http` package.
+    You can import in your root module as below:
 
     ```javascript
     import { HttpClientModule } from '@angular/common/http';
