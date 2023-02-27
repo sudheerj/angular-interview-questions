@@ -1101,11 +1101,11 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 41. ### What is subscribing?
-    An Observable instance begins publishing values only when someone subscribes to it. So you need to subscribe by calling the **subscribe()** method of the instance, passing an observer object to receive the notifications.
+    An Observable instance begins publishing values only when someone subscribes to it. So you need to subscribe by calling the `subscribe()` method of the instance, passing an observer object to receive the notifications.
 
     Let's take an example of creating and subscribing to a simple observable, with an observer that logs the received message to the console.
     ```javascript
-    Creates an observable sequence of 5 integers, starting from 1
+    // Creates an observable sequence of 5 integers, starting from 1
     const source = range(1, 5);
 
     // Create observer object
