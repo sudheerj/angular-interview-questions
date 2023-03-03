@@ -1165,13 +1165,13 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 44. ### What is the difference between promise and observable?
-    Below are the list of differences between promise and observable,
+    Below are the list of differences between promise and observable:
 
        | Observable | Promise |
        |---- | --------- |
-       | Declarative: Computation does not start until subscription so that they can be run whenever you need the result | Execute immediately on creation|
-       | Provide multiple values over time | Provide only one |
-       | Subscribe method is used for error handling which makes centralized and predictable error handling| Push errors to the child promises |
+       | Declarative: Computation does not start until subscription, so they can run whenever you need the result | Executes immediately on creation|
+       | Provides multiple values over time | Provides only one |
+       | Subscribe method is used for error handling that facilitates centralized and predictable error handling | Push errors to the child promises |
        | Provides chaining and subscription to handle complex applications | Uses only .then() clause |
 
   **[⬆ Back to Top](#table-of-contents)**
@@ -1179,7 +1179,7 @@ You can download the PDF and Epub version of this repository from the latest run
 45. ### What is multicasting?
     Multi-casting is the practice of broadcasting to a list of multiple subscribers in a single execution.
 
-    Let's demonstrate the multi-casting feature,
+    Let's demonstrate the multi-casting feature:
     ```javascript
     var source = Rx.Observable.from([1, 2, 3]);
     var subject = new Rx.Subject();
