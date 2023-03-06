@@ -1159,7 +1159,7 @@ You can download the PDF and Epub version of this repository from the latest run
        | Declarative: Computation does not start until subscription, so they can run whenever you need the result | Executes immediately on creation|
        | Provides multiple values over time | Provides only one |
        | Subscribe method is used for error handling that facilitates centralized and predictable error handling | Push errors to the child promises |
-       | Provides chaining and subscription to handle complex applications | Uses only .then() clause |
+       | Provides chaining and subscription to handle complex applications | Uses only `.then()` clause |
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -1186,7 +1186,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 46. ### How do you perform error handling in observables?
-    You can handle errors by specifying an **error callback** on the observer instead of relying on try/catch which are ineffective in asynchronous environment.
+    You can handle errors by specifying an **error callback** on the observer instead of relying on `try`/`catch`, which are ineffective in asynchronous environment.
 
     For example, you can define error callback as below,
     ```javascript
@@ -1198,8 +1198,8 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-47. ### What is the short hand notation for subscribe method?
-    The subscribe() method can accept callback function definitions in line, for next, error, and complete handlers is known as short hand notation or Subscribe method with positional arguments.
+47. ### What is the shorthand notation for subscribe method?
+    The `subscribe()` method can accept callback function definitions in line, for `next`, `error`, and `complete` handlers. It is known as shorthand notation or Subscribe method with positional arguments.
 
     For example, you can define subscribe method as below,
     ```javascript
