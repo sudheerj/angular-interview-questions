@@ -97,7 +97,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |44| [What is the difference between promise and observable?](#what-is-the-difference-between-promise-and-observable)|
 |45| [What is multicasting?](#what-is-multicasting)|
 |46| [How do you perform error handling in observables?](#how-do-you-perform-error-handling-in-observables)|
-|47| [What is the short hand notation for subscribe method?](#what-is-the-short-hand-notation-for-subscribe-method)|
+|47| [What is the shorthand notation for subscribe method?](#what-is-the-shorthand-notation-for-subscribe-method)|
 |48| [What are the utility functions provided by RxJS?](#what-are-the-utility-functions-provided-by-rxjs)|
 |49| [What are observable creation functions?](#what-are-observable-creation-functions)|
 |50| [What will happen if you do not supply handler for observer?](#what-will-happen-if-you-do-not-supply-handler-for-observer)|
@@ -1237,7 +1237,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 49. ### What are observable creation functions?
-    RxJS provides creation functions for the process of creating observables from things such as promises, events, timers and Ajax requests. Let us explain each of them with an example,
+    RxJS provides creation functions for the process of creating observables from promises, events, timers and Ajax requests. Let us explain each of them with an example:
     1. Create an observable from a promise
         ```javascript
         import { from } from 'rxjs'; // from function
