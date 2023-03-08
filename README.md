@@ -100,8 +100,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |47| [What is the shorthand notation for subscribe method?](#what-is-the-shorthand-notation-for-subscribe-method)|
 |48| [What are the utility functions provided by RxJS?](#what-are-the-utility-functions-provided-by-rxjs)|
 |49| [What are observable creation functions?](#what-are-observable-creation-functions)|
-|50| [What will happen if you do not supply handler for observer?](#what-will-happen-if-you-do-not-supply-handler-for-observer)|
-|51| [What are angular elements?](#what-are-angular-elements)|
+|50| [What will happen if you do not supply handler for the observer?](#what-will-happen-if-you-do-not-supply-handler-for-the-observer)|
+|51| [What are Angular elements?](#what-are-angular-elements)|
 |52| [What is the browser support of Angular Elements?](#what-is-the-browser-support-of-angular-elements)|
 |53| [What are custom elements?](#what-are-custom-elements)|
 |54| [Do I need to bootstrap custom elements?](#do-i-need-to-bootstrap-custom-elements)|
@@ -1274,13 +1274,13 @@ You can download the PDF and Epub version of this repository from the latest run
 
   **[⬆ Back to Top](#table-of-contents)**
 
-50. ### What will happen if you do not supply handler for observer?
-    Normally an observer object can define any combination of next, error and complete notification type handlers. If you don't supply a handler for a notification type, the observer just ignores notifications of that type.
+50. ### What will happen if you do not supply handler for the observer?
+    Usually, an observer object can define any combination of `next`, `error`, and `complete` notification type handlers. If you don't supply a handler for a notification type, the observer just ignores notifications of that type.
 
   **[⬆ Back to Top](#table-of-contents)**
 
-51. ### What are angular elements?
-    Angular elements are Angular components packaged as **custom elements**(a web standard for defining new HTML elements in a framework-agnostic way). Angular Elements hosts an Angular component, providing a bridge between the data and logic defined in the component and standard DOM APIs, thus, providing a way to use Angular components in `non-Angular environments`.
+51. ### What are Angular elements?
+    Angular elements are Angular components packaged as **custom elements** (a web standard for defining new HTML elements in a framework-agnostic way). Angular Elements host an Angular component, providing a bridge between the data and the logic defined in the component and the standard DOM APIs, thus, providing a way to use Angular components in `non-Angular environments`.
 
   **[⬆ Back to Top](#table-of-contents)**
 
