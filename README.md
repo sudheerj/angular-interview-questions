@@ -2991,7 +2991,7 @@ You can download the PDF and Epub version of this repository from the latest run
         ): Observable<HttpEvent<any>> {
 
           return next.handle(req).do(event => {
-            if (eventt instanceof HttpResponse) {
+            if (event instanceof HttpResponse) {
                  // Code goes here
             }
           });
