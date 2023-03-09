@@ -1347,12 +1347,12 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 59. ### What are dynamic components?
-    Dynamic components are the components in which components location in the application is not defined at build time.i.e, They are not used in any angular template. But the component is instantiated and placed in the application at runtime.
+    Dynamic components are the components in which the component's location in the application is not defined at build time i.e. they are not used in any angular template. Instead, the component is instantiated and placed in the application at runtime.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 60. ### What are the various kinds of directives?
-    There are mainly three kinds of directives,
+    There are mainly three kinds of directives:
     1. **Components** — These are directives with a template.
     2. **Structural directives** — These directives change the DOM layout by adding and removing DOM elements.
     3. **Attribute directives** — These directives change the appearance or behavior of an element, component, or another directive.
