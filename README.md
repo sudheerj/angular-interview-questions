@@ -316,6 +316,12 @@ You can download the PDF and Epub version of this repository from the latest run
 |276| [What is standalone component?](#what-is-standalone-component)|
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
+|279| [Angular for Beginners](https://www.youtube.com/watch?v=3qBXWUpoPHo)
+|280| [Angular Interview Questions](https://www.interviewbit.com/angular-interview-questions/)
+|281| [AngularJS Tutorial](https://www.w3schools.com/angular/default.asp)
+
+
+
 |279| [](#)
 
 1. ### What is Angular Framework?
