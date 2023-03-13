@@ -1360,12 +1360,12 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 61. ### How do you create directives using CLI?
-    You can use CLI command `ng generate directive` to create the directive class file. It creates the source file(`src/app/components/directivename.directive.ts`), the respective test file(.spec.ts) and declare the directive class file in root module.
+    You can use CLI command `ng generate directive` to create the directive class file. It creates the source file(`src/app/components/directivename.directive.ts`), the respective test file `.spec.ts` and declare the directive class file in root module.
 
   **[⬆ Back to Top](#table-of-contents)**
 
 62. ### Give an example for attribute directives?
-    Let's take simple highlighter behavior as a example directive for DOM element. You can create and apply the attribute directive using below steps,
+    Let's take simple highlighter behavior as a example directive for DOM element. You can create and apply the attribute directive using below step:
 
     1. Create HighlightDirective class with the file name `src/app/highlight.directive.ts`. In this file, we need to import **Directive** from core library to apply the metadata and **ElementRef** in the directive's constructor to inject a reference to the host DOM element ,
         ```javascript
@@ -1392,7 +1392,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 63. ### What is Angular Router?
-    Angular Router is a mechanism in which navigation happens from one view to the next as users perform application tasks. It borrows the concepts or model of browser's application navigation.
+    Angular Router is a mechanism in which navigation happens from one view to the next as users perform application tasks. It borrows the concepts or model of browser's application navigation. It enables developers to build Single Page Applications with multiple views and allow navigation between these views.
 
   **[⬆ Back to Top](#table-of-contents)**
 
