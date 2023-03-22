@@ -280,7 +280,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |240| [How do you get current direction for locales??](#how-do-you-get-current-direction-for-locales)|
 |241| [What is ngcc?](#what-is-ngcc)|
 |242| [What classes should not be added to declarations?](#what-classes-should-not-be-added-to-declarations)|
-|243| [Wat is ngzone?](#what-is-ngzone)|
+|243| [What is ngzone?](#what-is-ngzone)|
 |244| [What is NoopZone?](#what-is-noopzone)|
 |245| [How do you create displayBlock components?](#how-do-you-create-displayblock-components)|
 |246| [What are the possible data change scenarios for change detection?](#what-are-the-possible-data-change-scenarios-for-change-detection)|
@@ -1921,7 +1921,7 @@ You can download the PDF and Epub version of this repository from the latest run
   **[⬆ Back to Top](#table-of-contents)**
 
 100. ### What is codelyzer?
-     Codelyzer provides set of tslint rules for static code analysis of Angular TypeScript projects. ou can run the static code analyzer over web apps, NativeScript, Ionic etc. Angular CLI has support for this and it can be use as below,
+     Codelyzer provides set of tslint rules for static code analysis of Angular TypeScript projects. You can run the static code analyzer over web apps, NativeScript, Ionic etc. Angular CLI has support for this and it can be use as below,
      ```bash
      ng new codelyzer
      ng lint
