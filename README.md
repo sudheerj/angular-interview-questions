@@ -18,22 +18,6 @@
 
 ---
 
-<p align="center">
-  <a href=https://bit.ly/3Fg9pgx>
-    <img src="images/collab/codestudio-logo.svg" alt="Codestudio Logo">
-  </a>
-  <p>
-    Explore the best free resource to learn Angular and kickstart your journey as an angular frontend developer <a href=https://bit.ly/3Fg9pgx target="_blank">here</a>. Earn a free certification in just 25 days.
-  </p>
-</p>
-
----
-
-## Downloading PDF/Epub formats
-
-You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/angular-interview-questions/actions).
-
-
 ### Table of Contents
 
 | No. | Questions |
