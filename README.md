@@ -4148,24 +4148,24 @@
          </label>
          ```
      Finally, the component with reactive form control appears as below,
-         ```js
-         import { Component } from '@angular/core';
-         import { FormControl } from '@angular/forms';
-
-         @Component({
-           selector: 'user-profile',
-           styleUrls: ['./user-profile.component.css']
-           template: `
-              <label>
-                User name:
-                <input type="text" [formControl]="userName">
-              </label>
-           `
-         })
-         export class UserProfileComponent {
-           userName = new FormControl('');
-         }
-         ```
+     ```js
+     import { Component } from '@angular/core';
+     import { FormControl } from '@angular/forms';
+	
+     @Component({
+       selector: 'user-profile',
+       styleUrls: ['./user-profile.component.css'],
+       template: `
+         <label>
+           User name:
+           <input type="text" [formControl]="userName">
+         </label>
+       `
+     })
+     export class UserProfileComponent {
+       userName = new FormControl('');
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -4200,8 +4200,8 @@
      2. Bind the form from template to the component using ngModel syntax
          ```html
          <input type="text" class="form-control" id="name"
-                required
-                [(ngModel)]="model.name" name="name">
+           required
+           [(ngModel)]="model.name" name="name">
          ```
      3.  Attach NgForm directive to the <form> tag in order to create FormControl instances and register them
          ```js
@@ -4225,28 +4225,26 @@
          // Form goes here
          <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
          ```
-
      Finally, the completed template-driven registration form will be appeared as follow.
-
-         ```html
-         <div class="container">
-             <h1>Registration Form</h1>
-             <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-               <div class="form-group">
-                 <label for="name">Name</label>
-                 <input type="text" class="form-control" id="name"
-                        required
-                        [(ngModel)]="model.name" name="name"
-                        #name="ngModel">
-                 <div [hidden]="name.valid || name.pristine"
-                      class="alert alert-danger">
-                   Please enter your name
-                 </div>
-               </div>
-                     <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
-             </form>
+     ```html
+     <div class="container">
+       <h1>Registration Form</h1>
+       <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+         <div class="form-group">
+           <label for="name">Name</label>
+             <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="model.name" name="name"
+                    #name="ngModel">
+             <div [hidden]="name.valid || name.pristine"
+                  class="alert alert-danger">
+               Please enter your name
+             </div>
          </div>
-         ```
+         <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
+         </form>
+     </div>
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
