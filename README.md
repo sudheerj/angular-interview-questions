@@ -300,6 +300,7 @@
 |276| [What is standalone component?](#what-is-standalone-component)|
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
+|279| [What is hydration ?](#what-is-hydration)
 |279| [](#)
 
 1. ### What is Angular Framework?
@@ -4683,6 +4684,36 @@
         ],
         declarations: [AppComponent],
         bootstrap: [AppComponent],
+      })
+      export class AppModule {}
+      ```
+      
+      **[⬆ Back to Top](#table-of-contents)**
+278. ### What is hydration?
+      Hydration is the process that restores the server side rendered application on the client. This includes things like reusing the server rendered DOM structures, persisting the application state, transferring application data that was retrieved already by the server, and other processes.
+
+      To enable hydration, we have to enable server side rendering or Angular Universal. Once enabled, we can add the following piece of code in the root component.
+        
+      ```typescript
+      import {
+        bootstrapApplication,
+        provideClientHydration,
+      } from '@angular/platform-browser';
+
+      bootstrapApplication(RootCmp, {
+        providers: [provideClientHydration()]
+      });
+      ```
+      Alternatively we can add `providers: [provideClientHydration()]` in the App Module
+      ```typescript
+      import {provideClientHydration} from '@angular/platform-browser';
+      import {NgModule} from '@angular/core';
+      ​
+      @NgModule({
+        declarations: [RootCmp],
+        exports: [RootCmp],
+        bootstrap: [RootCmp],
+        providers: [provideClientHydration()],
       })
       export class AppModule {}
       ```
