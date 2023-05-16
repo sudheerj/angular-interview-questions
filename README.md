@@ -4719,3 +4719,13 @@
       ```
       
       **[⬆ Back to Top](#table-of-contents)**
+
+278. ### What is Angular Signals?
+      Angular Signals is a powerful system that provides detailed monitoring of state usage within an application, enabling the framework to efficiently optimize rendering updates.
+
+      **[⬆ Back to Top](#table-of-contents)**
+      
+278. ### What is Signals?
+      Signals serve as wrappers around values, offering the ability to notify interested consumers whenever the encapsulated value undergoes a change. These signals can accommodate a wide range of values, encompassing both basic primitives and intricate data structures.
+
+      **[⬆ Back to Top](#table-of-contents)**
