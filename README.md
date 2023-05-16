@@ -302,7 +302,7 @@
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
 |280| [What is Angular Signals ?](#what-is-angular-signals)
-|281| [What is Angular Signals ?](#what-is-signals)
+|281| [What is Signals ?](#what-is-signals)
 |282| [](#)
 
 1. ### What is Angular Framework?
