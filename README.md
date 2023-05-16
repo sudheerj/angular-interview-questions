@@ -301,7 +301,9 @@
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
-|279| [](#)
+|280| [What is Angular Signals ?](#what-is-angular-signals)
+|281| [What is Angular Signals ?](#what-is-signals)
+|282| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4724,7 +4726,7 @@
       Angular Signals is a powerful system that provides detailed monitoring of state usage within an application, enabling the framework to efficiently optimize rendering updates.
 
       **[⬆ Back to Top](#table-of-contents)**
-      
+
 278. ### What is Signals?
       Signals serve as wrappers around values, offering the ability to notify interested consumers whenever the encapsulated value undergoes a change. These signals can accommodate a wide range of values, encompassing both basic primitives and intricate data structures.
 
