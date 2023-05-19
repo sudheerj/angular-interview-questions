@@ -4731,3 +4731,50 @@
       Signals serve as wrappers around values, offering the ability to notify interested consumers whenever the encapsulated value undergoes a change. These signals can accommodate a wide range of values, encompassing both basic primitives and intricate data structures.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+279. ### How to use Angular Signals with simple example?
+
+      In this example, we create a signal called count and set its initial value to 0. We then subscribe to the signal so that we can be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
+
+      When the button is clicked, the incrementCount() method is called. This method sets the value of the count signal to 1. The subscribers to the signal are then notified of the change, and the new value is displayed in the UI.
+
+      In typescript file
+
+      ```typescript
+      import { Component, OnInit } from '@angular/core';
+      import { signal } from '@angular/cdk/platform-browser';
+
+      @Component({
+        selector: 'my-app',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+      })
+      export class AppComponent implements OnInit {
+
+        count = signal(0);
+
+        constructor() { }
+
+        ngOnInit() {
+          this.count.subscribe(value => {
+            console.log('Count changed to', value);
+          });
+        }
+
+        incrementCount() {
+          this.count.value++;
+        }
+
+      }
+      ```
+      In HTML file
+
+      ```html
+      <h1>Angular Signals Example</h1>
+
+      <button (click)="incrementCount()">Increment Count</button>
+
+      <p>Count: {{ count }}</p>
+      ````
+
+      **[⬆ Back to Top](#table-of-contents)**
