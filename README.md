@@ -303,7 +303,8 @@
 |279| [What is hydration ?](#what-is-hydration)
 |280| [What is Angular Signals ?](#what-is-angular-signals)
 |281| [What is Signals ?](#what-is-signals)
-|282| [](#)
+|282| [Explain Angular Signals with example](#explain-angular-signals-with-example)
+|283| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4722,17 +4723,17 @@
       
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### What is Angular Signals?
-      Angular Signals is a powerful system that provides detailed monitoring of state usage within an application, enabling the framework to efficiently optimize rendering updates.
+278. ### What are Angular Signals?
+      Angular Signals is a system that granularly tracks how and where your state is used throughout an application, allowing the framework to optimize rendering updates.
 
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### What is Signals?
-      Signals serve as wrappers around values, offering the ability to notify interested consumers whenever the encapsulated value undergoes a change. These signals can accommodate a wide range of values, encompassing both basic primitives and intricate data structures.
+278. ### What are Signals?
+      A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
 
       **[⬆ Back to Top](#table-of-contents)**
 
-279. ### How to use Angular Signals with simple example?
+279. ### Explain Angular Signals with example. 
 
       In this example, we create a signal called count and set its initial value to 0. We then subscribe to the signal so that we can be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
 
