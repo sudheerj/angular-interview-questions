@@ -4775,6 +4775,6 @@
       <button (click)="incrementCount()">Increment Count</button>
 
       <p>Count: {{ count }}</p>
-      ````
+      ```
 
       **[⬆ Back to Top](#table-of-contents)**
