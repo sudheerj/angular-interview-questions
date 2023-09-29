@@ -301,7 +301,7 @@
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
-|279| [](#)
+|279| [What is Subject in Angular](#What-is-Subject-in-Angular)
 
 1. ### What is Angular Framework?
 
@@ -4719,3 +4719,8 @@
       ```
       
       **[⬆ Back to Top](#table-of-contents)**
+279. ### What is Subject in Angular?		
+Subject is a special type of Observable from RxJs library which allows both emitting and subscribing of values. Used to handle asyncronous operations.
+Behavioral Subject: It has an initial value and emits only the recent / latest value.
+Replay Subject: Buffers a specified number of values and replays those values to new subscribers.
+Async Subject: Only emits the recent value.
