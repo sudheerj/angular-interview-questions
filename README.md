@@ -240,7 +240,7 @@
 |216| [Is it necessary for bootstrapped component to be entry component?](#is-it-necessary-for-bootstrapped-component-to-be-entry-component)|
 |217| [What is a routed entry component?](#what-is-a-routed-entry-component#)|
 |218| [Why is not necessary to use entryComponents array every time?](#why-is-not-necessary-to-use-entrycomponents-array-every-time)|
-|219| [Do I still need to use entryComponents array in Angular9?](do-i-still-need-to-use-entrycomponents-array-in-angular9#)|
+|219| [Do I still need to use entryComponents array in Angular9?](#do-i-still-need-to-use-entrycomponents-array-in-angular9#)|
 |220| [Is it all components generated in production build?](#is-it-all-components-generated-in-production-build)|
 |221| [What is Angular compiler?](#what-is-angular-compiler)|
 |222| [What is the role of ngModule metadata in compilation process?](#what-is-the-role-of-ngmodule-metadata-in-compilation-process)|
