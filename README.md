@@ -978,7 +978,7 @@
     1. Contains testability features
     2. Provides typed request and response objects
     3. Intercept request and response
-    4. Supports Observalbe APIs
+    4. Supports Observable APIs
     5. Supports streamlined error handling
 
   **[⬆ Back to Top](#table-of-contents)**
