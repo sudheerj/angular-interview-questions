@@ -305,7 +305,20 @@
 
 1. ### What is Angular Framework?
 
-    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. The major features of this framework include declarative templates, dependency injection, end to end tooling which ease application development.
+    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. It uses TypeScript, a superset of JavaScript, to build interactive and responsive web applications.
+
+    <hr/>
+    Key Features of Angular:
+
+    1. Component-Based Architecture: Angular uses components to build the user interface. Components are reusable and encapsulate the template, data, and behavior.
+    2. Directives: Angular provides directives to extend HTML with additional functionality. Directives are used to manipulate the DOM and add dynamic behavior to elements.
+    3. Dependency Injection: Angular has a built-in dependency injection system that helps manage dependencies between different parts of an application.
+    4. Routing: Angular's routing module allows developers to build single-page applications with multiple views and navigate between them.
+    5. Forms: Angular has powerful form handling capabilities, including template-driven forms and reactive forms.
+    6. HTTP Client: Angular provides an HTTP client for making requests to a server and handling responses.
+    7. Observables: Angular uses observables to handle asynchronous operations and event handling.
+    8. Testing: Angular has a built-in testing framework for writing unit tests and end-to-end tests.
+
 
   **[⬆ Back to Top](#table-of-contents)**
 
