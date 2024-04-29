@@ -308,7 +308,8 @@
    Angular is a **TypeScript-based open-source** web application framework maintained by Google for building dynamic web applications. It is particularly well-suited for building Single Page Applications (SPAs), where the entire application runs in a single web page, providing a more fluid user experience similar to that of a desktop application.
 
     <hr/>
-    Key Features of Angular:
+    
+    **Key Features of Angular**:
 
     1. Component-Based Architecture: Angular uses components to build the user interface. Components are reusable and encapsulate the template, data, and behavior.
     2. Directives: Angular provides directives to extend HTML with additional functionality. Directives are used to manipulate the DOM and add dynamic behavior to elements.
