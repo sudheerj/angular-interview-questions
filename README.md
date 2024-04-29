@@ -305,7 +305,7 @@
 
 1. ### What is Angular Framework?
 
-    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. It uses TypeScript, a superset of JavaScript, to build interactive and responsive web applications.
+   Angular is a **TypeScript-based open-source** web application framework maintained by Google for building dynamic web applications. It is particularly well-suited for building Single Page Applications (SPAs), where the entire application runs in a single web page, providing a more fluid user experience similar to that of a desktop application.
 
     <hr/>
     Key Features of Angular:
