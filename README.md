@@ -301,7 +301,11 @@
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
-|279| [](#)
+|280| [What is Angular Signals ?](#what-is-angular-signals)
+|281| [What is Signals ?](#what-is-signals)
+|282| [Explain Angular Signals with example](#explain-angular-signals-with-example)
+|283| [What are the Route Parameters? Explain each of them.](#what-are-the-route-parameters-explain-each-of-them)
+|284| []()
 
 1. ### What is Angular Framework?
 
@@ -4689,6 +4693,7 @@
       ```
       
       **[⬆ Back to Top](#table-of-contents)**
+
 278. ### What is hydration?
       Hydration is the process that restores the server side rendered application on the client. This includes things like reusing the server rendered DOM structures, persisting the application state, transferring application data that was retrieved already by the server, and other processes.
 
@@ -4718,4 +4723,93 @@
       export class AppModule {}
       ```
       
+      **[⬆ Back to Top](#table-of-contents)**
+
+278. ### What are Angular Signals?
+      A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+278. ### What are Signals?
+      A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
+
+      **[⬆ Back to Top](#table-of-contents)**
+      
+279. ### Explain Angular Signals with example. 
+      In this example, we create a signal named `count` and initialize it with a value of 0. We then connect to the signal, allowing us to be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
+
+      When the button is clicked, the `incrementCount()` method is called. This method sets the new value of the `count` signal to 1. Objects connected to the signal (subscribers) are then notified of the change, and the updated value is displayed in the UI.
+
+      In typescript file
+
+      ```typescript
+      import { Component, OnInit } from '@angular/core';
+      import { signal, computed } from '@angular/core'; // Import from '@angular/core'
+
+      @Component({
+        selector: 'my-app',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+      })
+      export class AppComponent implements OnInit {
+
+        count = signal(0); // Initial value of count
+        displayedCount = computed(() => this.count()); // Computed signal for display
+
+        constructor() { }
+
+        ngOnInit() {
+          // Subscribe to displayedCount instead of count for updates in the template
+          this.displayedCount.subscribe(value => {
+            console.log('Displayed count changed to', value); // Optional logging for debugging
+          });
+        }
+
+        incrementCount() {
+          this.count.set(this.count() + 1); // Update count using set() for immutability
+        }
+      }
+      ```
+      In HTML file
+      ```html
+      <h1>Angular Signals Example</h1>
+
+      <button (click)="incrementCount()">Increment Count</button>
+
+      <p>Count: {{ count }}</p>
+      ```
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+279. ### What are the Route Parameters? Explain each of them.
+      Route parameters are used to pass dynamic values in the URL of a route. They allow you to define variable segments in the route path, which can be accessed and used by components and services. Path parameters are represented by a colon (":") followed by the parameter name.
+
+      There are three types of route parameters in Angular:
+
+      **Path parameters:** Path parameters are used to define dynamic segments in the URL path. They are specified as part of the route's path and are extracted from the actual URL when navigating to that route. Path parameters are represented by a colon (":") followed by the parameter name. For example:
+
+      ```typescript
+      { path: 'users/:id', component: UserComponent }
+      ```
+
+      In this example, ":id" is the path parameter. When navigating to a URL like "/users/123", the value "123" will be extracted and can be accessed in the UserComponent.
+
+      **Query parameters:** Query parameters are used to pass additional information in the URL as key-value pairs. They are appended to the URL after a question mark ("?") and can be accessed by components and services. Query parameters are not part of the route path, but they provide additional data to the route. For example:
+
+      ```typescript
+      { path: 'search', component: SearchComponent }
+      ```
+
+      In this example, a URL like "/search?query=angular" contains a query parameter "query" with the value "angular". The SearchComponent can retrieve the value of the query parameter and use it for searching.
+
+      **Optional parameters:** Optional parameters are used when you want to make a route parameter optional. They are represented by placing a question mark ("?") after the parameter name. Optional parameters can be useful when you have routes with varying parameters. For example:
+
+      ```typescript
+      { path: 'products/:id/:category?', component: ProductComponent }
+      ```
+
+      In this example, the ":category" parameter is optional. The ProductComponent can be accessed with URLs like "/products/123" or "/products/123/electronics". If the ":category" parameter is present in the URL, it will be available in the component, otherwise, it will be undefined.
+
+      Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
+
       **[⬆ Back to Top](#table-of-contents)**
