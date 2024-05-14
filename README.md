@@ -301,10 +301,10 @@
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
-|280| [What is Angular Signals ?](#what-are-angular-signals)
-|281| [What is Signals ?](#what-are-signals)
-|282| [Explain Angular Signals with example](#explain-angular-signals-with-example)
-|283| [What are the Route Parameters? Explain each of them.](#what-are-the-route-parameters-explain-each-of-them)
+|280| [What are Angular Signals?](#what-are-angular-signals)
+|281| [What are Signals?](#what-are-signals)
+|282| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
+|283| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
 |284| [](#)
 
 1. ### What is Angular Framework?
@@ -4735,7 +4735,7 @@
 
       **[⬆ Back to Top](#table-of-contents)**
       
-279. ### Explain Angular Signals with example. 
+279. ### Explain Angular Signals with an example. 
       In this example, we create a signal named `count` and initialize it with a value of 0. We then connect to the signal, allowing us to be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
 
       When the button is clicked, the `incrementCount()` method is called. This method sets the new value of the `count` signal to 1. Objects connected to the signal (subscribers) are then notified of the change, and the updated value is displayed in the UI.
@@ -4781,7 +4781,7 @@
 
       **[⬆ Back to Top](#table-of-contents)**
 
-279. ### What are the Route Parameters? Explain each of them.
+279. ### What are the Route Parameters? Could you explain each of them?.
       Route parameters are used to pass dynamic values in the URL of a route. They allow you to define variable segments in the route path, which can be accessed and used by components and services. Path parameters are represented by a colon (":") followed by the parameter name.
 
       There are three types of route parameters in Angular:
