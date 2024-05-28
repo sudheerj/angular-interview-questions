@@ -302,10 +302,9 @@
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
 |280| [What are Angular Signals?](#what-are-angular-signals)
-|281| [What are Signals?](#what-are-signals)
-|282| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
-|283| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
-|284| [](#)
+|281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
+|282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
+|283| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4619,7 +4618,7 @@
 
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### How to create a standalone component uing CLI command?
+277. ### How to create a standalone component uing CLI command?
 
       Generate standalone component using CLI command as shown below
       ```bash
@@ -4694,7 +4693,7 @@
       
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### What is hydration?
+279. ### What is hydration?
       Hydration is the process that restores the server side rendered application on the client. This includes things like reusing the server rendered DOM structures, persisting the application state, transferring application data that was retrieved already by the server, and other processes.
 
       To enable hydration, we have to enable server side rendering or Angular Universal. Once enabled, we can add the following piece of code in the root component.
@@ -4725,22 +4724,17 @@
       
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### What are Angular Signals?
+280. ### What are Angular Signals?
       A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
 
       **[⬆ Back to Top](#table-of-contents)**
-
-278. ### What are Signals?
-      A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
-
-      **[⬆ Back to Top](#table-of-contents)**
-      
-279. ### Explain Angular Signals with an example. 
+  
+281. ### Explain Angular Signals with an example. 
       In this example, we create a signal named `count` and initialize it with a value of 0. We then connect to the signal, allowing us to be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
 
       When the button is clicked, the `incrementCount()` method is called. This method sets the new value of the `count` signal to 1. Objects connected to the signal (subscribers) are then notified of the change, and the updated value is displayed in the UI.
 
-      In typescript file
+      In TypeScript file
 
       ```typescript
       import { Component, OnInit } from '@angular/core';
@@ -4752,21 +4746,22 @@
         styleUrls: ['./app.component.css']
       })
       export class AppComponent implements OnInit {
+        count = signal(0);
+        doubleCount = computed(() => this.count() * 2);
 
-        count = signal(0); // Initial value of count
-        displayedCount = computed(() => this.count()); // Computed signal for display
-
-        constructor() { }
+        constructor() {}
 
         ngOnInit() {
-          // Subscribe to displayedCount instead of count for updates in the template
-          this.displayedCount.subscribe(value => {
-            console.log('Displayed count changed to', value); // Optional logging for debugging
-          });
+          // Optional logging for debugging displayedCount changes
+          // console.log('Displayed count changed to:', this.displayedCount());
         }
 
         incrementCount() {
-          this.count.set(this.count() + 1); // Update count using set() for immutability
+          this.count.set(this.count() + 1);
+        }
+
+        decrementCount() {
+          this.count.update((value) => Math.max(0, value - 1));
         }
       }
       ```
@@ -4774,14 +4769,18 @@
       ```html
       <h1>Angular Signals Example</h1>
 
-      <button (click)="incrementCount()">Increment Count</button>
+      <button (click)="incrementCount()" style="margin-right: 10px;">Increment Count</button>
+      <button (click)="decrementCount()">Decrement Count</button>
 
-      <p>Count: {{ count }}</p>
+      <p>Count: {{ count() }}</p>
+      <p>Double Count: {{ doubleCount() }}</p>
       ```
+
+      [Stackblitz Example Link](https://stackblitz.com/edit/stackblitz-starters-pirzhw?file=src%2Fmain.ts)
 
       **[⬆ Back to Top](#table-of-contents)**
 
-279. ### What are the Route Parameters? Could you explain each of them?.
+282. ### What are the Route Parameters? Could you explain each of them?.
       Route parameters are used to pass dynamic values in the URL of a route. They allow you to define variable segments in the route path, which can be accessed and used by components and services. Path parameters are represented by a colon (":") followed by the parameter name.
 
       There are three types of route parameters in Angular:
