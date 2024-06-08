@@ -301,7 +301,10 @@
 |277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
 |278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
 |279| [What is hydration ?](#what-is-hydration)
-|279| [](#)
+|280| [What are Angular Signals?](#what-are-angular-signals)
+|281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
+|282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
+|283| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4615,7 +4618,7 @@
 
       **[⬆ Back to Top](#table-of-contents)**
 
-278. ### How to create a standalone component uing CLI command?
+277. ### How to create a standalone component uing CLI command?
 
       Generate standalone component using CLI command as shown below
       ```bash
@@ -4689,7 +4692,8 @@
       ```
       
       **[⬆ Back to Top](#table-of-contents)**
-278. ### What is hydration?
+
+279. ### What is hydration?
       Hydration is the process that restores the server side rendered application on the client. This includes things like reusing the server rendered DOM structures, persisting the application state, transferring application data that was retrieved already by the server, and other processes.
 
       To enable hydration, we have to enable server side rendering or Angular Universal. Once enabled, we can add the following piece of code in the root component.
@@ -4718,4 +4722,93 @@
       export class AppModule {}
       ```
       
+      **[⬆ Back to Top](#table-of-contents)**
+
+280. ### What are Angular Signals?
+      A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
+
+      **[⬆ Back to Top](#table-of-contents)**
+  
+281. ### Explain Angular Signals with an example. 
+      In this example, we create a signal named `count` and initialize it with a value of 0. We then connect to the signal, allowing us to be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
+
+      When the button is clicked, the `incrementCount()` method is called. This method sets the new value of the `count` signal to 1. Objects connected to the signal (subscribers) are then notified of the change, and the updated value is displayed in the UI.
+
+      In TypeScript file
+
+      ```typescript
+      import { Component, OnInit } from '@angular/core';
+      import { signal, computed } from '@angular/core'; // Import from '@angular/core'
+
+      @Component({
+        selector: 'my-app',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+      })
+      export class AppComponent implements OnInit {
+        count = signal(0);
+        doubleCount = computed(() => this.count() * 2);
+
+        constructor() {}
+
+        ngOnInit() {
+          // Optional logging for debugging displayedCount changes
+          // console.log('Displayed count changed to:', this.displayedCount());
+        }
+
+        incrementCount() {
+          this.count.set(this.count() + 1);
+        }
+
+        decrementCount() {
+          this.count.update((value) => Math.max(0, value - 1));
+        }
+      }
+      ```
+      In HTML file
+      ```html
+      <h1>Angular Signals Example</h1>
+
+      <button (click)="incrementCount()" style="margin-right: 10px;">Increment Count</button>
+      <button (click)="decrementCount()">Decrement Count</button>
+
+      <p>Count: {{ count() }}</p>
+      <p>Double Count: {{ doubleCount() }}</p>
+      ```
+
+      [Stackblitz Example Link](https://stackblitz.com/edit/stackblitz-starters-pirzhw?file=src%2Fmain.ts)
+
+      **[⬆ Back to Top](#table-of-contents)**
+
+282. ### What are the Route Parameters? Could you explain each of them?.
+      Route parameters are used to pass dynamic values in the URL of a route. They allow you to define variable segments in the route path, which can be accessed and used by components and services. Path parameters are represented by a colon (":") followed by the parameter name.
+
+      There are three types of route parameters in Angular:
+
+      **Path parameters:** Path parameters are used to define dynamic segments in the URL path. They are specified as part of the route's path and are extracted from the actual URL when navigating to that route. Path parameters are represented by a colon (":") followed by the parameter name. For example:
+
+      ```typescript
+      { path: 'users/:id', component: UserComponent }
+      ```
+
+      In this example, ":id" is the path parameter. When navigating to a URL like "/users/123", the value "123" will be extracted and can be accessed in the UserComponent.
+
+      **Query parameters:** Query parameters are used to pass additional information in the URL as key-value pairs. They are appended to the URL after a question mark ("?") and can be accessed by components and services. Query parameters are not part of the route path, but they provide additional data to the route. For example:
+
+      ```typescript
+      { path: 'search', component: SearchComponent }
+      ```
+
+      In this example, a URL like "/search?query=angular" contains a query parameter "query" with the value "angular". The SearchComponent can retrieve the value of the query parameter and use it for searching.
+
+      **Optional parameters:** Optional parameters are used when you want to make a route parameter optional. They are represented by placing a question mark ("?") after the parameter name. Optional parameters can be useful when you have routes with varying parameters. For example:
+
+      ```typescript
+      { path: 'products/:id/:category?', component: ProductComponent }
+      ```
+
+      In this example, the ":category" parameter is optional. The ProductComponent can be accessed with URLs like "/products/123" or "/products/123/electronics". If the ":category" parameter is present in the URL, it will be available in the component, otherwise, it will be undefined.
+
+      Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
+
       **[⬆ Back to Top](#table-of-contents)**
