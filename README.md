@@ -4776,8 +4776,6 @@
       <p>Double Count: {{ doubleCount() }}</p>
       ```
 
-      [Stackblitz Example Link](https://stackblitz.com/edit/stackblitz-starters-pirzhw?file=src%2Fmain.ts)
-
       **[⬆ Back to Top](#table-of-contents)**
 
 282. ### What are the Route Parameters? Could you explain each of them?.
