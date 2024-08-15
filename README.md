@@ -1048,7 +1048,7 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 39. ### How do you perform Error handling?
-    If the request fails on the server or fails to reach the server due to network issues, then `HttpClient` will return an error object instead of a successful reponse. In this case, you need to handle in the component by passing `error` object as a second callback to `subscribe()` method.
+    If the request fails on the server or fails to reach the server due to network issues, then `HttpClient` will return an error object instead of a successful response. In this case, you need to handle in the component by passing `error` object as a second callback to `subscribe()` method.
 
     Let's see how it can be handled in the component with an example,
     ```javascript
@@ -1180,7 +1180,7 @@
     ```javascript
     myObservable.subscribe({
       next(num) { console.log('Next num: ' + num)},
-      error(err) { console.log('Received an errror: ' + err)}
+      error(err) { console.log('Received an error: ' + err)}
     });
     ```
 
@@ -1766,7 +1766,7 @@
           ]
         ```
         You can fix this by non-destructured values
-        ```javscript
+        ```javascript
         import { user } from './user';
         ... //metadata
         providers: [
@@ -1803,7 +1803,7 @@
   **[⬆ Back to Top](#table-of-contents)**
 
 92. ### How do you specify angular template compiler options?
-    The angular template compiler options are specified as members of the **angularCompilerOptions** object in the tsconfig.json file. These options will be specified adjecent to typescript compiler options.
+    The angular template compiler options are specified as members of the **angularCompilerOptions** object in the tsconfig.json file. These options will be specified adjacent to typescript compiler options.
 
     ```javascript
     {
@@ -2377,7 +2377,7 @@
 
 134. ### How do you use Bazel with Angular CLI?
      The @angular/bazel package provides a builder that allows Angular CLI to use Bazel as the build tool.
-     1. **Use in an existing applciation:** Add @angular/bazel using CLI
+     1. **Use in an existing application:** Add @angular/bazel using CLI
          ```javascript
          ng add @angular/bazel
          ```
@@ -2819,7 +2819,7 @@
      **[⬆ Back to Top](#table-of-contents)**
 
 165. ### What is Sanitization? Is angular supports it?
-     **Sanitization** is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM. Yes, Angular suppports sanitization. It sanitizes untrusted values for HTML, styles, and URLs but sanitizing resource URLs isn't possible because they contain arbitrary code.
+     **Sanitization** is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM. Yes, Angular supports sanitization. It sanitizes untrusted values for HTML, styles, and URLs but sanitizing resource URLs isn't possible because they contain arbitrary code.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -3030,7 +3030,7 @@
 179. ### What are the four phases of template translation?
      The i18n template translation process has four phases:
 
-     1. **Mark static text messages in your component templates for translation:** You can place i18n on every element tag whose fixed text is to be translated. For example, you need i18n attribue for heading as below,
+     1. **Mark static text messages in your component templates for translation:** You can place i18n on every element tag whose fixed text is to be translated. For example, you need i18n attribute for heading as below,
          ```javascript
          <h1 i18n>Hello i18n!</h1>
          ```
@@ -3495,7 +3495,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 215. ### How do you manually bootstrap an application?
-     You can use `ngDoBootstrap` hook for a manual bootstrapping of the application instead of using bootstrap array in `@NgModule` annotation. This hook is part of `DoBootstap` interface.
+     You can use `ngDoBootstrap` hook for a manual bootstrapping of the application instead of using bootstrap array in `@NgModule` annotation. This hook is part of `DoBootstrap` interface.
      ```js
      interface DoBootstrap {
        ngDoBootstrap(appRef: ApplicationRef): void
@@ -3534,7 +3534,7 @@
      **[⬆ Back to Top](#table-of-contents)**
 
 218. ### Why is not necessary to use entryComponents array every time?
-     Most of the time, you don't need to explicity to set entry components in entryComponents array of ngModule decorator. Because angular adds components from both @NgModule.bootstrap and route definitions to entry components automatically.
+     Most of the time, you don't need to explicitly to set entry components in entryComponents array of ngModule decorator. Because angular adds components from both @NgModule.bootstrap and route definitions to entry components automatically.
 
      **[⬆ Back to Top](#table-of-contents)**
 
