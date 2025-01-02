@@ -304,7 +304,8 @@
 |280| [What are Angular Signals?](#what-are-angular-signals)
 |281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
 |282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
-|283| [](#)
+|283| [How many different ways to unsubscribe from all BehaviorSubjects of a component?](#how-many-different-ways-to-unsubscribe-from-all-behaviorsubjects-of-a-component) 
+|284| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4810,3 +4811,124 @@
       Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+283. ### How many different ways to unsubscribe from all BehaviorSubjects of a component?
+      Here are 4 common ways to unsubscribe from a BehaviorSubject in Angular:
+
+      **1. Manual Unsubscription** You can manually unsubscribe in the `ngOnDestroy` lifecycle hook.
+
+      ```typescript
+      import { Component, OnDestroy } from '@angular/core';
+      import { BehaviorSubject, Subscription } from 'rxjs';
+
+      @Component({
+        selector: 'app-my-component',
+        templateUrl: './my-component.component.html',
+      })
+      export class MyComponent implements OnDestroy {
+        private subject = new BehaviorSubject<number>(0);
+        private subscription: Subscription;
+
+        constructor() {
+          this.subscription = this.subject.subscribe(value => {
+            console.log('BehaviorSubject value:', value);
+          });
+        }
+
+        ngOnDestroy() {
+          this.subscription.unsubscribe();
+          console.log('Subscription manually unsubscribed.');
+        }
+      }
+      ```
+
+      **2. Using takeUntil with a Subject** This approach automatically unsubscribes observables by using a `Subject` and the `takeUntil` operator. It is scalable and works well with multiple subscriptions.
+
+      ```typescript
+      import { Component, OnDestroy } from '@angular/core';
+      import { BehaviorSubject, Subject } from 'rxjs';
+      import { takeUntil } from 'rxjs/operators';
+
+      @Component({
+        selector: 'app-my-component',
+        templateUrl: './my-component.component.html',
+      })
+      export class MyComponent implements OnDestroy {
+        private subject = new BehaviorSubject<number>(0);
+        private destroy$ = new Subject<void>();
+
+        constructor() {
+          this.subject.pipe(takeUntil(this.destroy$)).subscribe(value => {
+            console.log('BehaviorSubject value:', value);
+          });
+        }
+
+        ngOnDestroy() {
+          this.destroy$.next();  // Emits to complete the subscription
+          this.destroy$.complete();
+          console.log('Automatically unsubscribed using takeUntil.');
+        }
+      }
+      ```
+      **3. Using AsyncPipe** When binding observables in templates, you can use the `AsyncPipe`, which automatically manages the subscription lifecycle for you.
+
+      ```html
+      <div>{{ subject | async }}</div>
+
+      ```
+
+      ```typescript
+      import { Component } from '@angular/core';
+      import { BehaviorSubject } from 'rxjs';
+
+      @Component({
+        selector: 'app-my-component',
+        templateUrl: './my-component.component.html',
+      })
+      export class MyComponent {
+        subject = new BehaviorSubject<number>(0);
+
+        constructor() {
+          setTimeout(() => {
+            this.subject.next(1);
+          }, 1000);
+        }
+      }
+      ```
+
+      **4. Grouping Subscriptions Using Subscription.add()** When dealing with multiple subscriptions, you can group them using `Subscription.add()` and unsubscribe all at once.
+
+      ```typescript
+      import { Component, OnDestroy } from '@angular/core';
+      import { BehaviorSubject, Subscription } from 'rxjs';
+
+      @Component({
+        selector: 'app-my-component',
+        templateUrl: './my-component.component.html',
+      })
+      export class MyComponent implements OnDestroy {
+        private subject1 = new BehaviorSubject<number>(0);
+        private subject2 = new BehaviorSubject<number>(0);
+        private subscriptions: Subscription = new Subscription();
+
+        constructor() {
+          this.subscriptions.add(
+            this.subject1.subscribe(value => {
+              console.log('Subject 1 value:', value);
+            })
+          );
+          this.subscriptions.add(
+            this.subject2.subscribe(value => {
+              console.log('Subject 2 value:', value);
+            })
+          );
+        }
+
+        ngOnDestroy() {
+          this.subscriptions.unsubscribe();
+          console.log('All subscriptions unsubscribed.');
+        }
+      }
+      ```
+
+      **[⬆ Back to Top](#table-of-contents)**  
