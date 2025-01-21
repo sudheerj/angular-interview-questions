@@ -594,6 +594,22 @@
                 console.log(myService); // MyService
             }
         }
+        
+        // Angular v18 and above
+        
+        import { Component, inject } from '@angular/core';
+        import { MyService } from './my-service';
+
+        @Component({
+            selector: 'my-component',
+            template: '<div>Parameter decorator</div>'
+        })
+        export class MyComponent {
+        myService: MyService = inject(MyService)
+            constructor() {
+                console.log(myService); // MyService
+            }
+        }
         ```
   **[⬆ Back to Top](#table-of-contents)**
 
