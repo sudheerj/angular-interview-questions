@@ -4826,3 +4826,5 @@
       Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+Really Good resource
