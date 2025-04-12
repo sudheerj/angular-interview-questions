@@ -304,7 +304,8 @@
 |280| [What are Angular Signals?](#what-are-angular-signals)
 |281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
 |282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
-|283| [](#)
+|283| [What is NgRx?](#what-is-ngrx)
+|284| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4825,4 +4826,43 @@
 
       Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
 
+      **[⬆ Back to Top](#table-of-contents)**
+
+283. ### What is NgRx?
+      **NgRx** is a framework for building **reactive applications** in Angular using **Redux-inspired state management**. It provides a **store** for managing the state of your application in a **unidirectional data flow** manner.
+
+      #### Key Concepts in NgRx:
+
+      - **Store**: A centralized container that holds the state of your application.
+      - **Actions**: Events that describe something that happened (e.g., `LOAD_USERS`).
+      - **Reducers**: Pure functions that take the current state and an action to return a new state.
+      - **Selectors**: Functions used to retrieve slices of state from the store.
+      - **Effects**: Handle side effects (like API calls) outside of reducers using RxJS observables.
+
+      #### Benefits:
+      - Predictable state management
+      - Time-travel debugging
+      - Immutability enforcement
+      - Better separation of concerns
+      - Scalable for large applications
+
+      #### Example:
+
+      ```ts
+      // action.ts
+      export const loadUsers = createAction('[Users Page] Load Users');
+
+      // reducer.ts
+      const userReducer = createReducer(initialState,
+        on(loadUsers, state => ({ ...state, loading: true }))
+      );
+
+      // effect.ts
+      loadUsers$ = createEffect(() => this.actions$.pipe(
+        ofType(loadUsers),
+        mergeMap(() => this.userService.getAll()
+          .pipe(map(users => loadUsersSuccess({ users }))))
+      ));
+      ```
+    
       **[⬆ Back to Top](#table-of-contents)**
