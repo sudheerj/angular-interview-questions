@@ -1,17 +1,17 @@
 # Angular Interview Questions & Answers
 
-> Click :star:if you like the project and follow [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates. 
+> Click :star: if you like the project and follow [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates. 
 
 ---
 
 <p align="center">
-  <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions>
-    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo" width="100" height="50">
+  <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions">
+    <img src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2" alt="ZTM Logo" width="100" height="50">
   </a>
   <p align="center">
     <ol>
-    <li>Take this <a href=https://links.zerotomastery.io/angular_sudheer>Angular course</a> to go from a complete Angular beginner to confidently building enterprise-level applications from scratch</li>
-    <li>Take this <a href=https://links.zerotomastery.io/mci_sudheer3>coding interview bootcamp</a> if you’re serious about getting hired and don’t have a CS degree</li>
+    <li>Take this <a href="https://links.zerotomastery.io/angular_sudheer">Angular course</a> to go from a complete Angular beginner to confidently building enterprise-level applications from scratch</li>
+    <li>Take this <a href="https://links.zerotomastery.io/mci_sudheer3">coding interview bootcamp</a> if you're serious about getting hired and don't have a CS degree</li>
     </ol>
   </p>
 </p>
@@ -163,7 +163,7 @@
 |139| [How do you detect route change in Angular?](#how-do-you-detect-route-change-in-angular)|
 |140| [How do you pass headers for HTTP client?](#how-do-you-pass-headers-for-http-client)|
 |141| [What is the purpose of differential loading in CLI?](#what-is-the-purpose-of-differential-loading-in-cli)|
-|142| [Is Angular supports dynamic imports?](#is-angular-supports-dynamic-imports)|
+|142| [Does Angular support dynamic imports?](#does-angular-support-dynamic-imports)|
 |143| [What is lazy loading?](#what-is-lazy-loading)|
 |144| [What are workspace APIs?](#what-are-workspace-apis)|
 |145| [How do you upgrade angular version?](#how-do-you-upgrade-angular-version)|
@@ -186,19 +186,19 @@
 |162| [What is Angular security model for preventing XSS attacks?](#what-is-angular-security-model-for-preventing-xss-attacks)|
 |163| [What is the role of template compiler for prevention of XSS attacks?](#what-is-the-role-of-template-compiler-for-prevention-of-xss-attacks)|
 |164| [What are the various security contexts in Angular?](#what-are-the-various-security-contexts-in-Angular)|
-|165| [What is Sanitization? Is angular supports it?](#what-is-sanitization?Is-angular-supports-it)|
+|165| [What is Sanitization? Does Angular support it?](#what-is-sanitization-does-angular-support-it)|
 |166| [What is the purpose of innerHTML?](#what-is-the-purpose-of-innerhtml)|
 |167| [What is the difference between interpolated content and innerHTML?](#what-is-the-difference-between-interpolated-content-and-innerhtml)|
 |168| [How do you prevent automatic sanitization?](#how-do-you-prevent-automatic-sanitization)|
-|169| [Is safe to use direct DOM API methods in terms of security?](#is-safe-to-use-direct-dom-api-methods-in-terms-of-security)|
+|169| [Is it safe to use direct DOM API methods in terms of security?](#is-it-safe-to-use-direct-dom-api-methods-in-terms-of-security)|
 |170| [What is DOM sanitizer?](#what-is-dom-sanitizer)|
 |171| [How do you support server side XSS protection in Angular application?](#how-do-you-support-server-side-xss-protection-in-angular-application)
-|172| [Is angular prevents http level vulnerabilities?](#is-angular-prevents-http-level-vulnerabilities)|
+|172| [Does Angular prevent HTTP level vulnerabilities?](#does-angular-prevent-http-level-vulnerabilities)|
 |173| [What are Http Interceptors?](#what-are-http-interceptors)|
 |174| [What are the applications of HTTP interceptors?](#what-are-the-applications-of-http-interceptors)|
-|175| [Is multiple interceptors supported in Angular?](#is-multiple-interceptors-supported-in-angular)|
+|175| [Are multiple interceptors supported in Angular?](#are-multiple-interceptors-supported-in-angular)|
 |176| [How can I use interceptor for an entire application?](#how-can-i-use-interceptor-for-an-entire-application)|
-|177| [How does Angular simplifies Internationalization?](#how-does-angular-simplifies-internationalization)|
+|177| [How does Angular simplify Internationalization?](#how-does-angular-simplify-internationalization)|
 |178| [How do you manually register locale data?](#how-do-you-manually-register-locale-data)|
 |179| [What are the four phases of template translation?](#what-are-the-four-phases-of-template-translation)|
 |180| [What is the purpose of i18n attribute?](#what-is-the-purpose-of-i18n-attribute)|
@@ -594,9 +594,9 @@
                 console.log(myService); // MyService
             }
         }
-        
+
         // Angular v18 and above
-        
+
         import { Component, inject } from '@angular/core';
         import { MyService } from './my-service';
 
@@ -953,7 +953,7 @@
 
 34. ### What is a bootstrapping module?
     Every application has at least one Angular module, the root module that you bootstrap to launch the application is called as bootstrapping module. It is commonly known as `AppModule`. The default structure of `AppModule` generated by AngularCLI would be as follows:
-	
+
 	```javascript
         import { BrowserModule } from '@angular/platform-browser';
         import { NgModule } from '@angular/core';
@@ -1582,7 +1582,7 @@
 
 78. ### What is AOT?
     Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. This is the default starting in Angular 9. When you run the ng build (build only) or ng serve (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the aot property in your build configuration specified in angular.json. By default, aot is set to true.
-    
+
     ```cmd
     ng build
     ng serve
@@ -2017,7 +2017,7 @@
         ```javascript
         import { Component, OnInit, Input } from '@angular/core';
         import { trigger, state, style, animate, transition } from '@angular/animations';
-    
+
         @Component({
         selector: 'app-animate',
         templateUrl: `<div [@changeState]="currentState" class="myblock mx-auto"></div>`,
@@ -2044,11 +2044,11 @@
         ]
         })
         export class AnimateComponent implements OnInit {
-    
+
             @Input() currentState;
-    
+
             constructor() { }
-    
+
             ngOnInit() {
             }
         }
@@ -2353,14 +2353,14 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-131. ### what is an rxjs subject in Angular
+131. ### What is an RxJS Subject in Angular?
      An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers. While plain Observables are unicast (each subscribed Observer owns an independent execution of the Observable), Subjects are multicast.
-      
+
      A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they maintain a registry of many listeners.
 
      ``` typescript
       import { Subject } from 'rxjs';
- 
+
         const subject = new Subject<number>();
 
         subject.subscribe({
@@ -2522,7 +2522,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-142. ### Is Angular supports dynamic imports?
+142. ### Does Angular support dynamic imports?
      Yes, Angular 8 supports dynamic imports in router configuration. i.e, You can use the import statement for lazy loading the module using `loadChildren` method and it will be understood by the IDEs(VSCode and WebStorm), webpack, etc.
      Previously, you have been written as below to lazily load the feature module. By mistake, if you have typo in the module name it still accepts the string and throws an error during build time.
      ```javascript
@@ -2771,18 +2771,16 @@
      **[⬆ Back to Top](#table-of-contents)**
 
 157. ### What is the browser support for Angular?
-     Angular supports most recent browsers which includes both desktop and mobile browsers.
+     Angular supports most recent browsers which includes both desktop and mobile browsers. As of Angular 13+, IE is no longer supported.
 
      | Browser | Version |
      |---- | --------- |
-     | Chrome | latest |
-     | Firefox | latest |
+     | Chrome | 2 most recent major versions |
+     | Firefox | 2 most recent major versions |
      | Edge | 2 most recent major versions |
-     | IE | 11, 10, 9 (Compatibility mode is not supported) |
      | Safari | 2 most recent major versions |
-     | IE Mobile | 11 |
      | iOS | 2 most recent major versions |
-     | Android | 7.0, 6.0, 5.0, 5.1, 4.4 |
+     | Android | 2 most recent major versions |
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -2834,7 +2832,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-165. ### What is Sanitization? Is angular supports it?
+165. ### What is Sanitization? Does Angular support it?
      **Sanitization** is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM. Yes, Angular supports sanitization. It sanitizes untrusted values for HTML, styles, and URLs but sanitizing resource URLs isn't possible because they contain arbitrary code.
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -2897,7 +2895,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-169. ### Is safe to use direct DOM API methods in terms of security?
+169. ### Is it safe to use direct DOM API methods in terms of security?
      No,the built-in browser DOM APIs or methods don't automatically protect you from security vulnerabilities. In this case it is recommended to use Angular templates instead of directly interacting with DOM. If it is unavoidable then use the built-in Angular sanitization functions.
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -2912,7 +2910,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-172. ### Is angular prevents http level vulnerabilities?
+172. ### Does Angular prevent HTTP level vulnerabilities?
      Angular has built-in support for preventing http level vulnerabilities such as as cross-site request forgery (CSRF or XSRF) and cross-site script inclusion (XSSI). Even though these vulnerabilities need to be mitigated on server-side, Angular provides helpers to make the integration easier on the client side.
      1. HttpClient supports a token mechanism used to prevent XSRF attacks
      2. HttpClient library recognizes the convention of prefixed JSON responses(which non-executable js code with ")]}',\\n" characters) and automatically strips the string ")]}',\\n" from all responses before further parsing
@@ -2971,7 +2969,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-175. ### Is multiple interceptors supported in Angular?
+175. ### Are multiple interceptors supported in Angular?
      Yes, Angular supports multiple interceptors at a time. You could define multiple interceptors in providers property:
      ```javascript
      providers: [
@@ -3018,7 +3016,7 @@
 
      **[⬆ Back to Top](#table-of-contents)**
 
-177. ### How does Angular simplifies Internationalization?
+177. ### How does Angular simplify Internationalization?
 
      Angular simplifies the below areas of internationalization,
      1. Displaying dates, number, percentages, and currencies in a local format.
@@ -4171,7 +4169,7 @@
      ```js
      import { Component } from '@angular/core';
      import { FormControl } from '@angular/forms';
-	
+
      @Component({
        selector: 'user-profile',
        styleUrls: ['./user-profile.component.css'],
@@ -4613,7 +4611,7 @@
      A component harness is a testing API around an Angular directive or component to make tests simpler by hiding implementation details from test suites. This can be shared between unit tests, integration tests, and end-to-end tests. The idea for component harnesses comes from the **PageObject** pattern commonly used for integration testing.
 
      **[⬆ Back to Top](#table-of-contents)**
-     
+
 273. ### What is the benefit of Automatic Inlining of Fonts?
      During compile time, Angular CLI will download and inline the fonts that your application is using. This performance update speed up the first contentful paint(FCP) and this feature is enabled by default in apps built with version 11.
 
@@ -4634,20 +4632,20 @@
 
       **[⬆ Back to Top](#table-of-contents)**
 
-277. ### How to create a standalone component uing CLI command?
+277. ### How to create a standalone component using CLI command?
 
-      Generate standalone component using CLI command as shown below
+      Generate a standalone component using the CLI command as shown below:
       ```bash
       ng generate component component-name --standalone
       ```
       On running the command standalone component is created.
       Here is the list of file created.
-      
+
       1. `component-name.component.ts`
       2. `component-name.component.css`
       3. `component-name.component.spec`
       4. `component-name.component.html`
-      
+
       Next need to update `app.module.ts` as shown below.
 
       ```typescript
@@ -4706,14 +4704,14 @@
       })
       export class AppModule {}
       ```
-      
+
       **[⬆ Back to Top](#table-of-contents)**
 
 279. ### What is hydration?
       Hydration is the process that restores the server side rendered application on the client. This includes things like reusing the server rendered DOM structures, persisting the application state, transferring application data that was retrieved already by the server, and other processes.
 
       To enable hydration, we have to enable server side rendering or Angular Universal. Once enabled, we can add the following piece of code in the root component.
-        
+
       ```typescript
       import {
         bootstrapApplication,
@@ -4737,14 +4735,14 @@
       })
       export class AppModule {}
       ```
-      
+
       **[⬆ Back to Top](#table-of-contents)**
 
 280. ### What are Angular Signals?
       A signal is a wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
 
       **[⬆ Back to Top](#table-of-contents)**
-  
+
 281. ### Explain Angular Signals with an example. 
       In this example, we create a signal named `count` and initialize it with a value of 0. We then connect to the signal, allowing us to be notified whenever its value changes. Finally, we add a button that increments the count when clicked.
 
