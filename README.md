@@ -298,13 +298,14 @@
 |274| [What is content projection?](#what-is-content-projection)|
 |275| [What is ng-content and its purpose?](#what-is-ng-content-and-its-purpose)|
 |276| [What is standalone component?](#what-is-standalone-component)|
-|277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)
-|278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)
-|279| [What is hydration ?](#what-is-hydration)
-|280| [What are Angular Signals?](#what-are-angular-signals)
-|281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
-|282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
-|283| [](#)
+|277| [How to create a standalone component uing CLI command?](#how-to-create-a-standalone-component-uing-cli-command)|
+|278| [How to create a standalone component manually?](#how-to-create-a-standalone-component-manually)|
+|279| [What is hydration ?](#what-is-hydration)|
+|280| [What are Angular Signals?](#what-are-angular-signals)|
+|281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)|
+|282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)|
+|283| [What are Subjects in Angular? and mention the types](#what-are-subjects-in-angular-and-mention-the-types)|
+|284| [](#)
 
 1. ### What is Angular Framework?
 
@@ -4824,3 +4825,12 @@
       Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+      283. ### What are Subjects in Angular? and mention the types
+      Subject is a special type of Observable from RxJs library which allows both emitting and subscribing of values. Used to handle asyncronous operations.
+      Behavioral Subject: It has an initial value and emits only the recent / latest value.
+      Replay Subject: Buffers a specified number of values and replays those values to new subscribers.
+      Async Subject: Only emits the recent value.
+
+      **[⬆ Back to Top](#table-of-contents)**
+
