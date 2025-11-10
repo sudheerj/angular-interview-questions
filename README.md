@@ -304,7 +304,7 @@
 |280| [What are Angular Signals?](#what-are-angular-signals)
 |281| [Explain Angular Signals with an example](#explain-angular-signals-with-an-example)
 |282| [What are the Route Parameters? Could you explain each of them?](#what-are-the-route-parameters-could-you-explain-each-of-them)
-|283| [](#)
+|283| [What is NgRx?](#what-is-ngrx)
 
 1. ### What is Angular Framework?
 
@@ -4824,3 +4824,50 @@
       Route parameters provide a flexible way to handle dynamic data in your Angular application. They allow you to create routes that can be easily customized and provide a seamless user experience by reflecting the current state of the application in the URL.
 
       **[⬆ Back to Top](#table-of-contents)**
+
+283. ### What is NgRx?
+
+     NgRx is a framework for building reactive applications in Angular. It is a state management library that provides a Redux-inspired architecture for managing and centralizing application state. NgRx is built on top of RxJS and follows the principles of reactive programming.
+
+     The main components of NgRx include:
+
+     1. **Store:** A single, immutable data structure that holds the entire application state.
+     2. **Actions:** Plain objects that describe events or user interactions that can change the state.
+     3. **Reducers:** Pure functions that take the current state and an action, and return a new state.
+     4. **Effects:** Side effect handlers that listen to actions and can perform asynchronous operations like API calls.
+     5. **Selectors:** Functions used to query and derive data from the store.
+
+     NgRx helps manage complex state in large Angular applications by providing predictable state management, improved debugging capabilities, and better separation of concerns. It's particularly useful for applications with:
+     - Complex data flows
+     - Multiple components sharing the same data
+     - Need for time-travel debugging
+     - Requirements for state persistence
+
+     Here's a simple example of NgRx usage:
+
+     ```typescript
+     // Action
+     export const loadUsers = createAction('[User List] Load Users');
+
+     // Reducer
+     export const userReducer = createReducer(
+       initialState,
+       on(loadUsers, state => ({ ...state, loading: true }))
+     );
+
+     // Selector
+     export const selectUsers = (state: AppState) => state.users;
+
+     // Component
+     export class UserComponent {
+       users$ = this.store.select(selectUsers);
+       
+       constructor(private store: Store<AppState>) {}
+       
+       loadUsers() {
+         this.store.dispatch(loadUsers());
+       }
+     }
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
