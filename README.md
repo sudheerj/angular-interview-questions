@@ -6,14 +6,8 @@
 
 <p align="center">
   <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions">
-    <img src="https://images.ctfassets.net/aq13lwl6616q/16U1iCKYMvT2KK1TA5gDfi/2885ffc1c274f493942fb29d338d63d3/ztm-logo-academy.svg" alt="ZTM Logo" width="100" height="50">
+      <img src="/images/collab/BFCM2025.gif" alt="ZTM Logo" width="100%">
   </a>
-  <p align="center">
-    <ol>
-    <li>Take this <a href="https://links.zerotomastery.io/angular_sudheer">Angular course</a> to go from a complete Angular beginner to confidently building enterprise-level applications from scratch</li>
-    <li>Take this <a href="https://links.zerotomastery.io/mci_sudheer3">coding interview bootcamp</a> if you're serious about getting hired and don't have a CS degree</li>
-    </ol>
-  </p>
 </p>
 
 ---
