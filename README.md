@@ -2,18 +2,6 @@
 
 > Click :star: if you like the project and follow [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates. 
 
----
-<div>
-<p align="center">
-  <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions">
-      <img src="./images/collab/ztm.gif" alt="ZTM Logo" width="100%" />
-  </a>
-</p>
-</div>
-
-> I recommend this [Angular course](https://zerotomastery.io/courses/learn-angular/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions) to become top 10% at Angular (and build enterprise-level apps) and [this coding interview bootcamp](https://zerotomastery.io/courses/learn-data-structures-and-algorithms/?utm_source=github&utm_medium=sponsor&utm_campaign=angular-interview-questions) to ace your coding interview and actually get hired.
-
----
 
 ### Table of Contents
 
